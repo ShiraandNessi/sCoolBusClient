@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet"> -->
+</head>
+
+<body>
+    <div class="main">
+         <input type="checkbox" id="chk" aria-hidden="true"> 
+         <!-- <input type="file", accept="image/*" capture="user"/> -->
+      
+         <div class="login">
+            <form [formGroup]="logInForm" > 
+                <label for="chk" aria-hidden="true">Login</label>
+
+                <input type="email" formControlName="email" id="email" placeholder="Email"  #email />
+                <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div> -->
+                <input type="password"  formControlName="pass" id="pass" placeholder="Password" required="" #pass />
+
+                <button (click)=login(email.value,pass.value)>Login</button>
+            </form>
+        </div>
+
+        <div class="signup">
+            <form [formGroup]="signUpForm">
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input type="email" name="email" formControlName="email" placeholder="Email" #newemail>
+                <input type="password" name="pswd" formControlName="pass" placeholder="Password" #newpass >
+                <button (click)=signUp(newemail.value,newpass.value)>Sign up</button>
+            </form>
+        </div>
+    
+    </div>
+</body>
+</html>
