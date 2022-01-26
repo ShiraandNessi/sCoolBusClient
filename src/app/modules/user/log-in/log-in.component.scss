@@ -1,11 +1,13 @@
 /* Bordered form */
 form {
     border: 3px solid #f1f1f1;
+    width: 60%;
+    margin: 60px auto;
   }
   
   /* Full-width inputs */
   input[type=text], input[type=password] {
-    width: 100%;
+    width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -15,13 +17,13 @@ form {
   
   /* Set a style for all buttons */
   button {
-    background-color: #04AA6D;
+    background-color: #47aec1;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 40%;
+    width: 70%;
     
   }
   
@@ -54,7 +56,9 @@ form {
     float: right;
     padding-top: 16px;
   }
-
+    label{
+    margin: 4%;
+  }
 
   
   /* Change styles for span and cancel button on extra small screens */

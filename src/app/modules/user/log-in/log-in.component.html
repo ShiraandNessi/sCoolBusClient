@@ -37,22 +37,27 @@
     
     </div>  -->
 
-    <form [formGroup]="logInForm">
+    <form style="width: 50%;margin: 80px auto;margin-top: 10%;" [formGroup]="logInForm">
         <div class="imgcontainer">
-            <img src="C:\Users\Shira058\source\repos\sCoolBusClient\src\app\modules\schoolBus.png" alt="Avatar" class="avatar">
+            <img src="https://www.psdgraphics.com/wp-content/uploads/2015/11/school-bus.jpg" alt="Avatar" class="avatar">
         </div>
 
         <div class="login" *ngIf="newUser==false">
-            <label for="uname"><b>Email</b></label>
-            <input type="text" formControlName="email" placeholder="Email" name="uname" #email >
+            <label for="uname" ><b>Email:</b></label>
+           <span><i class="pi-envelope"></i></span>
+            <input style="margin-left: 5%; " type="text" formControlName="email" placeholder="Email" name="uname" #email >
             <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && .dirty">this field is required</div> -->
             <br>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" formControlName="pass" #pass required>
+            <br>
+            <label  for="psw"  ><b>Password:</b></label>
+            <i class="pi pi-lock"></i>
+            <input  type="password" placeholder="Enter Password" name="psw" formControlName="pass" #pass required>
            <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div> -->
             <div style="margin-left: 25%">
-                <button type="submit" style="margin-left: -10%;" (click)=login(email.value,pass.value)>Login</button>
-                <button type="submit" style="margin-left: 10%;" (click)="isNewUser(true)">signup</button>
+                
+            <button type="submit" (click)=login(email.value,pass.value)>Login</button>
+            <br>
+            <button type="submit" (click)="isNewUser(true)">signup</button>
             </div>
         </div>
         <div class="signup" *ngIf="newUser==true">

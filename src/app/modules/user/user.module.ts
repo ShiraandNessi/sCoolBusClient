@@ -27,7 +27,9 @@ const USER_ROUTE:Route[]=[
 
 @NgModule({
   declarations: [LogInComponent, SignUpComponent,PassportCameraComponent],
-  imports: [ReactiveFormsModule,CommonModule,ManagerModule,FamilyModule,DriverModule,RouterModule.forChild(USER_ROUTE),FormsModule,WebcamModule],
+  imports: [ReactiveFormsModule,CommonModule,ManagerModule,
+    FamilyModule,DriverModule,RouterModule.forChild(USER_ROUTE),
+    FormsModule,WebcamModule],
   providers:[UserService,LogInActivate]
 })
 export class UserModule {}
