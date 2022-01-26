@@ -17,7 +17,6 @@ export class LogInComponent implements OnInit {
   ngOnInit(): void {
   }
   user!:User;
-  newUser=false;
   logInForm: FormGroup = new FormGroup({
     "email": new FormControl("", Validators.required),
     "pass": new FormControl("", [Validators.required, Validators.minLength(3)])
@@ -53,10 +52,6 @@ export class LogInComponent implements OnInit {
     this._router.navigate(['user/signUp',newEmail,newPass])
   }
   
-  isNewUser(b:boolean)
-{
-  this.newUser=b;
-}
 }
 
 
