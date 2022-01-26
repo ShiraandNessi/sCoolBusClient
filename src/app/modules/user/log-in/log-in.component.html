@@ -10,21 +10,21 @@
 </head>
 
 <body>
-    <div class="main">
+    <!--   <div class="main">
          <input type="checkbox" id="chk" aria-hidden="true"> 
-         <!-- <input type="file", accept="image/*" capture="user"/> -->
+         <input type="file", accept="image/*" capture="user"/>
       
          <div class="login">
             <form [formGroup]="logInForm" > 
                 <label for="chk" aria-hidden="true">Login</label>
 
                 <input type="email" formControlName="email" id="email" placeholder="Email"  #email />
-                <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div> -->
+                <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div>
                 <input type="password"  formControlName="pass" id="pass" placeholder="Password" required="" #pass />
 
                 <button (click)=login(email.value,pass.value)>Login</button>
             </form>
-        </div>
+        </div> 
 
         <div class="signup">
             <form [formGroup]="signUpForm">
@@ -35,6 +35,42 @@
             </form>
         </div>
     
-    </div>
+    </div>  -->
+
+    <form [formGroup]="logInForm">
+        <div class="imgcontainer">
+            <img src="C:\Users\Shira058\source\repos\sCoolBusClient\src\app\modules\schoolBus.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="login" *ngIf="newUser==false">
+            <label for="uname"><b>Email</b></label>
+            <input type="text" formControlName="email" placeholder="Email" name="uname" #email >
+            <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && .dirty">this field is required</div> -->
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" formControlName="pass" #pass required>
+           <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div> -->
+            <div style="margin-left: 25%">
+                <button type="submit" style="margin-left: -10%;" (click)=login(email.value,pass.value)>Login</button>
+                <button type="submit" style="margin-left: 10%;" (click)="isNewUser(true)">signup</button>
+            </div>
+        </div>
+        <div class="signup" *ngIf="newUser==true">
+                
+            <label for="uname"><b>Email</b></label>
+            <input type="text" name="email" formControlName="email" placeholder="Email" #newemail>
+            <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && .dirty">this field is required</div> -->
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" name="pswd" formControlName="pass" placeholder="Password" #newpass >
+            <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div> -->
+            <div style="margin-left: 25%">
+                <button type="submit" style="margin-left: -10%;" (click)="isNewUser(false)" >Login</button>
+                <button type="submit" style="margin-left: 10%;" (click)=signUp(newemail.value,newpass.value)>signup</button>
+            </div>
+        </div>
+
+    </form>
 </body>
+
 </html>
