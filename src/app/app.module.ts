@@ -7,6 +7,7 @@ import { UserModule } from './modules/user/user.module';
 import { HttpClientModule } from '@angular/common/http'
 import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { Route, RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const APP_ROUTES:Route[]=[
   {path:"", pathMatch: "full", redirectTo: "user"},
@@ -18,6 +19,7 @@ const APP_ROUTES:Route[]=[
     AppComponent
   ],
   imports: [
+    FontAwesomeModule,
     BrowserModule,
     AppRoutingModule,
     UserModule,

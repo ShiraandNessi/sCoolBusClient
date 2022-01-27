@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -39,29 +40,28 @@
 
     <form style="width: 50%;margin: 80px auto;margin-top: 10%;" [formGroup]="logInForm">
         <div class="imgcontainer">
-            <img src="https://www.psdgraphics.com/wp-content/uploads/2015/11/school-bus.jpg" alt="Avatar" class="avatar">
+            <img src="https://www.psdgraphics.com/wp-content/uploads/2015/11/school-bus.jpg" alt="Avatar"
+                class="avatar">
         </div>
 
         <div class="login">
-            <label for="uname" ><b>Email:</b></label>
-           <span><i class="pi-envelope"></i></span>
-            <input style="margin-left: 5%; " type="text" formControlName="email" placeholder="Email" name="uname" #email >
+            <i class="fa fa-envelope"></i>
+            <input  type="text" formControlName="email" placeholder="Email" name="uname" #email>
             <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && .dirty">this field is required</div> -->
             <br>
-            <br>
-            <label  for="psw"  ><b>Password:</b></label>
             <i class="pi pi-lock"></i>
-            <input  type="password" placeholder="Enter Password" name="psw" formControlName="pass" #pass required>
-           <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div> -->
+            <input type="password" placeholder="Enter Password" name="psw" formControlName="pass" #pass required>
+            <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div> -->
             <div>
-                
-            <button type="submit" (click)=login(email.value,pass.value)>Login</button>
-            <br>
-            <button type="submit" >signup</button>
+                <br>
+
+                <button type="submit" (click)=login(email.value,pass.value)>Login</button>
+                <br>
+                <button type="submit">signup</button>
+
             </div>
         </div>
-        
-
+        <br>
     </form>
 </body>
 

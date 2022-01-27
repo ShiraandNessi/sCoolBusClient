@@ -13,6 +13,10 @@ form {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto
   }
   
   /* Set a style for all buttons */
@@ -25,6 +29,10 @@ form {
     cursor: pointer;
     width: 50%;
     margin-left: 26%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto
   }
   
   /* Add a hover effect for buttons */
@@ -56,9 +64,7 @@ form {
     float: right;
     padding-top: 16px;
   }
-    label{
-    margin: 4%;
-  }
+
 
   
   /* Change styles for span and cancel button on extra small screens */
