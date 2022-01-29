@@ -7,7 +7,6 @@ form {
   
   /* Full-width inputs */
   input[type=text], input[type=password] {
-    font-size: 60%;
     width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -69,13 +68,23 @@ form {
 
   
   /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
+  @media only screen and (max-width: 300px) {
     span.psw {
       display: block;
       float: none;
     }
     .cancelbtn {
       width: 100%;
+    }
+    input{
+      font-size: 60%;
+    }
+
+    form{
+      width: 100%;
+    }
+    button{
+      font-size: 60%;
     }
 
   }

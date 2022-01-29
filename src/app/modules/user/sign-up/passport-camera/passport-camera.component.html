@@ -1,16 +1,20 @@
-<div>
-  <webcam 
-    [height]="400" 
-    [width]="1000"
-               [trigger]="triggerObservable"
-                (imageCapture)="handleImage($event)">
-    </webcam>
-  
-    <button class="actionBtn"  (click)="triggerSnapshot();">
-        Click Here and take the Shot</button>
-</div> 
-<div style="margin-bottom:95%;" class="snapshot" *ngIf="webcamImage">
-    <h2>Here is your image!</h2>
-    <img style="height:auto;width:40%;margin-right:auto;margin-bottom:20%;"[src]="webcamImage.imageAsDataUrl"/>
+<form>
+<div class="video">
+  <webcam class="webcam" [height]=300 [width]=300 [trigger]="triggerObservable" (imageCapture)="handleImage($event)">
+  </webcam>
+</div>
+<div class="videoButton">
+  <button class="actionBtn" (click)="triggerSnapshot();">
+    Click Here and take the Shot</button>
+</div>
+<div class="snapshot" *ngIf="webcamImage">
+
+  <h2>Here is your image!</h2>
+  <div  class="img">
+    <img  class="image" [src]="webcamImage.imageAsDataUrl" />
+  </div>
+  <div class="imgButton">
     <button>Save</button>
- </div>
+  </div>
+</div>
+</form>

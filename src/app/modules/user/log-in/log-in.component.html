@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -38,7 +39,7 @@
     
     </div>  -->
 
-    <form style="width: 50%;margin: 80px auto;margin-top: 10%;" [formGroup]="logInForm">
+    <form style="margin: 80px auto;margin-top: 10%;" [formGroup]="logInForm">
         <div class="imgcontainer">
             <img src="https://www.psdgraphics.com/wp-content/uploads/2015/11/school-bus.jpg" alt="Avatar"
                 class="avatar">
@@ -57,7 +58,7 @@
 
                 <button type="submit" (click)=login(email.value,pass.value)>Login</button>
                 <br>
-                <button type="submit">signup</button>
+                <button type="submit" (click)=signUp(email.value,pass.value)>signup</button>
 
             </div>
         </div>
