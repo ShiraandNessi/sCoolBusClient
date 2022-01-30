@@ -47,13 +47,15 @@
 
         <div class="login">
 
-            <input  type="text" formControlName="email" placeholder="Email" name="uname" #email>
+            <input type="text" formControlName="email" placeholder="Email" name="uname" #email>
             <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && .dirty">this field is required</div> -->
             <br>
-            <i class="pi pi-lock"></i>
-            <input type="password" placeholder="Password" name="psw" formControlName="pass" #pass required>
-            <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div> -->
-            <div >
+            <div class="flex-container">
+               <div><i vertical-align class="fa fa-lock"></i></div>
+               <input type="password" placeholder="Password" name="psw" formControlName="pass" #pass required>
+                <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && email.dirty">this field is required</div> -->
+            </div>
+            <div>
                 <br>
 
                 <button type="submit" (click)=login(email.value,pass.value)>Login</button>
