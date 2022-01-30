@@ -79,7 +79,11 @@ video{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto
+  margin: auto;
+}
+
+.webcam-wrapper{
+  margin-bottom:2px;
 }
 
 button {
@@ -129,6 +133,7 @@ button:hover {
   clip-path: circle();
   height:250px;
   width:auto;
+  border: 5px #e6a73d;
 }
 
 .snapshot{
