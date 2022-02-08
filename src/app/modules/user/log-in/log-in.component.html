@@ -21,40 +21,40 @@
     <form [formGroup]="logInForm">
         <div class="card">
             <article class="card-body mx-auto" style="max-width:400px;">
-            <div class="imgcontainer">
-                <img src="https://www.psdgraphics.com/wp-content/uploads/2015/11/school-bus.jpg" alt="Avatar"
-                    class="avatar">
-            </div>
+                <div class="imgcontainer">
+                    <img src="https://www.psdgraphics.com/wp-content/uploads/2015/11/school-bus.jpg" alt="Avatar"
+                        class="avatar">
+                </div>
 
-            <br>
-            <br>
-            <br>
+                <br>
+                <br>
+                <br>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                     </div>
-                    <input name="" class="form-control" formControlName="email" placeholder="Email" name="uname" #email
+                    <input name="" class="form-control" formControlName="email" placeholder="Email" name="uname"
                         type="text">
                 </div>
                 <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && .dirty">this field is required</div> -->
                 <br>
-                
+
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
-                    <input name="" class="form-control" type="password" placeholder="Password" name="psw"
-                        formControlName="pass" #pass required>
+                    <input name="" class="form-control" type="password" placeholder="Password" name="pass"
+                        formControlName="pass" required>
                 </div>
                 <div class="btn1">
-                    <button class="btn btn-outline-primary" type="button" (click)=login(email.value,pass.value)>Login</button>
+                    <button class="btn btn-outline-primary" type="button" (click)=login()>Login</button>
                 </div>
                 <br>
                 <div class="btn1">
-                    <button type="submit" class="btn btn-outline-primary" (click)=signUp(email.value,pass.value)>signUp</button>
-
+                    <button type="submit" class="btn btn-outline-primary" (click)=signUp()>signUp</button>
                 </div>
-            <br>
+           
+                <br>
             </article>
         </div>
     </form>
