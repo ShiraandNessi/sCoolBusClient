@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+
+<body>
+
+
+    <form [formGroup]="logInForm">
+        <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width:400px;">
+            <div class="imgcontainer">
+                <img src="https://www.psdgraphics.com/wp-content/uploads/2015/11/school-bus.jpg" alt="Avatar"
+                    class="avatar">
+            </div>
+
+            <br>
+            <br>
+            <br>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input name="" class="form-control" formControlName="email" placeholder="Email" name="uname" #email
+                        type="text">
+                </div>
+                <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && .dirty">this field is required</div> -->
+                <br>
+                
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input name="" class="form-control" type="password" placeholder="Password" name="psw"
+                        formControlName="pass" #pass required>
+                </div>
+                <div>
+                    <br>
+
+                    <button class="tn btn-primary" type="submit" (click)=login(email.value,pass.value)>Login</button>
+                    <br>
+                    <button type="submit" class="tn btn-primary" (click)=signUp(email.value,pass.value)>signup</button>
+
+                </div>
+            <br>
+            </article>
+        </div>
+    </form>
+</body>
+
+</html>
