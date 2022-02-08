@@ -19,7 +19,7 @@
 
 
     <form [formGroup]="logInForm">
-        <div class="card bg-light">
+        <div class="card">
             <article class="card-body mx-auto" style="max-width:400px;">
             <div class="imgcontainer">
                 <img src="https://www.psdgraphics.com/wp-content/uploads/2015/11/school-bus.jpg" alt="Avatar"
@@ -31,7 +31,7 @@
             <br>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                     </div>
                     <input name="" class="form-control" formControlName="email" placeholder="Email" name="uname" #email
                         type="text">
@@ -41,17 +41,17 @@
                 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
                     <input name="" class="form-control" type="password" placeholder="Password" name="psw"
                         formControlName="pass" #pass required>
                 </div>
-                <div>
-                    <br>
-
-                    <button class="tn btn-primary" type="submit" (click)=login(email.value,pass.value)>Login</button>
-                    <br>
-                    <button type="submit" class="tn btn-primary" (click)=signUp(email.value,pass.value)>signup</button>
+                <div class="btn1">
+                    <button class="btn btn-outline-primary" type="button" (click)=login(email.value,pass.value)>Login</button>
+                </div>
+                <br>
+                <div class="btn1">
+                    <button type="submit" class="btn btn-outline-primary" (click)=signUp(email.value,pass.value)>signUp</button>
 
                 </div>
             <br>
