@@ -17,7 +17,7 @@ export class UserService {
     let user:UserSignIn=new UserSignIn;
     user.email=email;
     user.password=password;
-    return this._http.get<User>("/api/user/?userDet="+user); 
+    return this._http.post<User>("/api/user/",user); 
   }
   isLogIn()
   {

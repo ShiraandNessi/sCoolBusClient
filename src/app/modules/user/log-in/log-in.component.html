@@ -33,8 +33,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input name="" class="form-control" formControlName="email" placeholder="Email" name="uname" #email
-                        type="text">
+                    <input name="" class="form-control" formControlName="email" placeholder="Email" name="uname" type="text">
                 </div>
                 <!-- <div *ngIf="logInForm.controls['email'].errors?.['required'] && .dirty">this field is required</div> -->
                 <br>
@@ -44,14 +43,14 @@
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
                     <input name="" class="form-control" type="password" placeholder="Password" name="psw"
-                        formControlName="pass" #pass required>
+                        formControlName="pass"  required>
                 </div>
                 <div>
                     <br>
 
-                    <button class="tn btn-primary" type="submit" (click)=login(email.value,pass.value)>Login</button>
+                    <button class="tn btn-primary" type="submit" (click)=login()>Login</button>
                     <br>
-                    <button type="submit" class="tn btn-primary" (click)=signUp(email.value,pass.value)>signup</button>
+                    <button type="submit" class="tn btn-primary" (click)=signUp()>signup</button>
 
                 </div>
             <br>

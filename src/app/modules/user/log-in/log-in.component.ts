@@ -28,8 +28,10 @@ export class LogInComponent implements OnInit {
   });
 
   
-  login(email:string,pass:string)
+  login()
   {
+    let email=this.logInForm.controls["email"].value
+    let pass=this.logInForm.controls["pass"].value
   this._userSer.getUserById(email,pass).subscribe
   (data=>{if(data) {this.user=data;console.log(this.user.userTypeId)} else{console.log("no such user")}} ,er=>console.log(er))
   if(this.user)
@@ -51,7 +53,7 @@ export class LogInComponent implements OnInit {
   //   this._userSer.isLogIn();
   //   this._router.navigate(['user/signUp',newEmail,newPass])
   // }
-  signUp(newEmail:string,newPass:string)
+  signUp()
   {
     this._userSer.isLogIn();
     this._router.navigate(['user/signUp'])
