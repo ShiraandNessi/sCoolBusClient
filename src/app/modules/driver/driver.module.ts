@@ -3,16 +3,33 @@ import { CommonModule } from '@angular/common';
 import { DriverService } from 'src/app/services/driver.service';
 import { DriverHomeComponent } from './driver-home/driver-home.component';
 
+import { StudentsComponent } from './students/students.component';
 
+import { Route, RouterModule, RoutesRecognized } from '@angular/router';
+import { LogInActivate } from '../user/log-in-activate';
+import { MessagesComponent } from '../user/messages/messages.component';
+import { RoutesComponent } from './routes/routes.component';
+import { MessageService } from 'src/app/services/message.service';
+
+
+
+const DRIVER_ROUTE:Route[]=[
+  {path:"user/driver/routes",component:RoutesComponent,canActivate:[LogInActivate]},
+  {path:"user/driver/students",component:StudentsComponent,canActivate:[LogInActivate]},
+  {path:"user/driver/messages",component:MessagesComponent,canActivate:[LogInActivate]},
+
+]
 
 
 @NgModule({
   declarations: [
-    DriverHomeComponent
+    DriverHomeComponent,
+    StudentsComponent,
+    RoutesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,RouterModule.forChild(DRIVER_ROUTE)
   ],
-  providers: [DriverService]
+  providers: [DriverService,MessageService]
 })
 export class DriverModule { }

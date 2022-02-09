@@ -19,11 +19,11 @@ export class StationService {
   }
   getStationByRouteId(routeId:string):Observable<StationRoute[]>
   {
-    return this._http.get<StationRoute[]>(this.baseUrl+"byRoute"+routeId)
+    return this._http.get<StationRoute[]>(this.baseUrl+"route"+routeId)
   }
   getStationByDriverId(driverId:string):Observable<StationDriver[]>
   {
-    return this._http.get<StationDriver[]>(this.baseUrl+"byDriver"+driverId)
+    return this._http.get<StationDriver[]>(this.baseUrl+"driver"+driverId)
   }
   addNewStation(newStation:Station):Observable<Station>
   {

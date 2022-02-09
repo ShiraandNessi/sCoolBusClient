@@ -19,8 +19,11 @@ export class DriverService {
     return this._http.get<Driver[]>(this.baseUrl)
   }
 
-  getDriverById(id: string):Observable<Driver> {
+  getDriverById(id: number):Observable<Driver> {
     return this._http.get<Driver>(this.baseUrl+id)
+  }
+  getDriverByUserId(userId: number) {
+    return this._http.get<Driver>(this.baseUrl+"user/"+userId)
   }
   addNewDriver(newDriver: Driver):Observable<Driver> { 
     return this._http.post<Driver>(this.baseUrl, newDriver);

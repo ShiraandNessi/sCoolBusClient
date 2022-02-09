@@ -1,0 +1,33 @@
+.btn-primary {
+    color: white;
+    background-color:#47aec1 ;
+    background-image: none;
+    border-color:  #47aec1;
+    width: 30%;
+}
+form {
+    border: 3px solid #e6a73d;
+    width: 30%;
+    margin: 60px auto;
+    border-radius:5px
+
+  }
+.btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    line-height: 1.5;
+    width: 80%;
+    border-radius: 0.3rem;
+}
+.div-btn{
+    // display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.btn-primary:hover{
+    color: #47aec1;
+    background-color:white;
+    border-color:  #47aec1;
+}

@@ -4,6 +4,7 @@ export class User
     password!:string;
     email!:string;
     userTypeId!:number;
+    token!:string;
 
 }
 export enum UserType

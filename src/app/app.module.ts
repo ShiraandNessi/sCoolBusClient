@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { Route, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { CurrentUserService } from './services/current-user.service';
+
 
 
 const APP_ROUTES:Route[]=[
@@ -17,6 +19,7 @@ const APP_ROUTES:Route[]=[
 @NgModule({
   declarations: [
     AppComponent
+ 
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ const APP_ROUTES:Route[]=[
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [MessageService],
+  providers: [CurrentUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

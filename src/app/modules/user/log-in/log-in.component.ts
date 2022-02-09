@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CurrentUserService } from 'src/app/services/current-user.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LogInComponent implements OnInit {
 
-  constructor(private _userSer:UserService,private _router:Router) { }
+  constructor(private _userSer:UserService,private _router:Router, private currUser: CurrentUserService) { }
 
   ngOnInit(): void {
   }
@@ -37,10 +38,11 @@ export class LogInComponent implements OnInit {
   if(this.user)
   {
     this._userSer.isLogIn()
+    this.currUser.currUser=this.user
   switch(this.user.userTypeId)
    {
-     case 2:this._router.navigate(['user/manager']); break;
-     case 1:this._router.navigate(['user/driver']); break;
+     case 1:this._router.navigate(['user/manager']); break;
+     case 2:this._router.navigate(['user/driver']); break;
      case 3:this._router.navigate(['user/family']); break;
     
    }
@@ -56,7 +58,7 @@ export class LogInComponent implements OnInit {
   signUp()
   {
     this._userSer.isLogIn();
-    this._router.navigate(['user/signUp'])
+    this._router.navigate(['use/signUp'])
   }
   
 }

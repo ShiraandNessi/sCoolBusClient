@@ -13,10 +13,11 @@ import { LogInActivate } from './log-in-activate';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { WebcamModule } from 'ngx-webcam';
-import { PassportCameraComponent } from './sign-up/passport-camera/passport-camera.component';
+import { PassportCameraComponent } from './passport-camera/passport-camera.component';
 import {StepsModule} from 'primeng/steps';
 import { StepsComponent } from './sign-up/steps/steps.component';
-import { TempComponent } from './sign-up/temp/temp.component';
+import { MessagesComponent } from './messages/messages.component';
+
 
 
 
@@ -27,12 +28,12 @@ const USER_ROUTE:Route[]=[
   {path:"user/manager",component:ManagerHomeComponent,canActivate:[LogInActivate]},
   {path:"user/family",component:FamilyHomeComponent,canActivate:[LogInActivate]},
   // {path:"user/signUp/:newEmail/:newPass",component:SignUpComponent,canActivate:[LogInActivate]}
-  {path:"user/signUp",component:SignUpComponent,canActivate:[LogInActivate],children:[{path: 'temp', component: TempComponent}]}
+  {path:"user/signUp",component:SignUpComponent,canActivate:[LogInActivate]}
 ]
 
 
 @NgModule({
-  declarations: [LogInComponent, SignUpComponent,PassportCameraComponent,StepsComponent],
+  declarations: [LogInComponent, SignUpComponent,PassportCameraComponent,StepsComponent,MessagesComponent],
   imports: [ReactiveFormsModule,CommonModule,ManagerModule,
     FamilyModule,DriverModule,RouterModule.forChild(USER_ROUTE),
     FormsModule,WebcamModule,StepsModule],

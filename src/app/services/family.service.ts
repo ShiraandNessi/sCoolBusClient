@@ -17,9 +17,13 @@ baseUrl:string="api/Family/";
   // {
   //   return this._http.get<Family[]>(this.baseUrl)
   // }
-  getFamilyById(id:string):Observable<Family>
+  getFamilyById(id:number):Observable<Family>
   {
      return this._http.get<Family>(this.baseUrl+id)
+  }
+  getFamilyByUserId(userId:number):Observable<Family>
+  {
+     return this._http.get<Family>(this.baseUrl+"user/"+userId)
   }
   addNewFamily(newFamily:Family):Observable<Family>{
    return this._http.post<Family>(this.baseUrl,newFamily)

@@ -1,1 +1,40 @@
-<p>driver-home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        
+            <article class="card-body mx-auto" style="max-width:400px;">
+                <div class='div-btn'>
+                    <br>
+                <br>
+                {{countMessages}}
+                <br>
+                <button class="btn btn-primary btn-lg" (click)="navigation(1)" >Routes</button>
+                <br>
+                <br>
+                <br>
+                <button class="btn btn-primary btn-lg" (click)="navigation(2)">Messages</button>
+                <br>
+                <br>
+                <br>
+                <button class="btn btn-primary btn-lg" (click)="navigation(3)">Students</button><br>
+                <br>
+                <br>
+                <br>
+            </div>
+            </article>
+       
+    </form>
+</body>
+
+</html>
