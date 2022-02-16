@@ -13,18 +13,16 @@ export class CurrentUserService {
 
   constructor(private famSer:FamilyService,private driSer:DriverService) { }
   currDriver:Driver=new Driver();
-  currFamily!:Family ;
+  currFamily:Family=new Family() ;
   currUser!:User;
   getDriver()
   {
-    this.driSer.getDriverByUserId(this.currUser.id).subscribe(data=>{this.currDriver=data,console.log(data)});
-    return this.currDriver;
+    return this.driSer.getDriverByUserId(this.currUser.id)
   }
   getFamily()
   {
-    this.famSer.getFamilyByUserId(this.currUser.id)
-    // .subscribe(data=>this.currFamily=data)
-    return this.currFamily;
+   return  this.famSer.getFamilyByUserId(this.currUser.id)
+    
   }
   getManage()
   {

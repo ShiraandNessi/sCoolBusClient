@@ -34,7 +34,26 @@ export class LogInComponent implements OnInit {
     let email=this.logInForm.controls["email"].value
     let pass=this.logInForm.controls["pass"].value
   this._userSer.getUserById(email,pass).subscribe
-  (data=>{if(data) {this.user=data;console.log(this.user.userTypeId)} else{console.log("no such user")}} ,er=>console.log(er))
+  (data=>
+    {
+      if(data) 
+      {
+        this.user=data;console.log(this.user.userTypeId)
+        this._userSer.isLogIn()
+        this.currUser.currUser=this.user
+        switch(this.user.userTypeId)
+          {
+            case 1:this._router.navigate(['user/manager']); break;
+            case 2:this._router.navigate(['user/driver']); break;
+            case 3:this._router.navigate(['user/family']); break;
+          }
+      }
+      else
+      {
+        console.log("no such user")
+      }
+    },
+    er=>console.log(er))
   if(this.user)
   {
     this._userSer.isLogIn()
@@ -60,7 +79,6 @@ export class LogInComponent implements OnInit {
     this._userSer.isLogIn();
     this._router.navigate(['use/signUp'])
   }
-  
 }
 
 

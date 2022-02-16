@@ -1,6 +1,9 @@
 export class Message
 {
-    id!:number;
+    constructor() {
+        this.id=0
+     }
+    id:number;
     messageTypeId!:number;
     driverId!:number;
     messageText!:string;

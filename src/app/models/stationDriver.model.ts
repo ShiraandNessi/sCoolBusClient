@@ -2,6 +2,9 @@ import { Station } from "./station.model";
 
 export class StationDriver
 {
-driverId!:number;
+    constructor() {
+        this.driverId=0
+     }
+driverId:number;
 station!:Station;
 }

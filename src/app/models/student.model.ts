@@ -1,6 +1,9 @@
 export class Student
 {
-    id!:number;
+    constructor() {
+        this.id=0
+     }
+    id:number;
     familyId!:number;
     firstName!:string;
     lastName!:string;

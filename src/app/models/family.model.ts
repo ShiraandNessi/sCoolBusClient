@@ -1,7 +1,10 @@
 import { Station } from "./station.model";
 
 export class Family{
-id!:number;
+    constructor() {
+        this.id=0
+     }
+id:number;
 familyName!:string;
 motherName!:string;
 fatherName!:string;

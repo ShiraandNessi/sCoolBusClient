@@ -1,5 +1,9 @@
 export class Driver{
-    id!: number;
+  
+    constructor() {
+       this.id=0
+    }
+    id: number;
     firstName!:string;
     lastName!:string;
     phone!:string;

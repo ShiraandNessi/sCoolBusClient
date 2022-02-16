@@ -1,6 +1,9 @@
 export class User
 {
-    id!:number;
+    constructor() {
+        this.id=0
+     }
+    id:number;
     password!:string;
     email!:string;
     userTypeId!:number;
