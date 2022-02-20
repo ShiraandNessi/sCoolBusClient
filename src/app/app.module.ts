@@ -8,6 +8,7 @@ import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { Route, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { CurrentUserService } from './services/current-user.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -26,7 +27,8 @@ const APP_ROUTES:Route[]=[
     AppRoutingModule,
     UserModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    BrowserAnimationsModule
   ],
   providers: [CurrentUserService],
   bootstrap: [AppComponent]

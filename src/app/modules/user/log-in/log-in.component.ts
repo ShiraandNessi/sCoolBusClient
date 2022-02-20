@@ -46,6 +46,7 @@ export class LogInComponent implements OnInit {
             case 1:this._router.navigate(['user/manager']); break;
             case 2:this._router.navigate(['user/driver']); break;
             case 3:this._router.navigate(['user/family']); break;
+            
           }
       }
       else
@@ -77,7 +78,7 @@ export class LogInComponent implements OnInit {
   signUp()
   {
     this._userSer.isLogIn();
-    this._router.navigate(['use/signUp'])
+    this._router.navigate(['user/signUp'])
   }
 }
 

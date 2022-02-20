@@ -14,25 +14,16 @@ export class DriverHomeComponent implements OnInit {
 
 
   constructor(private _router:Router,private currUser: CurrentUserService,private msg: MessageService) {
-    this.temp().then(x=>{console.log(x)
-      this.msg.getMessageByDriverId(x.id) .subscribe(data=>this.messagesList=data)
-     //  console.log(this.messagesList)
-     //  this.countMessages=this.messagesList.length
- })
+  
    }
 
   ngOnInit(): void {
-  
-  }
-  temp():Promise<Driver>
-  {
     this.currUser.getDriver().subscribe(data=>{this.currDriver=data,console.log("aaa",this.currDriver)})
-    return Promise.resolve(this.currDriver)
-
   }
-  messagesList!:Message[]
-  countMessages!:number
-  currDriver:Driver=new Driver()
+
+
+
+  currDriver!:Driver;
 navigation(num:number){
   switch(num)
   {

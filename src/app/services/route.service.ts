@@ -1,21 +1,25 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Route } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Route } from '../models/route.model';
+import { CurrentUserService } from './current-user.service';
 
 @Injectable()
 export class RouteService {
 
-  constructor(private _http :HttpClient) { }
+  constructor(private _http :HttpClient, private currUser:CurrentUserService) { }
   baseUrl: string = "/api/Route/"
+  userToken= this.currUser.currUser.token;
+  headers= new HttpHeaders()
+  .set( 'Authorization', 'Bearer ' + 'userToken')
   getAllRoutes():Observable <Route[]>
   {
     return this._http.get<Route[]>(this.baseUrl)
   }
 
-  getRouteByDriverId(DriverId: string):Observable <Route[]>
+  getRouteByDriverId(DriverId: number):Observable <Route[]>
   {
-    return this._http.get<Route[]>(this.baseUrl+DriverId)
+    return this._http.get<Route[]>(this.baseUrl+DriverId,{ 'headers': this.headers })
   }
 
   addNewRoute(newRoute: Route):Observable <Route>

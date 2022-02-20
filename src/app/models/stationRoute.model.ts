@@ -7,5 +7,8 @@ export class StationRoute
  }
     
     routeId!:number;
-    station!:Station;
+    stationId!:number;
+    address!:string;
+    pointX!:number;
+    pointY!:number;
 }
