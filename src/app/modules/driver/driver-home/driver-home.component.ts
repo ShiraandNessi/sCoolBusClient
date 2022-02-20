@@ -21,7 +21,7 @@ export class DriverHomeComponent implements OnInit {
     this.currUser.getDriver().subscribe(data=>{this.currDriver=data,console.log("aaa",this.currDriver)})
   }
 
-
+ 
 
   currDriver!:Driver;
 navigation(num:number){
