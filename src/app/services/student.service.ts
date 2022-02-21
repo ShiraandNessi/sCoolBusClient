@@ -12,13 +12,17 @@ export class StudentService {
   {
     return this._http.get<Student[]>(this.baseUrl);
   }
-  getStudentById(id:string):Observable<Student>
+  getStudentById(id:number):Observable<Student>
   {
     return this._http.get<Student>(this.baseUrl+id);
   }
-  getStudentsByFamilyId(familyId: string):Observable <Student[]>
+  getStudentsByFamilyId(familyId: number):Observable <Student[]>
   {
-    return this._http.get<Student[]>(this.baseUrl+"byFamily/" + familyId);
+    return this._http.get<Student[]>(this.baseUrl+"family/" + familyId);
+  }
+  getStudentsByRouteId(routeId: number):Observable <Student[]>
+  {
+    return this._http.get<Student[]>(this.baseUrl+"route/" + routeId);
   }
 
   AddNewStudent(newStudent : Student):Observable<Student>

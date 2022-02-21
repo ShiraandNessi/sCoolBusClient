@@ -23,6 +23,7 @@ headers= new HttpHeaders()
   {
     return this._http.get<Message[]>(this.baseUrl+id,{ 'headers': this.headers });
   }
+
   addNewMessage(newMess:Message):Observable<Message>
   {
     return this._http.post<Message>(this.baseUrl,newMess);

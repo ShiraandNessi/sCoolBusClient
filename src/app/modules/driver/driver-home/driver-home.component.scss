@@ -1,15 +1,15 @@
 .btn-primary {
-    color: white;
-    background-color:#47aec1 ;
+    color: #101213 ;
+    background-color:#e8e8e8;
     background-image: none;
-    border-color:  #47aec1;
+    border-color:  #101213;
     width: 30%;
 }
 form {
-    border: 3px solid #e6a73d;
-    width: 30%;
+
+    width: 20%;
     margin: 60px auto;
-    border-radius:5px
+    border-radius:5px; 
 
   }
 .btn-lg {
@@ -26,8 +26,27 @@ form {
     align-items: center;
     margin: auto;
 }
-.btn-primary:hover{
-    color: #47aec1;
+.btn-lg:hover{
+    
     background-color:white;
-    border-color:  #47aec1;
 }
+.image{
+    width: auto;
+    height: 150px;
+}
+@media only screen and (max-width: 500px) {
+  
+    form{
+      width:90%;
+    }
+    .image{
+        width: auto;
+        height: 100px;
+    }
+    .btn-lg {
+    
+        font-size: 1.5rem;
+
+    }
+  
+  }

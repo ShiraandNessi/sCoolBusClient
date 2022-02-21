@@ -9,6 +9,7 @@ import { Route, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { CurrentUserService } from './services/current-user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -28,7 +29,8 @@ const APP_ROUTES:Route[]=[
     UserModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonModule
   ],
   providers: [CurrentUserService],
   bootstrap: [AppComponent]

@@ -1,12 +1,18 @@
+ /* Change styles for span and cancel button on extra small screens */
+ 
 /* Bordered form */
 form {
-    background-color:#e6a73d;
-    width: 30%;
+
+    width: 20%;
     margin: 60px auto;
-    border-radius:5px
+    border-radius:5px;
+    
 
   }
-  
+ body{
+  background-repeat: no-repeat;
+  background-size: 1800px ;
+ }
   /* Full-width inputs */
   input[type=text], input[type=password] {
     width: 60%;
@@ -22,24 +28,6 @@ form {
     border-radius:5px
   }
   
-  /* Set a style for all buttons */
-  // button {
-  //   background-color: #47aec1;
-  //   color: white;
-  //   padding: 14px 20px;
-  //   margin: 8px 0;
-  //   border: none;
-  //   cursor: pointer;
-  //   width: 30%;
-  //   // height: 70%;
-  //   margin-left: 26%;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   margin: auto;
-  //   border-radius:5px
-
-  // }
   .btn-outline-primary {
     color:  #47aec1;
     background-color: transparent;
@@ -88,6 +76,10 @@ form {
     margin: 24px 0 12px 0;
   }
   
+  .img{
+    width: 40%;
+    border-radius: 50%;
+  }
   /* Avatar image */
   img.avatar {
     width: 40%;
@@ -112,28 +104,13 @@ form {
     vertical-align:auto;
   }
 
-  // .passwordDiv{
-  //   position: absolute;
-  // }
+
+  @media only screen and (max-width: 500px) {
   
-  /* Change styles for span and cancel button on extra small screens */
-  @media only screen and (max-width: 300px) {
-    span.psw {
-      display: block;
-      float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
-    input{
-      font-size: 60%;
-    }
-
     form{
-      width: 100%;
+      width:90%;
     }
-    button{
-      font-size: 60%;
-    }
-
+ 
+  
   }
+ 

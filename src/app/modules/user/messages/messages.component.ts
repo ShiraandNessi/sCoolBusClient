@@ -3,7 +3,7 @@ import { Driver } from 'src/app/models/driver.model';
 import { Message } from 'src/app/models/message.model';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 import { MessageService } from 'src/app/services/message.service';
-
+import { PrimeIcons } from "primeng/api";
 @Component({
   selector: 'app-meesages',
   templateUrl: './messages.component.html',
@@ -14,9 +14,10 @@ export class MessagesComponent implements OnInit {
   constructor(private messages:MessageService,private curUser:CurrentUserService) { }
  messegesList!:Message[];
  driver!:Driver;
+ mesLen!:number
   ngOnInit(): void {
     this.curUser.getDriver().subscribe(data=>{this.driver=data,
-      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>this.messegesList=data)})
+      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{this.messegesList=data,this.mesLen=data.length})})
   }
 
 }

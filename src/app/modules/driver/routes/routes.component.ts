@@ -23,7 +23,7 @@ export class RoutesComponent implements OnInit {
   driver:Driver=new Driver();
   ngOnInit(): void {
     this.curr.getDriver().subscribe(data=>{this.driver=data,console.log("d",this.driver)
-    this.route.getRouteByDriverId(this.driver.id).subscribe(data=>{this.resRoute=data[0],console.log("r",this.resRoute)
+    this.route.getRouteByDriverId(this.driver.id).subscribe(data=>{this.resRoute=data,console.log("r",this.resRoute)
     this.station.getStationByRouteId(this.resRoute.id).subscribe(data=>{this.stationsList=data,console.log("sl",this.stationsList)})})})
 
   }

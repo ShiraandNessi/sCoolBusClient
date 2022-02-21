@@ -1,10 +1,17 @@
-// form {
-//   border: 3px solid #e6a73d;
-//   width: 30%;
-//   margin: 60px auto;
-//   border-radius:5px
-// }
+form {
 
+  width: 20%;
+  margin: 60px auto;
+  border-radius:5px;
+  
+
+}
+.image{
+  width: auto;
+  height:30px;
+  margin-top:40px;
+  margin-right: 10px
+}
 .divider-text {
     position: relative;
     text-align: center;
@@ -76,24 +83,12 @@ h4{
     vertical-align:auto;
   }
 
-  /* Change styles for span and cancel button on extra small screens */
-  @media only screen and (max-width: 300px) {
-    span.psw {
-      display: block;
-      float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
-    input{
-      font-size: 60%;
-    }
 
+  @media only screen and (max-width: 500px) {
+  
     form{
-      width: 100%;
+      width:90%;
     }
-    button{
-      font-size: 60%;
-    }
-
+ 
+  
   }
