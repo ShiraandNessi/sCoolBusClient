@@ -8,9 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-<ul >
+<!-- <ul >
   <li *ngFor="let station of stationsList">{{station.address}}</li>
-</ul>
+</ul> -->
+<div class="card">
+	<h5>Left Align</h5>
+	<p-timeline [value]="stationsList">
+		<ng-template pTemplate="content" let-station>
+			&#123;&#123;station.address&#125;&#125;
+		</ng-template>
+	</p-timeline>
+</div>
 
 </body>
 </html>

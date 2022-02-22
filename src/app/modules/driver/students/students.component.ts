@@ -18,7 +18,7 @@ studentsList!:Student[];
  mesLen!:number
   ngOnInit(): void {
     this.curUser.getDriver().subscribe(data=>{this.driver=data,
-      this.route.getRouteByDriverId(this.driver.id).subscribe(data=>{this.students.getStudentsByRouteId(data.id).subscribe(data=>this.studentsList=data)})})
+      this.route.getRouteByDriverId(this.driver.id).subscribe(data=>{this.students.getStudentsByRouteId(data.id).subscribe(data=>{this.studentsList=data})})})
   }
 
 

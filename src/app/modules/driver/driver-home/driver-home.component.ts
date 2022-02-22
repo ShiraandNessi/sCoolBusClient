@@ -18,8 +18,8 @@ export class DriverHomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.curUser.getDriver().subscribe(data=>{this.driver=data,console.log("fff",data),
-      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{this.mesLen=(data.length).toString(),console.log("ooo",data.length)})})
+    this.curUser.getDriver().subscribe(data=>{this.driver=data,
+      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{this.mesLen=(data.length).toString()})})
   }
 
  
@@ -28,12 +28,12 @@ mesLen!:string;
   isRouteClicked!:boolean;
 routeClicked()
 {
-  this.isRouteClicked= true;
+  this.isRouteClicked= ! this.isRouteClicked;
 }
-navigation(num:number){
+navigation(num:number,d?:boolean){
   switch(num)
   {
-  case 1: this._router.navigate(['user/driver/routes']) ;break;
+  case 1: this._router.navigate(['user/driver/routes',{direction:d}]) ;break;
   case 2: this._router.navigate(['user/driver/messages']) ;this.mesLen="0";break;
   case 3:this._router.navigate(['user/driver/students']) ;break;
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Driver } from 'src/app/models/driver.model';
 import { Route } from 'src/app/models/route.model';
 import { StationRoute } from 'src/app/models/stationRoute.model';
@@ -14,17 +15,23 @@ import { StationService } from 'src/app/services/station.service';
 })
 export class RoutesComponent implements OnInit {
 
-  constructor(private route:RouteService,private curr:CurrentUserService, private station:StationService) { 
+  constructor(private route:RouteService,private curr:CurrentUserService, private station:StationService,private _acr:ActivatedRoute) { 
    
   }
 
   stationsList!:StationRoute[];
   resRoute:Route=new Route();
   driver:Driver=new Driver();
+  direction:string | undefined | null;
   ngOnInit(): void {
     this.curr.getDriver().subscribe(data=>{this.driver=data,console.log("d",this.driver)
     this.route.getRouteByDriverId(this.driver.id).subscribe(data=>{this.resRoute=data,console.log("r",this.resRoute)
-    this.station.getStationByRouteId(this.resRoute.id).subscribe(data=>{this.stationsList=data,console.log("sl",this.stationsList)})})})
+    this.station.getStationByRouteId(this.resRoute.id).subscribe(data=>{this.stationsList=data,this.direction= this._acr.snapshot.paramMap.get('direction');
+    if(this.direction=="false")
+    {
+      this.stationsList=this.stationsList.reverse();
+    }})})})
+    
 
   }
 
