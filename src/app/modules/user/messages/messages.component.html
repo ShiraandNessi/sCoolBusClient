@@ -1,15 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <ul >
+    <!-- <ul >
     
         <li *ngFor="let mess of messegesList">{{mess.messageText}}</li>
-      </ul>
+      </ul> -->
+      <div class="container">
+        <div class="notification-container">
+        <!--     Notification list header -->
+          <div class="notification-list-header table-content">
+            <div class="arrow-icon table-content-cell">
+              <i class="fa fa-angle-left icon"></i>
+            </div>
+            <div class="notification-title table-content-cell"> Messages </div>
+              <div class="search-form table-content-cell">
+                  <form action="" autocomplete="on">
+                    <input class="search-field" name="search" type="text" placeholder="Search...">
+                     <i id="js-show-search-form" class="fa fa-search icon"></i>
+                  </form>
+            </div>
+          </div>
+       
+      <!--     Notification list container/box -->
+          <div class="notification-list-box">
+            <div class="custom-scrollBar">
+              <div class="list-group">
+                <a  *ngFor="let mess of messegesList" href="#" class="list-group-item table-content">
+                  <div class="media table-content-cell">
+                      <div class="media-left">
+                       {{mess.messageTypeId}}
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading"> {{mess.messageText}}</h4>
+                        <span class="notification-location"> {{mess.userId}}</span>
+                      </div>
+                    </div>
+                  <div class="notification-time table-content-cell"> 3 min ago </div>
+                  <div class="list-remove-btn table-content-cell" > <img  src=".\.\.\.\assets\check.png" class="V"> </div>
+                </a>
+                </div>
+          </div>
+          </div>
+        </div>
+              
+      </div>
 </body>
+
 </html>
