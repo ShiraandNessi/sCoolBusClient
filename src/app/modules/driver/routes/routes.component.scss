@@ -1,113 +1,71 @@
-
-// @import '~primeicons/primeicons.css';
-@import "primeng/resources/components/timeline/timeline.css";
-.p-timeline {
+.btn-primary {
+  color: #101213 ;
+  background-color:white;
+  background-image: none;
+  border-color:  #101213;
+  width: 30%;
+}
+.custom-marker {
   display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-}
-
-.p-timeline-left .p-timeline-event-opposite {
-  text-align: right;
-}
-
-.p-timeline-left .p-timeline-event-content {
-  text-align: left;
-}
-
-.p-timeline-right .p-timeline-event {
-  flex-direction: row-reverse;
-}
-
-.p-timeline-right .p-timeline-event-opposite {
-  text-align: left;
-}
-
-.p-timeline-right .p-timeline-event-content {
-  text-align: right;
-}
-
-.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(odd) .p-timeline-event-opposite {
-  text-align: right;
-}
-
-.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(odd) .p-timeline-event-content {
-  text-align: left;
-}
-
-.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even) .p-timeline-event-opposite {
-  text-align: left;
-}
-
-.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even) .p-timeline-event-content {
-  text-align: right;
-}
-
-.p-timeline-event {
-  display: flex;
-  position: relative;
-  min-height: 70px;
-}
-
-.p-timeline-event:last-child {
-  min-height: 0;
-}
-
-.p-timeline-event-opposite {
-  flex: 1;
-  padding: 0 1rem;
-}
-
-.p-timeline-event-content {
-  flex: 1;
-  padding: 0 1rem;
-}
-
-.p-timeline-event-separator {
-  flex: 0;
-  display: flex;
+  width: 2rem;
+  height: 2rem;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 50%;
+  z-index: 1;
+}
+form {
+border-color: aqua;
+  width: 20%;
+  margin: 60px auto;
+  border-radius:5px; 
+
+}
+.btn-lg {
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  line-height: 1.5;
+  width: 80%;
+  border-radius: 0.3rem;
 }
 
-.p-timeline-event-marker {
-  display: flex;
-  align-self: baseline;
+.div-btn{
+  // display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
-
-.p-timeline-event-connector {
-  flex-grow: 1;
+.btn-lg:hover{
+  
+  background-color:#e8e8e8;
 }
-
-.p-timeline-horizontal {
-  flex-direction: row;
+.btn-sm{
+  width: 80%;
 }
-
-.p-timeline-horizontal .p-timeline-event {
-  flex-direction: column;
-  flex: 1;
+.image{
+  width: auto;
+  height: 150px;
 }
-
-.p-timeline-horizontal .p-timeline-event:last-child {
-  flex: 0;
+.imageSmall
+{
+  width: auto;
+  height: 50px; 
 }
+@media only screen and (max-width: 500px) {
 
-.p-timeline-horizontal .p-timeline-event-separator {
-  flex-direction: row;
-}
+  form{
+    width:90%;
+  }
+  .image{
+      width: auto;
+      height: 100px;
+  }
+  .btn-lg {
+  
+      font-size: 1.5rem;
 
-.p-timeline-horizontal .p-timeline-event-connector  {
-  width: 100%;
-}
+  }
 
-.p-timeline-bottom .p-timeline-event {
-  flex-direction: column-reverse;
-}
-
-.p-timeline-horizontal.p-timeline-alternate .p-timeline-event:nth-child(even) {
-  flex-direction: column-reverse;
 }

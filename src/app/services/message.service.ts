@@ -13,12 +13,7 @@ baseUrl:string="/api/Messege/"
 userToken= this.curUser.currUser.token;
 headers= new HttpHeaders()
   .set( 'Authorization', 'Bearer ' + 'userToken')
- 
 
-  // getAllMesseges():Observable<Message>
-  // {
-  //   return this._http.get<Message>(this.baseUrl);
-  // }
   getMessageByDriverId(id:number):Observable<Message[]>
   {
     return this._http.get<Message[]>(this.baseUrl+id,{ 'headers': this.headers });
@@ -28,6 +23,9 @@ headers= new HttpHeaders()
   {
     return this._http.post<Message>(this.baseUrl,newMess);
   }
-
+  isRead(id:number)
+  {
+    return this._http.get<Message>(this.baseUrl+id+'/read');
+  }
 
 }

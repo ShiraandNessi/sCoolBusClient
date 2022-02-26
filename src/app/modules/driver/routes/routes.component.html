@@ -8,17 +8,18 @@
     <title>Document</title>
 </head>
 <body>
-<!-- <ul >
-  <li *ngFor="let station of stationsList">{{station.address}}</li>
-</ul> -->
-<div class="card">
-	<h5>Left Align</h5>
+<form>	
+	
 	<p-timeline [value]="stationsList">
 		<ng-template pTemplate="content" let-station>
+			<span class="custom-marker p-shadow-2" >
+				<!-- <i [ngClass]=PrimeIcons></i> -->
+			
+            </span>
 			&#123;&#123;station.address&#125;&#125;
 		</ng-template>
 	</p-timeline>
-</div>
 
+</form>
 </body>
 </html>

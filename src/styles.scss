@@ -1,1 +1,9 @@
-@import "primeng\resources\components\timeline\timeline.css"
+
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/saga-green/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~primeicons/primeicons.css';
+
+span{
+    font-family:'primeicons' !important
+}

@@ -25,6 +25,7 @@ import { MessagesComponent } from './messages/messages.component';
 
 
 
+
 const USER_ROUTE:Route[]=[
   {path:"user/driver",component:DriverHomeComponent,canActivate:[LogInActivate]},
   {path:"user/manager",component:ManagerHomeComponent,canActivate:[LogInActivate]},

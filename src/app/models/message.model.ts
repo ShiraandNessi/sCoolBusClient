@@ -9,6 +9,7 @@ export class Message
     messageText!:string;
     routId!:number;
     userId!:number;
+    isRead!:boolean;
 
 }
 export enum MessageType{

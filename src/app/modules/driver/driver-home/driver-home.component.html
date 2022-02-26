@@ -15,30 +15,29 @@
   
          <article class="card-body mx-auto" style="max-width:400px;">
                 <div class='div-btn' >
-                   <div style="display:flex;
-                   justify-content:space-between;" >
+                   <div style="display:flex; justify-content:space-between;" >
                 
                 <div *ngIf="isRouteClicked">
-                    <button class="btn btn-primary btn-sm " (click)="navigation(1,true)"><img src=".\.\.\.\assets\arrow-right 2.png" class="imageSmall"> <br> Go</button>
+                    <button class="btn btn-primary btn-sm " (click)="navigation(1,true)"><br><img src=".\.\.\.\assets\arrow-right 2.png" class="imageSmall"> <br> Go</button>
                     <br>
                     <br>
-                    <br>
-                    <button class="btn btn-primary btn-sm"  (click)="navigation(1,false)"><img src=".\.\.\.\assets\arrow-left.png" class="imageSmall">Back</button>
+                   
+                    <button class="btn btn-primary btn-sm"  (click)="navigation(1,false)"><br><img src=".\.\.\.\assets\arrow-left.png" class="imageSmall">Back</button>
                 </div>
-                <div class="btn btn-primary btn-lg" (mouseover)=" routeClicked()" ><img src=".\.\.\.\assets\route-1.png" class="image"><br>Routes</div>
+                <div class="btn btn-primary btn-lg" (mouseover)=" routeClicked()" ><img src=".\.\.\.\assets\route-1.png" class="image"><br>Route</div>
             </div>
+                
+                <br>
+                
+
+                <button type="button" class="btn btn-primary btn-lg" (click)="navigation(2)"><img src=".\.\.\.\assets\email2.png" class="image"><p-badge  [value]=mesLen  severity="danger"></p-badge>  <br>Messages</button>
                 <br>
                 <br>
-                <!-- <p-badge [value]=mesLen></p-badge>  -->
-                <br>
-                <button class="btn btn-primary btn-lg" (click)="navigation(2)"><img src=".\.\.\.\assets\email2.png" class="image"><br>Messages</button>
-                <br>
-                <br>
-                <br>
+
                 <button class="btn btn-primary btn-lg" (click)="navigation(3)"> <img src=".\.\.\.\assets\students.png" class="image"><br>Students</button><br>
                 <br>
                 <br>
-                <br>
+
             </div>
             </article>
       

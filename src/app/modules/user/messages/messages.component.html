@@ -33,14 +33,14 @@
           <div class="notification-list-box">
             <div class="custom-scrollBar">
               <div class="list-group">
-                <a  *ngFor="let mess of messegesList" href="#" class="list-group-item table-content">
+                <a  *ngFor="let mess of messegesList; let i=index"  href="#" class="list-group-item table-content">
                   <div class="media table-content-cell">
                       <div class="media-left">
-                       {{mess.messageTypeId}}
+                        {{name[i].familyName}}
                       </div>
                       <div class="media-body">
                         <h4 class="media-heading"> {{mess.messageText}}</h4>
-                        <span class="notification-location"> {{mess.userId}}</span>
+                        <span class="notification-location">  {{messType[i]}} </span>
                       </div>
                     </div>
                   <div class="notification-time table-content-cell"> 3 min ago </div>
