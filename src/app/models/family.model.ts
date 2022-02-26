@@ -11,11 +11,14 @@ fatherName!:string;
 address!:string;
 motherPhone!:string;
 fatherPhone!:string;
-Email!:string;
+email!:string;
 enableMotherWhatsApp!:boolean;
 enableFatherWhatsApp!:boolean;
 stationId!:number;
 userId!:number;
 password!:string;
-station!:Station;
+stationAddress!:string;
+pointY!:number;
+pointX!:number;
+
 }

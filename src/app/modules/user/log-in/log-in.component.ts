@@ -23,10 +23,7 @@ export class LogInComponent implements OnInit {
     "pass": new FormControl("", [Validators.required, Validators.minLength(3)])
   });
 
-  signUpForm: FormGroup = new FormGroup({
-    "email": new FormControl("", Validators.required),
-    "pass": new FormControl("", [Validators.required, Validators.minLength(3)])
-  });
+
 
   
   login()
