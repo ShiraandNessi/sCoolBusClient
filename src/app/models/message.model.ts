@@ -14,7 +14,7 @@ export class Message
 }
 export enum MessageType{
     stationCancel,
-    question,
+    forgetChild,
     message
 
 }

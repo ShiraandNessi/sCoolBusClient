@@ -16,7 +16,7 @@ import { SharedModule } from 'primeng/api';
 import { StudentService } from 'src/app/services/student.service';
 import {TimelineModule} from 'primeng/timeline';
 import { CardModule } from "primeng/card";
-
+import {AccordionModule} from 'primeng/accordion';
 
 
 
@@ -35,7 +35,7 @@ const DRIVER_ROUTE:Route[]=[
     RoutesComponent
   ],
   imports: [
-    CommonModule,MatStepperModule,BadgeModule,SharedModule,TimelineModule,CardModule,RouterModule.forChild(DRIVER_ROUTE)
+    CommonModule,AccordionModule,MatStepperModule,BadgeModule,SharedModule,TimelineModule,CardModule,RouterModule.forChild(DRIVER_ROUTE)
   ],
   providers: [DriverService,MessageService,RouteService,StationService,StudentService]
 })

@@ -1,0 +1,392 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+body {
+    padding: 30px 0px 60px;
+}
+.panel > .list-group .list-group-item:first-child {
+    /*border-top: 1px solid rgb(204, 204, 204);*/
+}
+@media (max-width: 767px) {
+    .visible-xs {
+        display: inline-block !important;
+    }
+    .block {
+        display: block !important;
+        width: 100%;
+        height: 1px !important;
+    }
+}
+#back-to-bootsnipp {
+    position: fixed;
+    top: 10px; right: 10px;
+}
+form {
+
+    width: 20%;
+    margin: 60px auto;
+    border-radius:5px;
+    
+  
+  }
+
+.c-search > .form-control {
+   border-radius: 0px;
+   border-width: 0px;
+   border-bottom-width: 1px;
+   font-size: 1.3em;
+   padding: 12px 12px;
+   height: 44px;
+   outline: none !important;
+}
+.c-search > .form-control:focus {
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none;
+}
+.c-search > .input-group-btn .btn {
+   border-radius: 0px;
+   border-width: 0px;
+   border-left-width: 1px;
+   border-bottom-width: 1px;
+   height: 44px;
+}
+
+
+.c-list {
+    padding: 0px;
+    min-height: 44px;
+}
+.title {
+    display: inline-block;
+    font-size: 1.7em;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+ul.c-controls {
+    list-style: none;
+    margin: 0px;
+    min-height: 44px;
+}
+
+ul.c-controls li {
+    margin-top: 8px;
+    float: left;
+}
+
+ul.c-controls li a {
+    font-size: 1.7em;
+    padding: 11px 10px 6px;   
+}
+ul.c-controls li a i {
+    min-width: 24px;
+    text-align: center;
+}
+
+ul.c-controls li a:hover {
+    background-color: rgba(51, 51, 51, 0.2);
+}
+
+.c-toggle {
+    font-size: 1.7em;
+}
+
+.name {
+    font-size: 1.7em;
+    font-weight: 700;
+}
+
+.c-info {
+    padding: 5px 10px;
+    font-size: 1.25em;
+}
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i');
+
+//*** Common variables  ***//
+$body-color: #333333;
+$white-color: #FFFFFF;
+$gray-color: #ECECEC;
+$deep-gray-color: #CCCCCC;
+$light-gray-color: #F5F5F5;
+$primary-color: #6747CD;
+$text-color: #666666;
+$success-color: #4CAF50;
+$danger-color: #e8e8e8;
+$border-color: #BBBBBB;
+$background:#f4f4f4;
+
+// Common container mixin functions
+@mixin hover-style($color, $bg-color) {
+  cursor: pointer;
+  &:hover {
+    color: $color;
+    background: $bg-color;
+  }
+}
+.V
+{
+    width:auto;
+    height:40px;
+}
+a{
+    border-width: 2px;
+}
+a:hover{
+    background-color: $background;
+}
+@mixin custom-scrollBar ($scrollBar-height: 430px, $bar-color: $deep-gray-color){
+  .custom-scrollBar {
+     width: 495px;
+     max-height: $scrollBar-height;
+     overflow: hidden;
+
+     div:first-of-type {
+       width: 470px;
+     }
+
+      &:hover {
+       overflow-y: auto;
+      }
+  }
+
+  .custom-scrollBar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollBar::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: $gray-color;
+    &:hover {
+      background-color: $bar-color;
+    }
+  }
+}
+/*** Common SCSS ***/
+html, body {
+
+  color: $body-color;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a:action, a:focus, a:hover {
+  text-decoration: none;
+}
+
+.table-content {
+ 
+  width: 100%;
+  margin: 0;
+  
+  .table-content-cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.icon {
+ font-size: 24px;
+}
+    
+// project style
+.container {
+  width: 100%;
+  padding: 30px 0;
+ 
+}
+
+.notification-container {
+  width: 500px;
+  height: 675px;
+  margin: 0 auto;
+  background: $light-gray-color;
+  position: relative;
+  box-shadow: 0px 4px 10px 0px rgba(204, 204, 204, 0.62);
+  
+  // Notification header style
+  .notification-list-header {
+    background: $white-color;
+    padding: 25px 30px;
+    box-shadow: 0px 4px 10px 0px rgba(204, 204, 204, 0.62);
+    
+    .arrow-icon {
+      width: 30px;
+      .icon {
+        font-size: xx-large;
+        font-weight: bold;
+        cursor: pointer;
+        padding-top: 2px;
+        @include hover-style( $text-color, "transparent" );
+      }
+    }
+    
+    .notification-title {
+      font-size: 27px;
+      text-align: center;
+    }
+
+    .search-form {
+      position: relative;
+      text-align: right;
+      width: 30px;
+      cursor: pointer;
+      
+      form {
+        margin: 0;
+      }
+
+      .icon {
+      @include hover-style( $text-color, "transparent" );
+      }
+    }
+
+    input[type="text"] {
+      height: 30px;
+      width: 0px;
+      font-size: 18px;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: 5px;
+      right: 25px;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+    }
+
+    .search-form:hover input[type="text"], input[type="text"]:focus {
+      width: 385px;
+      z-index: 1;
+      padding-right: 25px;
+      border-bottom: 1px solid $border-color;
+      cursor: text;
+      box-shadow: none;
+    }
+  }
+  
+  // Notification option style
+  .notification-option {
+    padding: 25px 20px 20px;
+    color: #a8a2a2;
+    
+    .table-content-cell:first-child {
+      font-size: 18px;
+    }
+    
+    .remove-icon {
+      cursor: pointer;
+      margin-right: 25px;
+      opacity: 0.7;
+      @include hover-style( $danger-color, "transparent" );
+    }
+    
+    .check-icon {
+      cursor: pointer;
+      opacity: 0.7;
+      @include hover-style( $success-color, "transparent" );
+    }
+  }
+  
+  // Notification list box
+  .notification-list-box {
+    .list-group {
+      margin: auto 15px;
+      box-shadow: 0px 4px 8px 0px #d8d4d4;
+      
+      .table-content-cell:nth-child(2) {
+        width: 75px;
+        text-align: right;
+      }
+      
+      .list-group-item {
+        border-radius: 0px;
+        padding: 20px 25px;
+        overflow: hidden;
+        margin-bottom: -1px;
+        
+        .media-heading {
+          color: $text-color;
+        }
+        
+        &.unread {
+          background: $light-gray-color;
+          font-weight: bold;
+          
+          .media-heading {
+            color: $body-color;
+            font-weight: inherit;
+          }
+        }
+        
+        &:hover {          
+          .list-time {
+            display: none;
+          }
+
+          .list-remove-btn {
+            right: 0;
+          }
+        }
+      }
+      
+      .media {
+        width: 82%;
+      }
+      
+      .media-left {
+        padding-right: 15px;
+        
+        img {
+          width: 50px;
+          height: 50px;
+          max-width: 50px; 
+        }
+        
+        .text-media-object {
+            background: #6747CD;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            text-align: center;
+            line-height: 35px;
+            color: $white-color;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 18px;
+        }
+      }
+      
+      .media-body {
+        padding-top: 7px;
+        
+        .notification-location {
+          color: #a2a2a2;
+        }
+      }
+      
+      .notification-time {
+        color: $deep-gray-color;
+      }
+      
+      .list-remove-btn {
+        position: absolute;
+        right: -110px;
+        width: 100px;
+        top: 0;
+        background: $danger-color;
+        padding: 35px 0;
+        text-align: center;
+        font-size: 16px;
+        color: $white-color;
+        transition: 500ms cubic-bezier(0.58, 0.54, 0.41, 1.38);
+      }
+  
+      
+    }
+  }
+}
+
+/*** Default scrolling customize style ***/
+@include custom-scrollBar($scrollBar-height: 500px, $bar-color: $deep-gray-color);

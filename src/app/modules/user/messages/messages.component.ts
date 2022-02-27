@@ -18,12 +18,16 @@ export class MessagesComponent implements OnInit {
  name:Family[]= new Array<Family>();
  messType:string[]=new Array<string>();
  driver!:Driver;
- mesLen!:number
+
  
   ngOnInit(): void {
     this.curUser.getDriver().subscribe(data=>{this.driver=data,
-      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{this.messegesList=data,data.forEach((m ,i)=>this.family.getFamilyByUserId(m.userId).subscribe(d=>this.name[i]=d)),console.log(this.name),this.mesLen=data.length}),
-      this.messegesList.forEach((m ,i)=>this.messType[i]=MessageType[m.messageTypeId]),console.log(this.messType)})
+      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{this.messegesList=data,data.forEach((m ,i)=>this.family.getFamilyByUserId(m.userId).subscribe(d=>this.name[i]=d)),
+        this.messegesList.forEach((m ,i)=>{this.messType[i]=MessageType[m.messageTypeId],console.log(MessageType[m.messageTypeId])}),console.log(this.messType)})})
+  }
+  isRead(mesId:number)
+  {
+    this.messages.isRead(mesId).subscribe();
   }
 
 }

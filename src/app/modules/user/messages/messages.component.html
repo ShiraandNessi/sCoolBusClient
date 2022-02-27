@@ -9,10 +9,7 @@
 </head>
 
 <body>
-    <!-- <ul >
-    
-        <li *ngFor="let mess of messegesList">{{mess.messageText}}</li>
-      </ul> -->
+   
       <div class="container">
         <div class="notification-container">
         <!--     Notification list header -->
@@ -21,12 +18,7 @@
               <i class="fa fa-angle-left icon"></i>
             </div>
             <div class="notification-title table-content-cell"> Messages </div>
-              <div class="search-form table-content-cell">
-                  <form action="" autocomplete="on">
-                    <input class="search-field" name="search" type="text" placeholder="Search...">
-                     <i id="js-show-search-form" class="fa fa-search icon"></i>
-                  </form>
-            </div>
+             
           </div>
        
       <!--     Notification list container/box -->
@@ -44,7 +36,7 @@
                       </div>
                     </div>
                   <div class="notification-time table-content-cell"> 3 min ago </div>
-                  <div class="list-remove-btn table-content-cell" > <img  src=".\.\.\.\assets\check.png" class="V"> </div>
+                  <div class="list-remove-btn table-content-cell" (click)="isRead(mess.id)" > <img  src=".\.\.\.\assets\check.png" class="V"> </div>
                 </a>
                 </div>
           </div>

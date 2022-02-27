@@ -25,7 +25,7 @@ headers= new HttpHeaders()
   }
   isRead(id:number)
   {
-    return this._http.get<Message>(this.baseUrl+id+'/read');
+    return this._http.get(this.baseUrl+id+'/read');
   }
 
 }

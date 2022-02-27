@@ -1,16 +1,84 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <ul >
-    
-        <li *ngFor="let student of studentsList">{{student.firstName}}</li>
-      </ul>
+    <!-- <div class="row">
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading c-list">
+                    <span class="title">Contacts</span>
+                </div>
+                
+                <div class="card">
+                <ul class="list-group" id="contact-list">
+                    <li class="list-group-item"  *ngFor="let student of studentsList">
+                        <div class="col-xs-12 col-sm-3">
+                            <img src="{{student.passport}}"  alt="Scott Stevens" class="img-responsive img-circle" />
+                        </div>
+                        <div class="col-xs-12 col-sm-9">
+                            <span class="name">{{student.firstName}}  {{student.lastName}} </span><br/>
+                            <span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>
+                            <span class="visible-xs"> <span class="text-muted">Grade: {{student.grade}} th</span><br/></span>
+                            
+                            <span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="(870) 288-4149"></span>
+                            <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="scott.stevens@example.com"></span>
+                            <span class="visible-xs"> <span class="text-muted">scott.stevens@example.com</span><br/></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                   
+                </ul>
+            </div>
+            </div>
+        </div>
+	</div> -->
+    <div class="container">
+        <div class="notification-container">
+            <!--     Notification list header -->
+            <div class="notification-list-header table-content">
+                <div class="arrow-icon table-content-cell">
+                    <i class="fa fa-angle-left icon"></i>
+                </div>
+                <div class="notification-title table-content-cell"> Students </div>
+
+            </div>
+            <div class="notification-list-box">
+                <div class="custom-scrollBar">
+                    <div class="list-group">
+                        <p-accordion [multiple]="true">
+                            <p-accordionTab 
+                                *ngFor="let student of studentsList;let i=index">
+                                <ng-template pTemplate="header">
+                                    <img style="width: 10%;" [src]="student.passport">
+                                    &nbsp;&nbsp;&nbsp;
+                                  {{student.firstName}}  {{student.lastName}}
+                                </ng-template>
+                                <div class="col-xs-12 col-sm-9">
+                                    <span class="name">{{student.firstName}} {{student.lastName}} </span><br />
+                                    <span class="text-muted">Grade: {{student.grade}} th </span><br />
+                                    <span class="text-muted">Father: {{familyList[i].fatherPhone}}</span><br />
+                                    <span class="text-muted">Mother: {{familyList[i].motherPhone}}</span><br />
+                                    <span class="text-muted" *ngIf="student.phone">Student: {{student.phone}}</span><br />
+                                </div>
+                                <div class="clearfix"></div>
+                            </p-accordionTab>
+
+                        </p-accordion>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
+
 </html>
