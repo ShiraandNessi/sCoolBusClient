@@ -54,9 +54,10 @@
                 <div class="custom-scrollBar">
                     <div class="list-group">
                         <p-accordion [multiple]="true">
-                            <p-accordionTab 
+                            <p-accordionTab style="font-size:150%;"
+                        
                                 *ngFor="let student of studentsList;let i=index">
-                                <ng-template pTemplate="header">
+                                <ng-template  pTemplate="header">
                                     <img style="width: 10%;" [src]="student.passport">
                                     &nbsp;&nbsp;&nbsp;
                                   {{student.firstName}}  {{student.lastName}}
