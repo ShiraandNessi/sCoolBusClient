@@ -10,7 +10,7 @@ export class Message
     routId!:number;
     userId!:number;
     isRead!:boolean;
-
+    studentId!:number
 }
 export enum MessageType{
     stationCancel,

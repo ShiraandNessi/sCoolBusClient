@@ -16,7 +16,6 @@ import { WebcamModule } from 'ngx-webcam';
 import { PassportCameraComponent } from './passport-camera/passport-camera.component';
 import {StepsModule} from 'primeng/steps';
 import { StepsComponent } from './sign-up/steps/steps.component';
-import { MessagesComponent } from './messages/messages.component';
 
 
 
@@ -36,7 +35,7 @@ const USER_ROUTE:Route[]=[
 
 
 @NgModule({
-  declarations: [LogInComponent, SignUpComponent,PassportCameraComponent,StepsComponent,MessagesComponent],
+  declarations: [LogInComponent, SignUpComponent,PassportCameraComponent,StepsComponent],
   imports: [ReactiveFormsModule,CommonModule,ManagerModule,
     FamilyModule,DriverModule,RouterModule.forChild(USER_ROUTE),
     FormsModule,WebcamModule,StepsModule],

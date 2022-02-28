@@ -16,10 +16,14 @@ export class RouteService {
   {
     return this._http.get<Route[]>(this.baseUrl)
   }
-
-  getRouteByDriverId(DriverId: number):Observable <Route>
+  getRouteById(id:number):Observable <Route>
   {
-    return this._http.get<Route>(this.baseUrl+DriverId,{ 'headers': this.headers })
+    return this._http.get<Route>(this.baseUrl+id)
+  }
+
+  getRouteByDriverId(driverId: number):Observable <Route>
+  {
+    return this._http.get<Route>(this.baseUrl+'driver/'+driverId,{ 'headers': this.headers })
   }
 
   addNewRoute(newRoute: Route):Observable <Route>

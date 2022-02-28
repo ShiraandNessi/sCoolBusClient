@@ -10,6 +10,7 @@ import { MessageService } from 'primeng/api';
 import { CurrentUserService } from './services/current-user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { SendMessegeComponent } from './send-messege/send-messege.component';
 
 
 
@@ -20,7 +21,8 @@ const APP_ROUTES:Route[]=[
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SendMessegeComponent
  
   ],
   imports: [
