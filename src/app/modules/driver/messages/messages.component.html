@@ -25,7 +25,7 @@
           <div class="notification-list-box">
             <div class="custom-scrollBar">
               <div class="list-group">
-                <a  *ngFor="let mess of messegesList; let i=index"  href="#" class="list-group-item table-content">
+                <a  *ngFor="let mess of messegesList; let i=index" class="list-group-item table-content">
                   <div class="media table-content-cell">
                       <div class="media-left">
                         {{name[i].familyName}}
@@ -36,7 +36,8 @@
                       </div>
                     </div>
                   <div class="notification-time table-content-cell"> 3 min ago </div>
-                  <div class="list-remove-btn table-content-cell" (click)="isRead(mess.id)" > <img  src=".\.\.\.\assets\check.png" class="V"> </div>
+                  <div class="list-remove-btn table-content-cell" *ngIf="!mess.isRead" (click)="isRead(mess)" ><img  src=".\.\.\.\assets\check.png" class="V"> </div>
+                  <div class="list-remove-btn table-content-cell" *ngIf="mess.isRead" (click)="isRead(mess)" ><img  src=".\.\.\.\assets\arrow-left.png" class="V"> </div>
                 </a>
                 </div>
           </div>

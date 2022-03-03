@@ -19,7 +19,7 @@ export class DriverHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.curUser.getDriver().subscribe(data=>{this.driver=data,
-      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{this.mesLen=(data.filter(m=>m.isRead).length).toString()+"+"})})
+      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{this.mesLen=(data.filter(m=>m.isRead==false).length).toString()+"+"})})
   }
 
  

@@ -12,8 +12,6 @@ import { ManagerHomeComponent } from '../manager/manager-home/manager-home.compo
 import { LogInActivate } from './log-in-activate';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { WebcamModule } from 'ngx-webcam';
-import { PassportCameraComponent } from './passport-camera/passport-camera.component';
 import {StepsModule} from 'primeng/steps';
 import { StepsComponent } from './sign-up/steps/steps.component';
 
@@ -35,10 +33,10 @@ const USER_ROUTE:Route[]=[
 
 
 @NgModule({
-  declarations: [LogInComponent, SignUpComponent,PassportCameraComponent,StepsComponent],
+  declarations: [LogInComponent, SignUpComponent,StepsComponent],
   imports: [ReactiveFormsModule,CommonModule,ManagerModule,
     FamilyModule,DriverModule,RouterModule.forChild(USER_ROUTE),
-    FormsModule,WebcamModule,StepsModule],
+    FormsModule,StepsModule],
   providers:[UserService,LogInActivate]
 })
 export class UserModule {}

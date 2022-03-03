@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Driver } from 'src/app/models/driver.model';
 import { Family } from 'src/app/models/family.model';
 import { Student } from 'src/app/models/student.model';
@@ -7,6 +8,7 @@ import { DriverService } from 'src/app/services/driver.service';
 import { FamilyService } from 'src/app/services/family.service';
 import { RouteService } from 'src/app/services/route.service';
 import { StudentService } from 'src/app/services/student.service';
+import { StudentDetailsComponent } from '../student-details/student-details.component';
 
 @Component({
   selector: 'app-family-home',
@@ -15,7 +17,7 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class FamilyHomeComponent implements OnInit {
 
-  constructor(private family:FamilyService,private student:StudentService,private cuurUser:CurrentUserService,private route:RouteService,private driver:DriverService) { }
+  constructor(public dialog:MatDialog,private family:FamilyService,private student:StudentService,private cuurUser:CurrentUserService,private route:RouteService,private driver:DriverService) { }
 currfamily!:Family;
 studentList:Student[]=new Array<Student>();
 driverList:Driver[]=new Array<Driver>();
@@ -33,7 +35,14 @@ driverList:Driver[]=new Array<Driver>();
     })
     
   }
+ 
 
+  navigateToStudentDetails()
+  {
+    let dialogRef = this.dialog.open(StudentDetailsComponent, {
+      height: '600px',
+      width: '600px',
+    });
+  
+  }
 }
-
-

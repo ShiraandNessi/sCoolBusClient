@@ -6,11 +6,10 @@ import { UserModule } from './modules/user/user.module';
 import { HttpClientModule } from '@angular/common/http'
 import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { Route, RouterModule } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { CurrentUserService } from './services/current-user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { SendMessegeComponent } from './send-messege/send-messege.component';
+
 
 
 
@@ -21,8 +20,7 @@ const APP_ROUTES:Route[]=[
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SendMessegeComponent
+    AppComponent
  
   ],
   imports: [

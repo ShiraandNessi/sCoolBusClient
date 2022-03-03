@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+
+<body>
+    <!-- <app-passport-camera></app-passport-camera> -->
+    <form [formGroup]="registerStudentForm">
+        <div class="card ">
+            <article class="card-body mx-auto" style="max-width:400px;">
+                <div>
+
+                    <h4 class="card-title mt-3 text-center"><img src=".\.\.\.\assets\user.png" class="image"> <br> <br>
+                        Student Details:</h4>
+                </div>
+                <br>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-users"></i> </span>
+                    </div>
+                    <input name="" class="form-control" formControlName="firstName" placeholder="First name"
+                        type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone" style="width:auto;height:20px"></i> </span>
+                    </div>
+                    <input name="" class="form-control" formControlName="personalPhone" placeholder="Personal Phone"
+                        type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><img src=".\.\.\.\assets\school-bag2.png" style="width:auto;height:20px">  </span>
+                    </div>
+                    <input name="" class="form-control" formControlName="grade" placeholder="Grade" type="text">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+                    </div>
+              
+                    <p-listbox [options]="routes" formControlName="route" optionLabel="name"></p-listbox>
+                 </div>
+                 <div class="input-group-prepend">
+                    <span class="input-group-text" (click)="navigateToPicture()"><img src=".\.\.\.\assets\profile.png" style="width:auto;height:40px">  </span>
+                 </div>
+                <!-- <div class="btn1">
+                    <button type="submit" class="btn btn-outline-primary" (click)=Register()>Register</button>
+                </div> -->
+
+            </article>
+        </div>
+
+
+
+    </form>
+
+</body>
+
+</html>

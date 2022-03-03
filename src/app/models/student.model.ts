@@ -9,7 +9,7 @@ export class Student
     lastName!:string;
     grade!:number;
     phone!:string;
-    passport!:string;
+    passport?:string|undefined;
     routId!: number;
     imageRoute!:string;
     

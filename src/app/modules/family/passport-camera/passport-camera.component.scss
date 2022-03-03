@@ -1,0 +1,131 @@
+
+.card{
+  position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+video{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.webcam-wrapper{
+  margin-bottom:2px;
+}
+
+button {
+  background-color: #47aec1;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom:2%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.webcam{
+  height:90%; 
+  width:90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom:2%;
+}
+
+/* Center the avatar image inside this container */
+.img {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  width: 40%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 5%;
+}
+//nessi
+.image{
+  // border-radius: 100%;
+  clip-path: circle();
+  height:250px;
+  width:auto;
+  border: 5px #e6a73d;
+}
+
+.snapshot{
+  margin-top: 5%;
+}
+
+.imgButton{
+  margin-top: 2%;
+}
+
+.video{   
+display: flex;
+justify-content: center;
+align-items: center;
+margin: auto;
+
+}
+
+.container {
+  padding: 16px;
+}
+
+h2{
+color:#47aec1;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: auto;
+margin-top: 3%;
+}
+form {
+
+  width: 20%;
+  margin: 60px auto;
+  border-radius:5px;
+  
+
+}
+
+@media screen and (max-width: 10000px) {
+
+  form{
+    width: 100%;
+  }
+  button{
+    font-size: 60%;
+  }
+.webcam{
+  height: 150;
+}
+.image{
+  height: 100px;
+
+}
+}

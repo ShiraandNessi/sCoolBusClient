@@ -1,0 +1,94 @@
+form {
+
+    width: 20%;
+    margin: 60px auto;
+    border-radius:5px;
+    
+  
+  }
+  .image{
+    width: auto;
+    height:30px;
+    margin-top:40px;
+    margin-right: 10px
+  }
+  .divider-text {
+      position: relative;
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
+  .divider-text span {
+      padding: 7px;
+      font-size: 12px;
+      position: relative;   
+      z-index: 2;
+  }
+  .divider-text:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      border-bottom: 1px solid #ddd;
+      top: 55%;
+      left: 0;
+      z-index: 1;
+  }
+    
+  h4{
+    color:#47aec1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 3%;
+    }
+    /* Set a style for all buttons */
+    button {
+      background-color: #47aec1;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 50%;
+      margin-left: 26%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto
+    }
+    
+    /* Add a hover effect for buttons */
+    button:hover {
+      opacity: 0.8;
+    }
+    
+  
+    
+    /* Add padding to containers */
+    .container {
+      padding: 16px;
+    }
+    
+    /* The "Forgot password" text */
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+    i{
+      text-align: center;
+      place-items: start end;
+    }
+    .flex-container {
+      vertical-align:auto;
+    }
+  
+  
+    @media only screen and (max-width: 10000px) {
+    
+      form{
+        width:90%;
+      }
+   
+    
+    }
