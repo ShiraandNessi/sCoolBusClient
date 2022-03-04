@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,39 +11,44 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"> -->
 </head>
+
 <body>
   <form>
-  <div class="card ">
-    <article class="card-body mx-auto" style="max-width:400px;">
-  <div class="video">
-    <webcam class="webcam" [height]=200 [width]=200 [trigger]="triggerObservable" (imageCapture)="handleImage($event)">
-    </webcam>
-  </div>
-  <div class="videoButton">
-    <!-- <button class="btn actionBtn" (click)="triggerSnapshot();">
-      Click Here and take the Shot</button> -->
-      <div class="input-group-prepend">
-        <span class="input-group-text" (click)="triggerSnapshot()"><img src=".\.\.\.\assets\camera.png" style="width:auto;height:40px">  </span>
-     </div>
-     <div class="input-group-prepend">
-     
-     
-      <span class="input-group-text"><input type="file" placeholder="lklk"><img src=".\.\.\.\assets\upload.png" style="width:auto;height:40px"> </span>
-   </div>
-     
-  </div>
-  <div class="snapshot" *ngIf="webcamImage">
-  
-    <h2>Here is your image!</h2>
-    <div  class="img">
-      <img  class="image" [src]="webcamImage.imageAsDataUrl" />
+    <div class="card ">
+      <article class="card-body mx-auto" style="max-width:400px;">
+        <div style="  display: flex; justify-content: space-around;">
+          <div class="video" >
+            <webcam class="webcam" [height]=200 [width]=200 [trigger]="triggerObservable"
+              (imageCapture)="handleImage($event)">
+            </webcam>
+          </div>
+          <div class="videoButton" style="margin-left: 20px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" (click)="triggerSnapshot()"><img src=".\.\.\.\assets\camera.png"
+                  style="width:auto;height:40px"> </span>
+            </div>
+            <br>
+
+            <div class="input-group-prepend">
+              <span class="btn btn-file input-group-text"><input type="file" placeholder="lklk"><img
+                  src=".\.\.\.\assets\upload.png" style="width:auto;height:40px"> </span>
+            </div>
+
+          </div>
+        </div>
+        <div class="snapshot" *ngIf="webcamImage">
+<br>
+          <h2>Here is your image!</h2>
+          <div class="img">
+            <img class="image" [src]="webcamImage.imageAsDataUrl" />
+          </div>
+          <div class="imgButton">
+            <button class="btn" (click)="handleImage(webcamImage)">Save</button>
+          </div>
+        </div>
+      </article>
     </div>
-    <div class="imgButton">
-      <button class="btn" (click)="handleImage(webcamImage)">Save</button>
-    </div>
-  </div>
-    </article>
-  </div>
-</form>
+  </form>
 </body>
+
 </html>
