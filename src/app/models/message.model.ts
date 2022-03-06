@@ -6,7 +6,7 @@ export class Message
     id:number;
     messageTypeId!:number;
     driverId!:number;
-    messageText!:string;
+    messageText:string | null | undefined;
     routId!:number;
     userId!:number;
     isRead!:boolean;
@@ -15,6 +15,7 @@ export class Message
 export enum MessageType{
     stationCancel,
     forgetChild,
-    message
+    
+    other
 
 }

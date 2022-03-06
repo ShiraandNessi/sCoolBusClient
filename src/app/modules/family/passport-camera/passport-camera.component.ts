@@ -29,7 +29,7 @@ export class PassportCameraComponent implements OnInit {
   save()
   {
 
-    this._router.navigate(['user/family/student',{imgURL: "/./././assets/mm.png" }])
+    this._router.navigate(['user/family/student',{img:this.webcamImage }])
 
   }
   

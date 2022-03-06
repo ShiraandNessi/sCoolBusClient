@@ -37,12 +37,16 @@ driverList:Driver[]=new Array<Driver>();
   }
  
 
-  navigateToStudentDetails()
+  navigateToStudentDetails(student:Student | null)
   {
     let dialogRef = this.dialog.open(StudentDetailsComponent, {
       height: '600px',
       width: '600px',
+      data: {student:student}
     });
+    
   
   }
+  
+  
 }

@@ -14,11 +14,9 @@
     
 </head>
 <body>
-    <!-- <app-send-messege></app-send-messege> -->
-
-  <!-- <app-student-details></app-student-details> -->
+    <app-send-messege></app-send-messege>
   <div class="input-group-prepend">
-    <span class="input-group-text" (click)="navigateToStudentDetails()"><img src=".\.\.\.\assets\add-user.png" style="width:auto;height:40px">  </span>
+    <span class="input-group-text" (click)="navigateToStudentDetails(null)"><img src=".\.\.\.\assets\add-user.png" style="width:auto;height:40px">  </span>
  </div>
     <div class="container bootstrap snippets bootdey">
         <div class="row">
@@ -38,7 +36,7 @@
                                 <img class="thumb-lg img-circle bx-s" src="student.passport" alt="">
                             </a>
                             <div class="pull-right btn-group-sm">
-                                <a  class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
+                                <a  class="btn btn-success tooltips" data-placement="top" (click)="navigateToStudentDetails(student)"data-toggle="tooltip" data-original-title="Edit">
                                     <i class="fa fa-pencil"></i>
                                 </a>
                                 <a  class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">

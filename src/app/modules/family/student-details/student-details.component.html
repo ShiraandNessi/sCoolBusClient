@@ -18,7 +18,6 @@
         <div class="card ">
             <article class="card-body mx-auto" style="max-width:400px;">
                 <div>
-
                     <h4 class="card-title mt-3 text-center"><img src=".\.\.\.\assets\user.png" class="image"> <br> <br>
                         Student Details:</h4>
                 </div>
@@ -27,35 +26,40 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-users"></i> </span>
                     </div>
-                    <input name="" class="form-control" formControlName="firstName" placeholder="First name"
+                    <input name="" class="form-control"  formControlName="firstName" placeholder="First name"
                         type="text">
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-phone" style="width:auto;height:20px"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-phone" style="width:auto;height:20px"></i>
+                        </span>
                     </div>
                     <input name="" class="form-control" formControlName="personalPhone" placeholder="Personal Phone"
                         type="text">
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><img src=".\.\.\.\assets\school-bag2.png" style="width:auto;height:20px">  </span>
+                        <span class="input-group-text"><img src=".\.\.\.\assets\school-bag2.png"
+                                style="width:auto;height:20px"> </span>
                     </div>
                     <input name="" class="form-control" formControlName="grade" placeholder="Grade" type="text">
                 </div>
 
-                <!-- <div class="form-group input-group"  > -->
-                    <div> 
-                    <div class="input-group-prepend" >
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
                     </div>
-                                <p-listbox [options]="routes" formControlName="route" optionLabel="name"></p-listbox>
+                    <select class="form-select" placeholder="choose a route">
+                        <option value="">Please select route</option>
+                        <option  *ngFor="let route of routes">{{route.name}}</option>
+                    </select>
+                </div>
 
-                 </div>  
 
-                 <div class="input-group-prepend">
-                    <span class="input-group-text" (click)="navigateToPicture()"><img src=".\.\.\.\assets\profile.png" style="width:auto;height:40px">  </span>
-                 </div>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" (click)="navigateToPicture()"><img src=".\.\.\.\assets\profile.png"
+                            style="width:auto;height:40px"> </span>
+                </div>
                 <!-- <div class="btn1">
                     <button type="submit" class="btn btn-outline-primary" (click)=Register()>Register</button>
                 </div> -->
