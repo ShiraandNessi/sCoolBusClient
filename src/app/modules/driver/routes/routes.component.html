@@ -9,12 +9,10 @@
 </head>
 <body>
 <form>	
-	
 	<p-timeline [value]="stationsList">
 		<ng-template pTemplate="content" let-station>
 			<span class="custom-marker p-shadow-2" >
-				<!-- <i [ngClass]=PrimeIcons></i> -->
-			
+                <i [ngClass]="icon"></i>
             </span>
 			&#123;&#123;station.address&#125;&#125;
 		</ng-template>

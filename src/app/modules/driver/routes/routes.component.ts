@@ -15,7 +15,7 @@ import {PrimeIcons} from 'primeng/api';
   styleUrls: ['./routes.component.scss']
 })
 export class RoutesComponent implements OnInit {
-
+icon=PrimeIcons.MAP_MARKER
   constructor(private route:RouteService,private curr:CurrentUserService, private station:StationService,private _acr:ActivatedRoute) { 
    
   }

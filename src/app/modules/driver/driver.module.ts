@@ -17,15 +17,17 @@ import { StudentService } from 'src/app/services/student.service';
 import {TimelineModule} from 'primeng/timeline';
 import { CardModule } from "primeng/card";
 import {AccordionModule} from 'primeng/accordion';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 
-const DRIVER_ROUTE:Route[]=[
-  {path:"user/driver/routes",component:RoutesComponent,canActivate:[LogInActivate]},
-  {path:"user/driver/students",component:StudentsComponent,canActivate:[LogInActivate]},
-  {path:"user/driver/messages",component:MessagesComponent,canActivate:[LogInActivate]},
-
-]
+// const DRIVER_ROUTE:Route[]=[
+//   {path:"",component:NavBarComponent,canActivate:[LogInActivate],children:[ 
+//     {path:"",component:DriverHomeComponent,canActivate:[LogInActivate]},
+//     {path:"user/driver/routes",component:RoutesComponent,canActivate:[LogInActivate]},
+//   {path:"user/driver/students",component:StudentsComponent,canActivate:[LogInActivate]},
+//   {path:"user/driver/messages",component:MessagesComponent,canActivate:[LogInActivate]},]}
+// ]
 
 
 @NgModule({
@@ -33,11 +35,11 @@ const DRIVER_ROUTE:Route[]=[
     DriverHomeComponent,
     StudentsComponent,
     RoutesComponent,
-    MessagesComponent
+    MessagesComponent,
+    NavBarComponent
   ],
   imports: [
-    CommonModule,AccordionModule,BadgeModule,SharedModule,TimelineModule,CardModule,RouterModule.forChild(DRIVER_ROUTE)
-  ],
+    CommonModule,AccordionModule,BadgeModule,SharedModule,TimelineModule,CardModule,RouterModule],
   providers: [DriverService,MessageService,RouteService,StationService,StudentService]
 })
 export class DriverModule { }
