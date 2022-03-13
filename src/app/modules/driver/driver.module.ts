@@ -18,6 +18,7 @@ import { CardModule } from "primeng/card";
 import {AccordionModule} from 'primeng/accordion';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DriverMapComponent } from './driver-map/driver-map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 // import { SharedModule } from 'primeng/api';
 
 
@@ -27,7 +28,8 @@ import { DriverMapComponent } from './driver-map/driver-map.component';
 //     {path:"",component:DriverHomeComponent,canActivate:[LogInActivate]},
 //     {path:"user/driver/routes",component:RoutesComponent,canActivate:[LogInActivate]},
 //   {path:"user/driver/students",component:StudentsComponent,canActivate:[LogInActivate]},
-//   {path:"user/driver/messages",component:MessagesComponent,canActivate:[LogInActivate]},]}
+//   {path:"user/driver/messages",component:MessagesComponent,canActivate:[LogInActivate]},
+// {path:"user/driver/routes/map",component:DriverMapComponent}]}
 // ]
 
 
@@ -41,7 +43,7 @@ import { DriverMapComponent } from './driver-map/driver-map.component';
     DriverMapComponent
   ],
   imports: [
-    CommonModule,AccordionModule,BadgeModule,TimelineModule,CardModule,RouterModule],
+    CommonModule,GoogleMapsModule,AccordionModule,BadgeModule,TimelineModule,CardModule,RouterModule],
   providers: [DriverService,MessageService,RouteService,StationService,StudentService]
 })
 export class DriverModule { }

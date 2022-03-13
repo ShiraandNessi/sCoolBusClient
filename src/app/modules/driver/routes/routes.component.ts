@@ -38,7 +38,7 @@ icon=PrimeIcons.MAP_MARKER
   
   toMap(){
     this.station.stationList=this.stationsList;
-    this._router.navigate(['user/driver/routes']) ;
+    this._router.navigate(['user/driver/routes/map']) ;
   }
 
  

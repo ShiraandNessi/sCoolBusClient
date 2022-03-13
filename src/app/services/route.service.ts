@@ -24,7 +24,7 @@ export class RouteService {
 
   getRouteByDriverId(driverId: number):Observable <Route>
   {
-    return this._http.get<Route>(this.baseUrl+'driver/'+driverId,{ 'headers': this.headers })
+    return this._http.get<Route>(this.baseUrl+driverId,{ 'headers': this.headers })
   }
 
   addNewRoute(newRoute: Route):Observable <Route>

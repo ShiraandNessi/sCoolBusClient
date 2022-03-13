@@ -41,6 +41,18 @@
         <div id="directions-panel"></div>
       </div>
     </div>
+    <!-- <google-map
+  height="300px"
+  width="90%"
+  [zoom]="zoom"
+  [center]="center"
+><map-marker *ngFor="let marker of markers"
+[position]="marker.position"
+[label]="marker.label"
+[title]="marker.title"
+[options]="marker.options">
+</map-marker> -->
+<!-- </google-map> -->
     <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPOINpsuI3mDaMN538S5BePKJvfTozC5U&callback=initMap&v=weekly"
     async
