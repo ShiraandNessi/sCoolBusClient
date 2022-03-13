@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 
 
 
+
 const APP_ROUTES:Route[]=[
   {path:"", pathMatch: "full", redirectTo: "user"},
   {path:"user",component:LogInComponent},
@@ -21,7 +22,7 @@ const APP_ROUTES:Route[]=[
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

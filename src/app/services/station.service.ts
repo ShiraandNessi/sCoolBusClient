@@ -11,6 +11,7 @@ export class StationService {
   baseUrl:string="/api/station/"
   
   constructor(private _http:HttpClient,private curUser:CurrentUserService) { }
+  stationList!:StationRoute[];
   userToken= this.curUser.currUser.token;
 headers= new HttpHeaders()
   .set( 'Authorization', 'Bearer ' + 'userToken')

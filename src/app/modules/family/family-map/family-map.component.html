@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <app-driver-map></app-driver-map> -->
+  <google-map
+  height="500px"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+>
+ <map-marker
+ *ngFor="let marker of markers"
+ [position]="marker.position"
+ [label]="marker.label"
+ [title]="marker.title"
+ [options]="marker.options"
+ ></map-marker>
+</google-map>
+
+Use custom zoom buttons
+<button (click)="zoomIn()">Zoom in</button>
+<button (click)="addMarker()"> out</button>
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPOINpsuI3mDaMN538S5BePKJvfTozC5U&callback=initMap">
+</script>
+
+</body>
+</html>

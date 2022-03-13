@@ -12,6 +12,8 @@ import { PassportCameraComponent } from './passport-camera/passport-camera.compo
 import { WebcamModule } from 'ngx-webcam';
 import {FileUploadModule} from 'primeng/fileupload';
 import {MatDialogModule} from "@angular/material/dialog"
+import { FamilyMapComponent } from './family-map/family-map.component';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 
 const FAMILY_ROUTE:Route[]=[
@@ -19,9 +21,9 @@ const FAMILY_ROUTE:Route[]=[
 {path:"user/family/student/picture",component:PassportCameraComponent,canActivate:[LogInActivate]}
 ]
 @NgModule({
-  declarations: [FamilyHomeComponent,SendMessegeComponent,StudentDetailsComponent,PassportCameraComponent],
+  declarations: [FamilyHomeComponent,SendMessegeComponent,StudentDetailsComponent,PassportCameraComponent,FamilyMapComponent],
   imports: [
-    CommonModule,ListboxModule,FormsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule.forChild(FAMILY_ROUTE)
+    CommonModule,ListboxModule,FormsModule,ReactiveFormsModule,WebcamModule,GoogleMapsModule,FileUploadModule,MatDialogModule,RouterModule.forChild(FAMILY_ROUTE)
   ],
   providers:[FamilyService]
 })

@@ -12,12 +12,13 @@ import { RoutesComponent } from './routes/routes.component';
 import { MessageService } from 'src/app/services/message.service';
 import { RouteService } from 'src/app/services/route.service';
 import { StationService } from 'src/app/services/station.service';
-import { SharedModule } from 'primeng/api';
 import { StudentService } from 'src/app/services/student.service';
-import {TimelineModule} from 'primeng/timeline';
+import { TimelineModule} from 'primeng/timeline';
 import { CardModule } from "primeng/card";
 import {AccordionModule} from 'primeng/accordion';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { DriverMapComponent } from './driver-map/driver-map.component';
+// import { SharedModule } from 'primeng/api';
 
 
 
@@ -36,10 +37,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     StudentsComponent,
     RoutesComponent,
     MessagesComponent,
-    NavBarComponent
+    NavBarComponent,
+    DriverMapComponent
   ],
   imports: [
-    CommonModule,AccordionModule,BadgeModule,SharedModule,TimelineModule,CardModule,RouterModule],
+    CommonModule,AccordionModule,BadgeModule,TimelineModule,CardModule,RouterModule],
   providers: [DriverService,MessageService,RouteService,StationService,StudentService]
 })
 export class DriverModule { }

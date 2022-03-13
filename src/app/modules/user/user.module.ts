@@ -22,12 +22,6 @@ import { MessagesComponent } from '../driver/messages/messages.component';
 
 
 
-
-
-
-
-
-
 const USER_ROUTE:Route[]=[
   {path:"user/driver",component:NavBarComponent,canActivate:[LogInActivate],children:[
     {path:"",component:DriverHomeComponent,canActivate:[LogInActivate]},
