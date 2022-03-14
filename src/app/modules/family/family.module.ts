@@ -13,7 +13,7 @@ import { WebcamModule } from 'ngx-webcam';
 import {FileUploadModule} from 'primeng/fileupload';
 import {MatDialogModule} from "@angular/material/dialog"
 import { FamilyMapComponent } from './family-map/family-map.component';
-import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 
 
 const FAMILY_ROUTE:Route[]=[
@@ -23,7 +23,7 @@ const FAMILY_ROUTE:Route[]=[
 @NgModule({
   declarations: [FamilyHomeComponent,SendMessegeComponent,StudentDetailsComponent,PassportCameraComponent,FamilyMapComponent],
   imports: [
-    CommonModule,ListboxModule,FormsModule,ReactiveFormsModule,WebcamModule,GoogleMapsModule,FileUploadModule,MatDialogModule,RouterModule.forChild(FAMILY_ROUTE)
+    CommonModule,ListboxModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule.forChild(FAMILY_ROUTE)
   ],
   providers:[FamilyService]
 })

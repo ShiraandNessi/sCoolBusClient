@@ -18,6 +18,7 @@ import { NavBarComponent } from '../driver/nav-bar/nav-bar.component';
 import { RoutesComponent } from '../driver/routes/routes.component';
 import { StudentsComponent } from '../driver/students/students.component';
 import { MessagesComponent } from '../driver/messages/messages.component';
+import { DriverMapComponent } from '../driver/driver-map/driver-map.component';
 
 
 
@@ -27,7 +28,8 @@ const USER_ROUTE:Route[]=[
     {path:"",component:DriverHomeComponent,canActivate:[LogInActivate]},
     {path:"routes",component:RoutesComponent,canActivate:[LogInActivate]},
     {path:"students",component:StudentsComponent,canActivate:[LogInActivate]},
-    {path:"messages",component:MessagesComponent,canActivate:[LogInActivate]}
+    {path:"messages",component:MessagesComponent,canActivate:[LogInActivate]},
+  {path:"routes/map",component:DriverMapComponent,canActivate:[LogInActivate]}
   ]},
   {path:"user/manager",component:ManagerHomeComponent,canActivate:[LogInActivate]},
   {path:"user/family",component:FamilyHomeComponent,canActivate:[LogInActivate]},
