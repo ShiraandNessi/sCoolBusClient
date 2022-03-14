@@ -64,7 +64,7 @@ export class DriverMapComponent implements OnInit {
     this.stationList= this.station.stationList;
     this.stationList.forEach((s,i)=>{
       waypts.push({
-        location:{lat: s.pointX, lng:s.pointY}, 
+        location:{lat: ()=>s.pointX, lng:()=>s.pointY}, 
         stopover: true,
       });
     })
