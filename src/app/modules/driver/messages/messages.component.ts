@@ -33,12 +33,12 @@ stationId:number=0;
             this.student.getStudentById(m.studentId).subscribe(data=>{
               this.routeCancel.push(data.routId)
               this.family.getFamilyById(data.familyId).subscribe(data=>{
-                this.stationCancel.push(data.stationId),
-                console.log( this.routeCancel, this.stationCancel)
+                this.stationCancel.push(data.stationId)
+                // console.log( this.routeCancel, this.stationCancel)
               })
             })
             
-          }}),console.log(this.messType)})})
+          }}),console.log(this.routeCancel, this.stationCancel)})})
   }
   isRead(mes:Message)
   {

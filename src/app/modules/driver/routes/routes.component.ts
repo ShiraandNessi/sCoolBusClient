@@ -7,6 +7,10 @@ import { CurrentUserService } from 'src/app/services/current-user.service';
 import { RouteService } from 'src/app/services/route.service';
 import { StationService } from 'src/app/services/station.service';
 import {PrimeIcons} from 'primeng/api';
+import { MessageService } from 'src/app/services/message.service';
+import { StudentService } from 'src/app/services/student.service';
+import { FamilyService } from 'src/app/services/family.service';
+import { Station } from 'src/app/models/station.model';
 
 
 @Component({
@@ -17,12 +21,13 @@ import {PrimeIcons} from 'primeng/api';
 
 export class RoutesComponent implements OnInit {
 icon=PrimeIcons.MAP_MARKER
-  constructor(private _router:Router,private route:RouteService,private curr:CurrentUserService, private station:StationService,private _acr:ActivatedRoute) { 
+  constructor(private family:FamilyService, private _router:Router,private route:RouteService,private curr:CurrentUserService, private station:StationService,private _acr:ActivatedRoute,private student:StudentService ,private mess:MessageService) { 
    
   }
-  stationsList!:StationRoute[];
+  stationsList:StationRoute[]=new Array<StationRoute>();
   resRoute:Route=new Route();
   driver:Driver=new Driver();
+  countCancelStation:Map<number,number>=new Map<number,number>();
   direction:string | undefined | null;
   ngOnInit(): void {
     this.curr.getDriver().subscribe(data=>{this.driver=data,console.log("d",this.driver)
@@ -31,7 +36,39 @@ icon=PrimeIcons.MAP_MARKER
     if(this.direction=="false")
     {
       this.stationsList=this.stationsList.reverse();
-    }})})})
+    }
+  this.mess.getMessageByDriverId(this.driver.id).subscribe(mess=>{
+    mess=mess.filter(m=>m.messageTypeId==1),
+    mess.forEach((m,i)=>{
+      this.student.getStudentById(m.studentId).subscribe(s=>{
+        this.family.getFamilyById(s.familyId).subscribe(f=>{
+          // this.cancelStation.push(f.stationId);
+          let x=this.countCancelStation.get(f.stationId)
+          if(x)
+          {
+          this.countCancelStation.set(f.stationId,x+1);
+          this.student.GetCountOfStudentsBystationId(f.stationId,s.routId).subscribe(c=>{
+            if(c==this.countCancelStation.get(f.stationId))
+            {
+             let index=this.stationsList.findIndex(s=>s.stationId==f.stationId)
+             this.stationsList[index].routeId=-1;
+                console.log(index,c,this.countCancelStation.get(f.stationId),this.stationsList[1])
+               
+            }
+         
+          })
+          }
+          else
+          this.countCancelStation.set(f.stationId,1);
+         
+        })
+      })
+    })
+ 
+    
+  })
+  })
+})})
     
 
   }

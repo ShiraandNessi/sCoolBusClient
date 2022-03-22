@@ -34,4 +34,8 @@ export class StudentService {
   {
     return this._http.put(this.baseUrl+newStudent.id , newStudent);
   }
+  GetCountOfStudentsBystationId(routeId:number,stationId:number):Observable <number>
+  {
+    return this._http.get<number>(this.baseUrl+"count/"+stationId+"/" +routeId);
+  }
 }
