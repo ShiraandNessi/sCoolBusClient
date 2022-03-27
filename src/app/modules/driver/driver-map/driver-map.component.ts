@@ -15,12 +15,14 @@ import { StationService } from 'src/app/services/station.service';
 })
 export class DriverMapComponent implements OnInit {
 
-  constructor(private route: RouteService, private curr: CurrentUserService, private station: StationService, private _acr: ActivatedRoute) { }
+  constructor(private route: RouteService, private curr: CurrentUserService, private station: StationService, private _acr: ActivatedRoute) {}
   title = 'my-maps-project';
   zoom = 12
   driver!: Driver;
+ waypts: google.maps.DirectionsWaypoint[] = new Array<google.maps.DirectionsWaypoint>();
+
   resRoute!: Route;
-  stationList!: StationRoute[]
+  stationList: StationRoute[]=[];
   center!: google.maps.LatLngLiteral
   markers = [] as any
   directionsService = [] as any
@@ -31,6 +33,12 @@ export class DriverMapComponent implements OnInit {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       },
+      // navigator.geolocation.getCurrentPosition((position) => {
+      //   this.center = {
+      //     lat: 31.789877910498564,
+      //     lng:35.213321730818194 ,
+      //   },
+      
         // this.markers[0]={
         //   position: {
         //     lat: this.center.lat,
@@ -43,8 +51,8 @@ export class DriverMapComponent implements OnInit {
         //   title: 'Family Home ',
         //   options: { animation: google.maps.Animation.BOUNCE },
         // },
-        this.directionsService = new google.maps.DirectionsService(),
-        this.directionsRenderer = new google.maps.DirectionsRenderer();
+      this.directionsService = new google.maps.DirectionsService(),
+      this.directionsRenderer = new google.maps.DirectionsRenderer();
       const map = new google.maps.Map(
         document.getElementById("map") as HTMLElement,
         {
@@ -52,9 +60,9 @@ export class DriverMapComponent implements OnInit {
           center: { lat: this.center.lat, lng: this.center.lng },
         }
       );
-
+   
       this.directionsRenderer.setMap(map);
-      const waypts: google.maps.DirectionsWaypoint[] = new Array<google.maps.DirectionsWaypoint>();
+      
       this.curr.getDriver().subscribe(data => {
         this.driver = data,
           this.route.getRouteByDriverId(this.driver.id).subscribe(data => {
@@ -62,53 +70,54 @@ export class DriverMapComponent implements OnInit {
               this.station.getStationByRouteId(this.resRoute.id).subscribe(data => {
                 this.stationList = data,
                   this.stationList.forEach((s,i) => {
-                    waypts.push({
-                      location: new google.maps.LatLng(this.stationList[i].pointX, this.stationList[i].pointY),
-                      stopover: true,
+                   this. waypts.push({
+                      location: new google.maps.LatLng(31.82321793816458, 35.19240911920125),
+                      stopover: true
                     }); 
-                    console.log("jjjj", waypts)
+                   
+                      let location=new google.maps.LatLng(31.82321793816458, 35.19240911920125)
+                    
+                    console.log("jjjj",this.waypts[0],location)
                   })
-                 
+                  
               })
           })
-      });
+      });})
+    }
+      // waypts[0]= ({
+      //   location: new google.maps.LatLng(this.stationList[0].pointX, this.stationList[0].pointY),
+      //   stopover: true,
+      // });
+    // console.log("nnn", waypts,
+    //     "cc", this.stationList,
+    //     "ss", new google.maps.LatLng(this.stationList[0].pointY, this.stationList[0].pointX),
+    //   )
 
-      waypts[0] = ({
-        location: new google.maps.LatLng(this.stationList[0].pointX, this.stationList[0].pointX),
-        stopover: true,
-      });
 
-      console.log("nnn", waypts,
-        "cc", this.stationList,
-        "ss", new google.maps.LatLng(this.stationList[0].pointY, this.stationList[0].pointX),
-      )
+  //     this.directionsService.route({
+  //         origin: { lat: this.stationList[0].pointX, lng: this.stationList[0].pointX },
+  //         destination: { lat: this.stationList[1].pointX, lng: this.stationList[1].pointX },
+  //         // waypoints: waypts,
+  //         // optimizeWaypoints: true,
+  //         travelMode: google.maps.TravelMode.DRIVING,
+  //       })
+  //       .then((response: { routes: any[]; }) => {
+  //         this.directionsRenderer.setDirections(response);
 
+  //         const route = response.routes[0];
 
-      this.directionsService
-        .route({
-          origin: { lat: this.stationList[0].pointX, lng: this.stationList[0].pointX },
-          destination: { lat: this.stationList[1].pointX, lng: this.stationList[1].pointX },
-          // waypoints: waypts,
-          // optimizeWaypoints: true,
-          travelMode: google.maps.TravelMode.DRIVING,
-        })
-        .then((response: { routes: any[]; }) => {
-          this.directionsRenderer.setDirections(response);
+  //       })
+  //       .catch((e: string) => window.alert("Directions request failed due to " + e));
+  //     console.log("dd", this.directionsService.route.origin)
+  //   })
 
-          const route = response.routes[0];
+  // }
 
-        })
-        .catch((e: string) => window.alert("Directions request failed due to " + e));
-      console.log("dd", this.directionsService.route.origin)
-    })
-
-  }
-
-  calculateAndDisplayRoute(
-    directionsService: google.maps.DirectionsService,
-    directionsRenderer: google.maps.DirectionsRenderer
-  ) {
-    const waypts: google.maps.DirectionsWaypoint[] = [];
+  // calculateAndDisplayRoute(
+  //   directionsService: google.maps.DirectionsService,
+  //   directionsRenderer: google.maps.DirectionsRenderer
+  // ) {
+  //   const waypts: google.maps.DirectionsWaypoint[] = [];
     // const checkboxArray = document.getElementById(
     //   "waypoints"
     // ) as HTMLSelectElement;
@@ -121,25 +130,25 @@ export class DriverMapComponent implements OnInit {
     //     });
     //   }
     // }
-    this.stationList = this.station.stationList;
-    this.stationList.forEach(s => {
-      waypts.push({
-        location: new google.maps.LatLng(s.pointX, s.pointY),
-        stopover: true,
-      });
-    })
+    // this.stationList = this.station.stationList;
+    // this.stationList.forEach(s => {
+    //   waypts.push({
+    //     location: new google.maps.LatLng(s.pointX, s.pointY),
+    //     stopover: true,
+    //   });
+    // })
 
-    directionsService.route({
-      origin: this.center,
-      destination: new google.maps.LatLng(this.stationList[3].pointX, this.stationList[3].pointY),
-      waypoints: waypts,
-      optimizeWaypoints: true,
-      travelMode: google.maps.TravelMode.DRIVING,
-    })
-      .then((response) => {
-        directionsRenderer.setDirections(response);
+    // directionsService.route({
+    //   origin: this.center,
+    //   destination: new google.maps.LatLng(this.stationList[3].pointX, this.stationList[3].pointY),
+    //   waypoints: waypts,
+    //   optimizeWaypoints: true,
+    //   travelMode: google.maps.TravelMode.DRIVING,
+    // })
+    //   .then((response) => {
+    //     directionsRenderer.setDirections(response);
 
-        const route = response.routes[0];
+    //     const route = response.routes[0];
         // const summaryPanel = document.getElementById(
         //   "directions-panel"
         // ) as HTMLElement;
@@ -155,11 +164,11 @@ export class DriverMapComponent implements OnInit {
         //   summaryPanel.innerHTML += route.legs[i].start_address + " to ";
         //   summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
         //   summaryPanel.innerHTML += route.legs[i].distance!.text + "<br><br>";
-        // }
-        console.log("nnn", waypts)
-      })
-      .catch((e) => window.alert("Directions request failed due to " + e));
-  }
+        // // }
+        // console.log("nnn", waypts)
+      // })
+      // .catch((e) => window.alert("Directions request failed due to " + e));
+  
 
 }
 

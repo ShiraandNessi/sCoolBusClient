@@ -31,9 +31,9 @@ export class StudentDetailsComponent implements OnInit {
     if(this.editStudent){
       console.log("kkk",this.editStudent.firstName)
       this.registerStudentForm= new FormGroup({
-        "firstName":new FormControl(this.editStudent.firstName+" th", Validators.required),
+        "firstName":new FormControl(this.editStudent.firstName.toString(), Validators.required),
         "personalPhone":new FormControl(this.editStudent.phone,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")),
-        "grade":new FormControl(this.editStudent.grade, Validators.required),
+        "grade":new FormControl(this.editStudent.grade+" th", Validators.required),
        "route": new FormControl("", Validators.required)
      });
     }

@@ -15,9 +15,9 @@ export class StationService {
   userToken= this.curUser.currUser.token;
 headers= new HttpHeaders()
   .set( 'Authorization', 'Bearer ' + 'userToken')
-  getAllStations():Observable<Station>
+  getAllStations():Observable<Station[]>
   {
-    return this._http.get<Station>(this.baseUrl);
+    return this._http.get<Station[]>(this.baseUrl);
   }
   getStationById(id:number):Observable<Station>
   {

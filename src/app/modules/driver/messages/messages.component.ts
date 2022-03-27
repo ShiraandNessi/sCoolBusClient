@@ -27,18 +27,9 @@ routeId:number=0;
 stationId:number=0;
  ngOnInit(): void {
     this.curUser.getDriver().subscribe(data=>{this.driver=data,
-      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{this.messegesList=data,data.forEach((m ,i)=>this.family.getFamilyByUserId(m.userId).subscribe(d=>this.name[i]=d)),
-        this.messegesList.forEach((m ,i)=>{this.messType[i]=MessageType[m.messageTypeId];
-          if(m.messageTypeId==1){
-            this.student.getStudentById(m.studentId).subscribe(data=>{
-              this.routeCancel.push(data.routId)
-              this.family.getFamilyById(data.familyId).subscribe(data=>{
-                this.stationCancel.push(data.stationId)
-                // console.log( this.routeCancel, this.stationCancel)
-              })
-            })
-            
-          }}),console.log(this.routeCancel, this.stationCancel)})})
+      this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{
+        this.messegesList=data,data.forEach((m ,i)=>this.family.getFamilyByUserId(m.userId).subscribe(d=>this.name[i]=d))
+        })})
   }
   isRead(mes:Message)
   {
@@ -47,11 +38,3 @@ stationId:number=0;
   }
 
 }
-// if(this.routeCancel.find(r=>r==this.routeId)==this.stationCancel.find(s=>s==this.stationId)&&this.stationCancel.find(s=>s==this.stationId)!=-1){
-//   this.countCancel[this.routeCancel.findIndex(r=>r==this.routeId)]==1;
-//  }
-//  else if(this.routeCancel.find(r=>r==this.routeId)==-1 && this.stationCancel.find(s=>s==this.stationId)==-1){
-//    this.stationCancel.push(this.stationId),
-//    this.routeCancel.push(this.routeId),
-//    this.countCancel[this.routeCancel.findIndex(r=>r==this.routeId)]=1
-//  }
