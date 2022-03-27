@@ -24,7 +24,7 @@ $background:#f4f4f4;
 .V
 {
     width:auto;
-    height:40px;
+    height:50px;
 }
 a{
     border-width: 2px;
@@ -32,7 +32,7 @@ a{
 a:hover{
     background-color: $background;
 }
-@mixin custom-scrollBar ($scrollBar-height: 430px, $bar-color: $deep-gray-color){
+@mixin custom-scrollBar ($scrollBar-height: 560px, $bar-color: $deep-gray-color){
   .custom-scrollBar {
      width: 495px;
      max-height: $scrollBar-height;
@@ -274,7 +274,7 @@ a:action, a:focus, a:hover {
         right: -110px;
         width: 100px;
         top: 0;
-        background: $danger-color;
+        // background: $danger-color;
         padding: 35px 0;
         text-align: center;
         font-size: 16px;
@@ -289,3 +289,6 @@ a:action, a:focus, a:hover {
 
 /*** Default scrolling customize style ***/
 @include custom-scrollBar($scrollBar-height: 500px, $bar-color: $deep-gray-color);
+
+
+
