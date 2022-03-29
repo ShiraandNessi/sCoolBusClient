@@ -185,3 +185,10 @@ body{margin-top:20px;}
 .profile_left {
     background: white;
 }
+@media only screen and (max-width: 500px) {
+
+.img-fluid {
+    max-width: 30%;
+    height: auto;
+}
+}
