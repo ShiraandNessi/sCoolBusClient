@@ -9,7 +9,7 @@ import { StationService } from 'src/app/services/station.service';
 })
 export class FamilyMapComponent implements OnInit {
   title = 'my-maps-project';
-  zoom = 12
+  zoom = 17
   center!: google.maps.LatLngLiteral
   markers = [] as any
   directionsService = [] as any

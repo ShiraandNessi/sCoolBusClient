@@ -23,7 +23,7 @@ const APP_ROUTES:Route[]=[
 @NgModule({
   declarations: [
     AppComponent
-  ],
+ ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -12,19 +12,24 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private _currUser:CurrentUserService,private _router:Router,private messages:MessageService) { }
-currentDriver!:Driver;
-mesLen!:string;
+  constructor(private _currUser: CurrentUserService, private _router: Router, private messages: MessageService) { }
+  currentDriver!: Driver;
+  mesLen!: string;
+  sideBar: boolean = false;
   ngOnInit(): void {
-    this._currUser.getDriver().subscribe(data=>this.currentDriver=data)
-    this._currUser.getDriver().subscribe(data=>{
-      this.messages.getMessageByDriverId(data.id).subscribe(data=>{this.mesLen=(data.filter(m=>m.isRead==false).length).toString()+'+'})})
+    this._currUser.getDriver().subscribe(data => this.currentDriver = data)
+    this._currUser.getDriver().subscribe(data => {
+      this.messages.getMessageByDriverId(data.id).subscribe(data => { this.mesLen = (data.filter(m => m.isRead == false).length).toString() + '+' })
+    })
   }
-navigate(num:number,d?:boolean){
-    switch(num){
-     case 1: this._router.navigate(['user/driver/routes',{direction:d}]) ;break;
-     case 2: this._router.navigate(['user/driver/messages']) ;break;
-    case 3:this._router.navigate(['user/driver/students']) ;break;
+  sideBarFunc(){
+    this.sideBar=!this.sideBar;
+  }
+  navigate(num: number, d?: boolean) {
+    switch (num) {
+      case 1: this._router.navigate(['user/driver/routes', { direction: d }]); break;
+      case 2: this._router.navigate(['user/driver/messages']); break;
+      case 3: this._router.navigate(['user/driver/students']); break;
     }
   }
 }

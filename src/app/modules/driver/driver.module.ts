@@ -18,6 +18,7 @@ import {AccordionModule} from 'primeng/accordion';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DriverMapComponent } from './driver-map/driver-map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SideBarDriverComponent } from './side-bar-driver/side-bar-driver.component';
 // import { SharedModule } from 'primeng/api';
 
 
@@ -39,7 +40,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     RoutesComponent,
     MessagesComponent,
     NavBarComponent,
-    DriverMapComponent
+    DriverMapComponent,
+    SideBarDriverComponent
+    
   ],
   imports: [
     CommonModule,GoogleMapsModule,AccordionModule,BadgeModule,TimelineModule,CardModule,RouterModule],
