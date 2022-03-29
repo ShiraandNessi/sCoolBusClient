@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.27.0/feather.min.js" integrity="sha256-xHkYry2yRjy99N8axsS5UL/xLHghksrFOGKm9HvFZIs=" crossorigin="anonymous"></script>
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
@@ -13,7 +14,9 @@
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">  -->
     
 </head>
-<body>
+<app-family-map></app-family-map>
+<app-send-messege></app-send-messege>
+<!-- <body>
 
   <div class="input-group-prepend">
     <span class="input-group-text" (click)="navigateToStudentDetails(null)"><img src=".\.\.\.\assets\add-user.png" style="width:auto;height:40px">  </span>
@@ -50,7 +53,7 @@
                         </div>
                         <div class="clearfix"></div>
                         <hr>
-                        <h5>Driver Detailsv</h5>
+                        <h5>Driver Details</h5>
                         <ul class="social-links list-inline p-b-10">
                             <li>
                                 <p><i class="fa fa-user"></i>{{driverList[i].firstName}}  {{driverList[i].lastName}}</p>
@@ -68,5 +71,64 @@
             </div>
         </div>
     </div>
-</body>
+</body> -->
+
+<div class="container">
+<div class="row " >
+    <!-- Start col -->
+    <div  class="col-lg-6" *ngFor = "let student of studentList; let i=index">
+        <div class="card m-b-30 well profile_view">
+            <div class="card-body py-5">
+                <div class="row">
+                    <div class="col-lg-3 text-center">
+
+                        <img [src]="student.passport" class="img-fluid mb-3" alt="user" />
+                    </div>
+                    <!-- <div class="pull-right btn-group-sm" >
+                        <a  class="btn btn-success tooltips" data-placement="top" (click)="navigateToStudentDetails(student)"data-toggle="tooltip" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a  class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div> -->
+                    <div class="col-lg-9">
+                        <h1 style="font-weight: bold;">{{student.firstName}} </h1>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                
+                                    <tr>
+                                        <th scope="row" class="p-1"> &nbsp;&nbsp;<img src=".\.\.\.\assets\book.png" style="width:auto;height:15px"> &nbsp;Grade :</th>
+                                        <td class="p-1">{{student.grade}}th</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-1">&nbsp;&nbsp;<img src=".\.\.\.\assets\bus.png" style="width:auto;height:15px"> &nbsp;Route :</th>
+                                        <td class="p-1">{{routeList[i].name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-1">&nbsp;&nbsp;<img src=".\.\.\.\assets\male-user.png" style="width:auto;height:15px"> &nbsp;Driver Name :</th>
+                                        <td class="p-1">{{driverList[i].firstName}}  {{driverList[i].lastName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-1">&nbsp;&nbsp;<img src=".\.\.\.\assets\phone-call.png" style="width:auto;height:15px"> &nbsp;Driver Phone :</th>
+                                        <td class="p-1">{{driverList[i].phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-1">&nbsp;&nbsp;<img src=".\.\.\.\assets\email.png" style="width:auto;height:15px"> &nbsp;Driver Email :</th>
+                                        <td class="p-1">{{driverList[i].email}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End col -->
+</div>
+</div>
 </html>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Driver } from 'src/app/models/driver.model';
 import { Family } from 'src/app/models/family.model';
+import { Route } from 'src/app/models/route.model';
 import { Student } from 'src/app/models/student.model';
 import { CurrentUserService } from 'src/app/services/current-user.service';
 import { DriverService } from 'src/app/services/driver.service';
@@ -17,18 +18,22 @@ import { StudentDetailsComponent } from '../student-details/student-details.comp
 })
 export class FamilyHomeComponent implements OnInit {
 
-  constructor(public dialog:MatDialog,private family:FamilyService,private student:StudentService,private cuurUser:CurrentUserService,private route:RouteService,private driver:DriverService) { }
+  constructor(public dialog:MatDialog,private routeSer: RouteService, private family:FamilyService,private student:StudentService,private cuurUser:CurrentUserService,private route:RouteService,private driver:DriverService) { }
 currfamily!:Family;
 studentList:Student[]=new Array<Student>();
 driverList:Driver[]=new Array<Driver>();
+routeList:Route[]=new Array<Route>();
   ngOnInit(): void {
     this.cuurUser.getFamily().subscribe(data=>{
       this.currfamily=data,
       this.student.getStudentsByFamilyId(this.currfamily.id).subscribe(data=>{
         this.studentList=data,
-        this.studentList.forEach((s,i)=>{ console.log(s,s.routId),this.route.getRouteById(s.routId).subscribe(data=>{
+        this.studentList.forEach((s,i)=>{this.route.getRouteById(s.routId).subscribe(data=>{
           this.driver.getDriverById(data.driverId).subscribe(data=>{
             this.driverList[i]=data
+          }),
+          this.routeSer.getRouteById(s.routId).subscribe(data=>{
+            this.routeList[i]=data
           })
         })})
       })
