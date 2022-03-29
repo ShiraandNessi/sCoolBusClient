@@ -6,7 +6,6 @@ import {BadgeModule} from 'primeng/badge';
 import { StudentsComponent } from './students/students.component';
 // import {MatStepperModule} from '@angular/material/stepper'
 import { Route, RouterModule, RoutesRecognized } from '@angular/router';
-import { LogInActivate } from '../user/log-in-activate';
 import { MessagesComponent } from './messages/messages.component';
 import { RoutesComponent } from './routes/routes.component';
 import { MessageService } from 'src/app/services/message.service';

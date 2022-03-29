@@ -7,18 +7,18 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import {ListboxModule} from 'primeng/listbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Route, RouterModule } from '@angular/router';
-import { LogInActivate } from '../user/log-in-activate';
 import { PassportCameraComponent } from './passport-camera/passport-camera.component';
 import { WebcamModule } from 'ngx-webcam';
 import {FileUploadModule} from 'primeng/fileupload';
 import {MatDialogModule} from "@angular/material/dialog"
 import { FamilyMapComponent } from './family-map/family-map.component';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { LogInActivateGuard } from '../user/log-in-activate.guard';
 
 
 const FAMILY_ROUTE:Route[]=[
-{path:"user/family/student",component:StudentDetailsComponent,canActivate:[LogInActivate]},
-{path:"user/family/student/picture",component:PassportCameraComponent,canActivate:[LogInActivate]}
+{path:"user/family/student",component:StudentDetailsComponent,canActivate:[LogInActivateGuard]},
+{path:"user/family/student/picture",component:PassportCameraComponent,canActivate:[LogInActivateGuard]}
 ]
 @NgModule({
   declarations: [FamilyHomeComponent,SendMessegeComponent,StudentDetailsComponent,PassportCameraComponent,FamilyMapComponent],

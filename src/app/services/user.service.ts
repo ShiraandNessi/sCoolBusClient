@@ -22,6 +22,5 @@ export class UserService {
   isLogIn()
   {
      this._isLogIn=true;
-     console.log(this._isLogIn)
   }
 }
