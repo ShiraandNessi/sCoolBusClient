@@ -36,7 +36,7 @@
                     <div class="custom-scrollBar">
                         <br>
                         <div class="list-group">
-                        <br>
+                            <br>
 
                             <div class="form-group">
                                 <div class="input-group mb-2">
@@ -45,8 +45,38 @@
                         </div> -->
                                     <br>
                                     <br>
-
-                                    <select formControlName="student" class="form-select"
+                                    <tbody style="    width: 100%;"> 
+                                        <tr>
+                                            <th scope="row" class="p-1">&nbsp;&nbsp;<img
+                                                    src=".\.\.\.\assets\little-kid.png" style="width:auto;height:25px; "></th>
+                                            <td class="p-1" style="    width: 90%;"><select formControlName="student" class="form-select"
+                                                    placeholder="choose a student">
+                                                    <option value="">Please select student</option>
+                                                    <option *ngFor="let student of studentList">{{student.firstName}}
+                                                    </option>
+                                                </select></td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td></td>
+                                        </tr>
+                                        <tr  >
+                                            <th scope="row" class="p-1">&nbsp;&nbsp;<img src=".\.\.\.\assets\text.png"
+                                                style="width:auto;height:25px; "></th>
+                                            <td class="p-1"><select formControlName="messegeType" class="form-select"
+                                                    placeholder="choose a type">
+                                        <option value="">Please select type</option>
+                                                    
+                                                    <option>cancel station</option>
+                                                    <option>question</option>
+                                                    <option>other</option>
+                                                </select></td>
+                                        </tr>
+                                    
+                                    </tbody>
+                                 
+                                    
+                                    <!-- <select formControlName="student" class="form-select"
                                         placeholder="choose a student">
                                         <option value="">Please select student</option>
                                         <option *ngFor="let student of studentList">{{student.firstName}}</option>
@@ -58,9 +88,9 @@
                                     <br>
                                     <br>
 
-                                    <!-- <div class="input-group-prepend">
+                                    <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
-                        </div> -->
+                        </div> 
                                     <select formControlName="messegeType" class="form-select"
                                         placeholder="choose a student">
                                         <option value="">Please select type</option>
@@ -69,49 +99,51 @@
                                         <option>other</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="form-group"
-                                *ngIf="messegeForm.value.messegeType=='other' || messegeForm.value.messegeType=='question'">
-                                <!-- <div class="input-group mb-2">
+                                    <div class="form-group"
+                                        *ngIf="messegeForm.value.messegeType=='other' || messegeForm.value.messegeType=='question'">
+                                        <!-- <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                         </div>
                         <textarea  formControlName="messageText" class="form-control" placeholder="text messege" required></textarea>
                     </div> -->
-                                <div class="form-group mt-4">
-                                    <textarea class="form-control" id="message" name="body" rows="3"
-                                        placeholder="Click here to reply"></textarea>
-                                </div>
+                                        <div class=" mt-4">
+                                            <textarea class="form-control" id="message" name="body" rows="3"
+                                                placeholder="Click here to reply"></textarea>
+                                        </div>
 
-                            </div>
-                            <div class="form-group" style=" margin-left: 3%;">
-                                <button type="submit" class="btn btn-success" (click)="sendMessge()"
-                                    style="margin-right: 5%;"><img src=".\.\.\.\assets\send.png"
-                                        style="width:auto;height:20px"> Send</button>
-                                <button type="submit" class="btn btn-danger">Discard</button>
-                            </div>
-                           
+                                    </div>
+                                
+                                    <div class="form-group" style=" margin-left:  9.5%;">
+                                        <br>
+                                        <button type="submit" class="btn btn-success" (click)="sendMessge()"
+                                            ><img src=".\.\.\.\assets\send.png"
+                                                style="width:auto;height:20px"> Send</button>
+                                        <!-- <button type="submit" class="btn btn-danger">Discard</button> -->
+                                    </div>
 
-                            <!-- <div class="text-center">
+
+                                    <!-- <div class="text-center">
                    <span><input type="submit" value="send" (click)="sendMessge()" class="btn btn-info btn-block rounded-0 py-2">
                     <img
                     src=".\.\.\.\assets\send.png" style="width:auto;height:40px">
                 </span> 
                 </div> -->
+                                </div>
+                                <br>
+                            </div>
                         </div>
-                        <br>
                     </div>
+
                 </div>
-            </div>
-
-        </div>
 
 
 
 
 
-        <!--      
+                <!--      
       <div class="container">
         <h2 class="text-center">Contac Form</h2>
         <div class="row justify-content-center">
@@ -170,6 +202,8 @@
                     </div>
         </div>
     </div> -->
+            </div>
+        </div>
     </form>
 </body>
 

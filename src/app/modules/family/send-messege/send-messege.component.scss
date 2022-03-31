@@ -477,7 +477,20 @@ a:action, a:focus, a:hover {
   font-size: 14px;
   color: #e1e6ef;
 }
-
+.form-control {
+  display: block;
+  margin-left: 9.5%;
+  width: 77%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 @media (max-width: 767px) {
   .email-app {
       flex-direction: column;
