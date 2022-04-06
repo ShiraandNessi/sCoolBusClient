@@ -28,7 +28,7 @@ stationId:number=0;
  ngOnInit(): void {
     this.curUser.getDriver().subscribe(data=>{this.driver=data,
       this.messages.getMessageByDriverId(this.driver.id).subscribe(data=>{
-        this.messegesList=data,data.forEach((m ,i)=>{this.messType[i]=MessageType[m.messageTypeId-1]
+        this.messegesList=data,this.messegesList=this.messegesList.reverse(),data.forEach((m ,i)=>{this.messType[i]=MessageType[m.messageTypeId-1]
           this.family.getFamilyByUserId(m.userId).subscribe(d=>this.name[i]=d)})
         })})
   }

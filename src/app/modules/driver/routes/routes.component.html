@@ -9,18 +9,22 @@
 </head>
 <body>
    <!-- <app-driver-map></app-driver-map> -->
-<form>	
+<form>
+    <div class="content">	
 	<p-timeline [value]="stationsList" >
-		<ng-template pTemplate="content" let-station >
-			<span class="custom-marker p-shadow-2" >
+        <ng-template pTemplate="marker" >
+            <span class="custom-marker shadow-2">
                 <i [ngClass]="icon"></i>
             </span>
-			<div  *ngIf="station.routeId!=-1">&#123;&#123;station.address&#125;&#125;</div>
+        </ng-template>
+		<ng-template pTemplate="content" let-station >
+			<div style="width: 500px;" *ngIf="station.routeId!=-1">&#123;&#123;station.address&#125;&#125;</div>
 			<div  *ngIf="station.routeId==-1" style="text-decoration-line: line-through;">&#123;&#123;station.address&#125;&#125;</div>
 
 		</ng-template>
 	</p-timeline>
 <button type="button"class="btn"(click)="toMap()">Map</button>
+    </div>
 </form>
 </body>
 </html>
