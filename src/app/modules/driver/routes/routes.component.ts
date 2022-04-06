@@ -21,10 +21,10 @@ import { Message } from 'src/app/models/message.model';
 })
 
 export class RoutesComponent implements OnInit {
-icon=PrimeIcons.MAP_MARKER
   constructor(private family:FamilyService, private _router:Router,private route:RouteService,private curr:CurrentUserService, private station:StationService,private _acr:ActivatedRoute,private student:StudentService ,private mess:MessageService) { 
    
   }
+  icon! : PrimeIcons
   stationsList:StationRoute[]=new Array<StationRoute>();
   messagesList!:Message[];
   resRoute:Route=new Route();
@@ -32,8 +32,10 @@ icon=PrimeIcons.MAP_MARKER
   countCancelStation:Map<number,number>=new Map<number,number>();
   direction:string | undefined | null;
   ngOnInit(): void {
-    this.curr.getDriver().subscribe(data=>{this.driver=data,console.log("d",this.driver)
-    this.route.getRouteByDriverId(this.driver.id).subscribe(data=>{this.resRoute=data,console.log("r",this.resRoute)
+    this.icon=PrimeIcons.MAP_MARKER
+    console.log(this.icon,typeof(this.icon))
+    this.curr.getDriver().subscribe(data=>{this.driver=data
+    this.route.getRouteByDriverId(this.driver.id).subscribe(data=>{this.resRoute=data
     this.station.getStationByRouteId(this.resRoute.id).subscribe(data=>{this.stationsList=data,this.direction= this._acr.snapshot.paramMap.get('direction');
     if(this.direction=="false")
     {
