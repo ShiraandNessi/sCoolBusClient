@@ -14,6 +14,8 @@ import {MatDialogModule} from "@angular/material/dialog"
 import { FamilyMapComponent } from './family-map/family-map.component';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { LogInActivateGuard } from '../user/log-in-activate.guard';
+import {TooltipModule} from 'primeng/tooltip';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 const FAMILY_ROUTE:Route[]=[
@@ -23,7 +25,7 @@ const FAMILY_ROUTE:Route[]=[
 @NgModule({
   declarations: [FamilyHomeComponent,SendMessegeComponent,StudentDetailsComponent,PassportCameraComponent,FamilyMapComponent],
   imports: [
-    CommonModule,ListboxModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule.forChild(FAMILY_ROUTE)
+    CommonModule,ListboxModule,MatTooltipModule,TooltipModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule.forChild(FAMILY_ROUTE)
   ],
   providers:[FamilyService]
 })

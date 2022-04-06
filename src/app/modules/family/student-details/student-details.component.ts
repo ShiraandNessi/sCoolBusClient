@@ -73,6 +73,9 @@ navigateToPicture()
   
   // this.nav.navigate(['user/family/student/picture']) 
 }
+closeDialog(){
+  
+}
 
 
 }

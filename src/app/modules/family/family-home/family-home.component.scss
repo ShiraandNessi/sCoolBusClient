@@ -185,10 +185,33 @@ body{margin-top:20px;}
 .profile_left {
     background: white;
 }
+.side-to-side{
+    display: flex; 
+    justify-content: space-around;
+}
 @media only screen and (max-width: 500px) {
 
 .img-fluid {
     max-width: 30%;
     height: auto;
+    margin-left: -80%;
 }
+.side-to-side{
+    display: block; 
+    justify-content: space-around;
+}
+}
+@media only screen and (max-width: 300px) {
+    .img-fluid {
+        max-width: 30%;
+        height: auto;
+        margin-left: -80%;
+    }
+    .side-to-side{
+        display: block; 
+        justify-content: space-around;
+    }
+    th{
+        font-size: smaller;
+    }
 }
