@@ -65,12 +65,10 @@
                 </div> <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        <span class="input-group-text"> <img src="../../../../assets/maps-and-flags.png" style="width:auto;height:70px" (click)=chooseStation()> </span>
                     </div>
-                    <input name="" class="form-control" type="password" placeholder="Password" name="pass"
-                        formControlName="pass" required>
                 </div>
-                
+            
                 <i class="fa fa-whatsapp"></i>
                 <div>
                     <div class="form-check">
@@ -86,7 +84,10 @@
                         </label>
                     </div>
                 </div>
-               
+
+                <div class="btn1">
+                    <button type="submit" class="btn btn-outline-primary" (click)=chooseStation()>choose a station</button>
+                </div>
                 <div class="btn1">
                     <button type="submit" class="btn btn-outline-primary" (click)=Register()>Register</button>
                 </div>

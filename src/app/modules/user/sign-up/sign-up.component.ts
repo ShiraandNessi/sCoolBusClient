@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Family } from 'src/app/models/family.model';
+import { FamilyMapComponent } from '../../family/family-map/family-map.component';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,7 +12,7 @@ import { Family } from 'src/app/models/family.model';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(private _acr: ActivatedRoute) { }
+  constructor(private _acr: ActivatedRoute,public dialog:MatDialog) { }
   // email!: string | null
   // pass!: string | null
   newFamily:Family=new Family();
@@ -32,6 +34,12 @@ export class SignUpComponent implements OnInit {
 
 
 });
+chooseStation(){
+  let dialogRef = this.dialog.open(FamilyMapComponent, {
+    height: '600px',
+    width: '600px'
+  });
+}
 Register()
 {
   this.newFamily.email= this.registerForm.controls["email"].value;
