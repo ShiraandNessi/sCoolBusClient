@@ -39,7 +39,7 @@ export class FamilyMapComponent implements OnInit {
                 color: 'red',
                 text: 'you are here',
               },
-              title: 'Family Home ',
+              title: 'Your Home ',
               options: { animation: google.maps.Animation.BOUNCE },
               setClickable: true
             },
