@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 </head>
@@ -12,16 +13,17 @@
   <app-side-bar-driver *ngIf="sideBar"></app-side-bar-driver>
     <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" style="color:white">
-            <div class="circular_image">
+            <!-- <div class="circular_image">
                 <img src=".\.\.\.\assets\schoolBus.png" class=""/>
-            </div>
-           {{currentDriver.firstName}}&nbsp;{{currentDriver.lastName}}</a>
+            </div> -->
+            <div class="circle"> {{currentDriver.firstName[0]}}&nbsp;{{currentDriver.lastName[0]}}</div>
+            {{currentDriver.firstName}}&nbsp;{{currentDriver.lastName}}</a>
         <button class="navbar-toggler" type="button" (click)="sideBarFunc()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <img src=".\.\.\.\assets\schoolBusLogo2.png" class="logo"/>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class=" navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link" (click)="navigate(3)">
                 <img src=".\.\.\.\assets\students-black.png" class="image"><br>

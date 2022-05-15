@@ -33,6 +33,21 @@
   .circular_image img{
     width:100%;
   }
+  .circle {
+  background-color: #ffc60b;
+  border-radius: 50%;
+  display: inline-block;
+  width:70px;
+  height: 70px;
+  vertical-align:middle;
+  margin-left: 25px;
+  color:black;
+  font-family: 'Brush Script MT', cursive;
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: -5px;
+  padding-top: 5%;
+  }
 .navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
   font-size: 0.60rem;
   position: absolute;
