@@ -12,9 +12,9 @@ export class StationService {
   
   constructor(private _http:HttpClient,private curUser:CurrentUserService) { }
   stationList!:StationRoute[];
-  userToken= this.curUser.currUser.token;
-headers= new HttpHeaders()
-  .set( 'Authorization', 'Bearer ' + 'userToken')
+//   userToken= this.curUser.currUser.token;
+// headers= new HttpHeaders()
+//   .set( 'Authorization', 'Bearer ' + 'userToken')
   getAllStations():Observable<Station[]>
   {
     return this._http.get<Station[]>(this.baseUrl);
@@ -25,7 +25,7 @@ headers= new HttpHeaders()
   }
   getStationByRouteId(routeId:number):Observable<StationRoute[]>
   {
-    return this._http.get<StationRoute[]>(this.baseUrl+"route/"+routeId,{ 'headers': this.headers })
+    return this._http.get<StationRoute[]>(this.baseUrl+"route/"+routeId)//{ 'headers': this.headers })
   }
   getStationByDriverId(driverId:number):Observable<StationDriver[]>
   {

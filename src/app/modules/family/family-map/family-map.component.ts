@@ -15,14 +15,14 @@ export class FamilyMapComponent implements OnInit {
   directionsService = [] as any
   directionsRenderer = [] as any
   stationsList!: Station[];
-  
+
   image = {
     url: ".\.\.\.\assets\location-pin.png",
     size: new google.maps.Size(20, 32)
   }
   constructor(private station: StationService) { }
   ngOnInit() {
-    var map: google.maps.Map ;
+    var map: google.maps.Map;
     this.station.getAllStations().subscribe(data => {
       this.stationsList = data,
         navigator.geolocation.getCurrentPosition((position) => {
@@ -55,8 +55,10 @@ export class FamilyMapComponent implements OnInit {
 
           this.directionsRenderer.setMap(map);
 
-
         })
+      
+      // google.maps.event.addListener((this.markers[0], 'onclick',function(){return console.log("ggggggggggggggggggg")});
+
       this.stationsList.forEach((s, i) => {
         this.markers.push({
           position: {
@@ -71,8 +73,8 @@ export class FamilyMapComponent implements OnInit {
           title: s.address,
           setClickable: true
         })
-       
-        // google.maps.event.addListener(this.markers[i], 'onClick', function() {console.log("ggggggggggggggggggg");});
+
+        google.maps.event.addListener(this.markers[i], 'onclick', function () { console.log("ggggggggggggggggggg") });
 
       })
       const infoWindow = new google.maps.InfoWindow({
@@ -80,22 +82,18 @@ export class FamilyMapComponent implements OnInit {
         disableAutoPan: true,
       });
       //markers can only be keyboard focusable when they have click listeners
-     // open info window when marker is clicked
+      // open info window when marker is clicked
       // this.markers[0].addListener("click", () => {
       //   infoWindow.setContent(this.markers[0].label);
       //   infoWindow.open(this.map, this.markers[0]);
       // });
+      
     })
- this.markers.forEach((m: { addListener: (arg0: string, arg1: () => void) => void; getPosition: () => google.maps.LatLng; })=>{
-  google.maps.event.trigger(m, 'click',()=>{
+    this.markers.forEach((m: { addListener: (arg0: string, arg1: () => void) => void; getPosition: () => google.maps.LatLng; }) => {
+      google.maps.event.trigger(m, 'click', () => {
 
-          console.log("working!!!!")
-        });
-      })
-  }
-
-
-
-
-
-}
+        console.log("working!!!!")
+      });
+    })
+ 
+  }}
