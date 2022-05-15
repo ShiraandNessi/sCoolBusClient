@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+</head>
+<body>
+    <app-side-bar-family *ngIf="sideBar"></app-side-bar-family>
+  <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" style="color:white">
+            <div class="circular_image">
+                <img src=".\.\.\.\assets\schoolBus.png" class=""/>
+            </div>
+           {{currentFamily.fatherName}}&nbsp;and &nbsp;{{currentFamily.motherName}}&nbsp;{{currentFamily.familyName}}</a>
+        <button class="navbar-toggler" type="button" (click)="sideBarFunc()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <img src=".\.\.\.\assets\schoolBusLogo2.png" class="logo"/>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" (click)="navigate(3)">
+                <img src=".\.\.\.\assets\students-black.png" class="image"><br>
+                Children
+              </a>
+            </li>
+            <!-- <li class="nav-item active">
+              <a class="nav-link" >
+                <img src=".\.\.\.\assets\students-black.png" class="image">
+                Students
+                </a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" (click)="navigate(2)">
+                <img src=".\.\.\.\assets\sendMessage.png" class="image">
+                Send Meesages
+              </a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbarDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src=".\.\.\.\assets\distance-black.png" class="image"><br>
+                Route
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" >Action</a>
+                <a class="dropdown-item" >Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" >Something else here</a>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </nav> 
+      <router-outlet></router-outlet>
+</body>
+</html>
+
+
+
+
