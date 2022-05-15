@@ -34,7 +34,7 @@ a:hover{
 }
 @mixin custom-scrollBar ($scrollBar-height: 560px, $bar-color: $deep-gray-color){
   .custom-scrollBar {
-     width: 495px;
+     width: 90%;
      max-height: $scrollBar-height;
      overflow: hidden;
 
@@ -96,8 +96,8 @@ a:action, a:focus, a:hover {
 }
 
 .notification-container {
-  width: 500px;
-  height: 675px;
+  width: 40%;
+  height: fit-content;
   margin: 0 auto;
   background: $light-gray-color;
   position: relative;
@@ -191,7 +191,7 @@ a:action, a:focus, a:hover {
   // Notification list box
   .notification-list-box {
     .list-group {
-      margin: auto 15px;
+      margin: 8%;
       box-shadow: 0px 4px 8px 0px #d8d4d4;
       
       .table-content-cell:nth-child(2) {
@@ -229,7 +229,7 @@ a:action, a:focus, a:hover {
           }
         }
       }
-      
+    
       .media {
         width: 82%;
       }
@@ -291,4 +291,8 @@ a:action, a:focus, a:hover {
 @include custom-scrollBar($scrollBar-height: 500px, $bar-color: $deep-gray-color);
 
 
-
+@media only screen and (max-width: 500px) {
+  .notification-container {
+    width: 80%;
+  }
+}

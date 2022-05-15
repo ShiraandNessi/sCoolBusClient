@@ -10,6 +10,8 @@
 <body>
    <!-- <app-driver-map></app-driver-map> -->
 <form>
+    <br>
+    <br>
     <div class="content">	
 	<p-timeline [value]="stationsList" >
         <ng-template pTemplate="marker" >
@@ -23,8 +25,10 @@
 
 		</ng-template>
 	</p-timeline>
-<button type="button"class="btn"(click)="toMap()">Map</button>
+<!-- <button id="map-btn" type="button"class="btn"(click)="toMap()"><img src="../../../../assets/map.png">Map</button> -->
     </div>
 </form>
+<app-driver-map></app-driver-map>
+
 </body>
 </html>

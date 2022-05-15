@@ -53,6 +53,7 @@ export class DriverMapComponent implements OnInit {
         {
           zoom: 4,
           center: { lat: this.center.lat, lng: this.center.lng },
+          
         }
       );
 
