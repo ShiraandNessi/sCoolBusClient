@@ -17,18 +17,22 @@ import { LogInActivateGuard } from '../user/log-in-activate.guard';
 import {TooltipModule} from 'primeng/tooltip';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {CascadeSelectModule} from 'primeng/cascadeselect';
+import { NavBarFamilyComponent } from './nav-bar-family/nav-bar-family.component';
+import { SideBarFamilyComponent } from './side-bar-family/side-bar-family.component';
 
 
 
 
-const FAMILY_ROUTE:Route[]=[
-{path:"user/family/student",component:StudentDetailsComponent,canActivate:[LogInActivateGuard]},
-{path:"user/family/student/picture",component:PassportCameraComponent,canActivate:[LogInActivateGuard]}
-]
+// const FAMILY_ROUTE:Route[]=[
+//   {path:"user/family/familyHome",component:FamilyHomeComponent,canActivate:[LogInActivateGuard]},
+//   {path:"user/family/sendMessages",component:SendMessegeComponent,canActivate:[LogInActivateGuard]},
+// {path:"user/family/student",component:StudentDetailsComponent,canActivate:[LogInActivateGuard]},
+// {path:"user/family/student/picture",component:PassportCameraComponent,canActivate:[LogInActivateGuard]}
+// ]
 @NgModule({
-  declarations: [FamilyHomeComponent,SendMessegeComponent,StudentDetailsComponent,PassportCameraComponent,FamilyMapComponent],
+  declarations: [FamilyHomeComponent,SendMessegeComponent,StudentDetailsComponent,PassportCameraComponent,FamilyMapComponent, NavBarFamilyComponent, SideBarFamilyComponent],
   imports: [
-    CommonModule,ListboxModule,MatTooltipModule,TooltipModule,CascadeSelectModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule.forChild(FAMILY_ROUTE)
+    CommonModule,ListboxModule,MatTooltipModule,TooltipModule,CascadeSelectModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule
   ],
   providers:[FamilyService]
 })

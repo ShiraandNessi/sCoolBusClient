@@ -19,6 +19,11 @@ import { StudentsComponent } from '../driver/students/students.component';
 import { MessagesComponent } from '../driver/messages/messages.component';
 import { DriverMapComponent } from '../driver/driver-map/driver-map.component';
 import { LogInActivateGuard } from './log-in-activate.guard';
+import { NavBarFamilyComponent } from '../family/nav-bar-family/nav-bar-family.component';
+import { SendMessegeComponent } from '../family/send-messege/send-messege.component';
+import { StudentDetailsComponent } from '../family/student-details/student-details.component';
+import { PassportCameraComponent } from '../family/passport-camera/passport-camera.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -32,7 +37,13 @@ const USER_ROUTE:Route[]=[
   {path:"routes/map",component:DriverMapComponent,canActivate:[LogInActivateGuard]}
   ]},
   {path:"user/manager",component:ManagerHomeComponent,canActivate:[LogInActivateGuard]},
-  {path:"user/family",component:FamilyHomeComponent,canActivate:[LogInActivateGuard]},
+  {path:"user/family",component:NavBarFamilyComponent,canActivate:[LogInActivateGuard],children:[
+    {path:"",component:FamilyHomeComponent,canActivate:[LogInActivateGuard]},
+    {path:"familyHome",component:FamilyHomeComponent,canActivate:[LogInActivateGuard]},
+    {path:"sendMessages",component:SendMessegeComponent,canActivate:[LogInActivateGuard]},
+  {path:"student",component:StudentDetailsComponent,canActivate:[LogInActivateGuard]},
+  {path:"student/picture",component:PassportCameraComponent,canActivate:[LogInActivateGuard]}
+  ]},
   // {path:"user/manager",loadChildren: () => import("..//manager/manager.module").then(m => m.ManagerModule)},
   // {path:"user/family", loadChildren: () => import("..//family/family.module").then(m => m.FamilyModule)},
   {path:"user/signUp",component:SignUpComponent,canActivate:[LogInActivateGuard]}
@@ -43,7 +54,7 @@ const USER_ROUTE:Route[]=[
   declarations: [LogInComponent, SignUpComponent,StepsComponent],
   imports: [ReactiveFormsModule,CommonModule,ManagerModule,
     FamilyModule,DriverModule,RouterModule.forChild(USER_ROUTE),
-    FormsModule,StepsModule],
+    FormsModule,StepsModule,MatDialogModule],
   providers:[UserService,LogInActivateGuard]
 })
 export class UserModule {}

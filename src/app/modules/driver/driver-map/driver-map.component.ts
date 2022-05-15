@@ -20,8 +20,6 @@ export class DriverMapComponent implements OnInit {
   zoom = 12
   driver!: Driver;
   waypts: google.maps.DirectionsWaypoint[] = new Array<google.maps.DirectionsWaypoint>();
-  start = "Bangor, ME";
-  finish = "Tampa, FL";
   resRoute!: Route;
   stationList: StationRoute[] = [];
   center!: google.maps.LatLngLiteral
@@ -53,7 +51,7 @@ export class DriverMapComponent implements OnInit {
       const map = new google.maps.Map(
         document.getElementById("map") as HTMLElement,
         {
-          zoom: 6,
+          zoom: 4,
           center: { lat: this.center.lat, lng: this.center.lng },
         }
       );
@@ -77,7 +75,7 @@ export class DriverMapComponent implements OnInit {
                   console.log("new", this.waypts ),
               
                   this.directionsService.route({
-                    origin: { lat: this.stationList[0].pointX, lng: this.stationList[0].pointY },
+                    origin: { lat: this.stationList[1].pointX, lng: this.stationList[1].pointY },
                     destination: { lat: this.stationList[8].pointX, lng: this.stationList[8].pointY },
                     waypoints: this.waypts,
                      optimizeWaypoints: true,
