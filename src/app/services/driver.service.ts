@@ -28,11 +28,11 @@ export class DriverService {
   addNewDriver(newDriver: Driver):Observable<Driver> { 
     return this._http.post<Driver>(this.baseUrl, newDriver);
   }
-  updateDriver(driverToUpdate:Driver,newPassword:string):Observable<any>
+  updateDriver(driverToUpdate:Driver,newPassword?:string):Observable<any>
   {
     let user:UserSignIn=new UserSignIn;
     user.newPassword=newPassword;
-    return this._http.put<Driver>(this.baseUrl+driverToUpdate.id+"/?userDetails="+newPassword,driverToUpdate);
+    return this._http.put<Driver>(this.baseUrl+driverToUpdate.id+"/?userDetails="+user,driverToUpdate);
   }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-side-bar-family',
   templateUrl: './side-bar-family.component.html',
@@ -8,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class SideBarFamilyComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
 }

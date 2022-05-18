@@ -19,6 +19,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DriverMapComponent } from './driver-map/driver-map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { SideBarDriverComponent } from './side-bar-driver/side-bar-driver.component';
+import { StudentStatusService } from 'src/app/services/studentStatus.service';
 // import { SharedModule } from 'primeng/api';
 
 
@@ -45,7 +46,7 @@ import { SideBarDriverComponent } from './side-bar-driver/side-bar-driver.compon
     
   ],
   imports: [
-    CommonModule,GoogleMapsModule,AccordionModule,BadgeModule,TimelineModule,CardModule,RouterModule],
-  providers: [DriverService,MessageService,RouteService,StationService,StudentService]
+    CommonModule,AccordionModule,BadgeModule,TimelineModule,CardModule,RouterModule,GoogleMapsModule],
+  providers: [DriverService,MessageService,RouteService,StationService,StudentService,StudentStatusService]
 })
 export class DriverModule { }

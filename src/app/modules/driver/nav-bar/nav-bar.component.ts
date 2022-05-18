@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { Driver } from 'src/app/models/driver.model';
 import { User } from 'src/app/models/user.model';
 import { CurrentUserService } from 'src/app/services/current-user.service';
+import { DriverService } from 'src/app/services/driver.service';
 import { MessageService } from 'src/app/services/message.service';
+import { StudentStatusService } from 'src/app/services/studentStatus.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,20 +14,47 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private _currUser: CurrentUserService, private _router: Router, private messages: MessageService) { }
+  constructor(private _currUser: CurrentUserService, private _router: Router, private messages: MessageService, private _driver: DriverService) { }
   currentDriver!: Driver;
   mesLen!: string;
   sideBar: boolean = false;
+  directionsService = [] as any
+  directionsRenderer = [] as any
+ center!: google.maps.LatLngLiteral
   ngOnInit(): void {
     this._currUser.getDriver().subscribe(data => this.currentDriver = data)
     this._currUser.getDriver().subscribe(data => {
       this.messages.getMessageByDriverId(data.id).subscribe(data => { this.mesLen = (data.filter(m => m.isRead == false).length).toString() + '+' })
     })
-    runPosition()
   }
-  sideBarFunc(){
-    this.sideBar=!this.sideBar;
+  sideBarFunc() {
+    this.sideBar = !this.sideBar;
   }
+ async startDriving() {
+  const getPos = await this.getCurrPosition()
+  const updatePos = await this.updatePosition()
+
+  }
+
+  getCurrPosition(){
+
+      navigator.geolocation.getCurrentPosition((position) => {
+       this. center = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        }
+      })
+   return this.center;
+ 
+  }
+  updatePosition(){
+    this.currentDriver.currPositionX = this.center.lat;
+    this.currentDriver.currPositionY = this.center.lng;
+   this._driver.updateDriver(this.currentDriver).subscribe(res => console.log("put working!!!"))
+
+    return this.currentDriver
+  }
+  
   navigate(num: number, d?: boolean) {
     switch (num) {
       case 1: this._router.navigate(['user/driver/routes', { direction: d }]); break;

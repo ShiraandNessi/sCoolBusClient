@@ -9,5 +9,8 @@ export class Driver{
     phone!:string;
     email!:string;
     userId!:string; 
-    password!:string;    
+    password!:string;
+    currPositionX?:number;
+    currPositionY?:number;
+
 }

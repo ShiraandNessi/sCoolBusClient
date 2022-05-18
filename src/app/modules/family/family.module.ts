@@ -19,6 +19,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {CascadeSelectModule} from 'primeng/cascadeselect';
 import { NavBarFamilyComponent } from './nav-bar-family/nav-bar-family.component';
 import { SideBarFamilyComponent } from './side-bar-family/side-bar-family.component';
+import { StudentStatusService } from 'src/app/services/studentStatus.service';
 
 
 
@@ -34,6 +35,6 @@ import { SideBarFamilyComponent } from './side-bar-family/side-bar-family.compon
   imports: [
     CommonModule,ListboxModule,MatTooltipModule,TooltipModule,CascadeSelectModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule
   ],
-  providers:[FamilyService]
+  providers:[FamilyService,StudentStatusService]
 })
 export class FamilyModule { }
