@@ -3,7 +3,8 @@ import { Time } from "@angular/common";
 export class Route
 {
     constructor() {
-        this.id=0
+        this.id=0,
+        this.name=""
      }
     id:number;
     name!:string;

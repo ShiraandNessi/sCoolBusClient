@@ -12,16 +12,22 @@
     <app-side-bar-family *ngIf="sideBar"></app-side-bar-family>
   <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" style="color:white">
-            <div class="circular_image">
+            <!-- <div class="circular_image">
                 <img src=".\.\.\.\assets\schoolBus.png" class=""/>
-            </div>
+            </div> -->
+            <div class="circle"> {{currentFamily.familyName}}</div>
+
            {{currentFamily.fatherName}}&nbsp;and &nbsp;{{currentFamily.motherName}}&nbsp;{{currentFamily.familyName}}</a>
         <button class="navbar-toggler" type="button" (click)="sideBarFunc()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <img src=".\.\.\.\assets\schoolBusLogo2.png" class="logo"/>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" (click)="navigate(3)">
+                <img src=".\.\.\.\assets\schoolBusLogo2.png" class="logo"/><br>
+              </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" (click)="navigate(3)">
                 <img src=".\.\.\.\assets\students-black.png" class="image"><br>
@@ -36,8 +42,8 @@
             </li> -->
             <li class="nav-item">
               <a class="nav-link" (click)="navigate(2)">
-                <img src=".\.\.\.\assets\sendMessage.png" class="image">
-                Send Meesages
+                <img src=".\.\.\.\assets\sendMessage.png" class="image"><br>
+                Send <br> Meesages
               </a>
             </li>
             <!-- <li class="nav-item dropdown">

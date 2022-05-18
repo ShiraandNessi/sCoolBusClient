@@ -10,7 +10,7 @@
   height: 50px;
 }
 .logo{
-  width: 8%;
+  width: 20%;
   border-radius: 5%;
   margin-right: 33%;
 }
@@ -39,6 +39,20 @@
   right: 0;
   font-family: sans-serif;
 }
+.circle {
+  background-color: #ffc60b;
+  border-radius: 50%;
+  display: inline-block;
+  width:70px;
+  height: 70px;
+  vertical-align:middle;
+  margin-left: 25px;
+  color:black;
+  font-family: 'Brush Script MT', cursive;
+  text-align: center;
+  font-size: 35px;
+  padding-top: 3%;
+  }
 
 .navbar-icon-top .navbar-nav .nav-link > .fa {
   top: 3px;
