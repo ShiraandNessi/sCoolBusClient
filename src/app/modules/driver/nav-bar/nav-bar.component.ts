@@ -21,6 +21,7 @@ export class NavBarComponent implements OnInit {
     this._currUser.getDriver().subscribe(data => {
       this.messages.getMessageByDriverId(data.id).subscribe(data => { this.mesLen = (data.filter(m => m.isRead == false).length).toString() + '+' })
     })
+    runPosition()
   }
   sideBarFunc(){
     this.sideBar=!this.sideBar;
