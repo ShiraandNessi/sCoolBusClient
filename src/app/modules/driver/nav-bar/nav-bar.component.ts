@@ -6,6 +6,7 @@ import { CurrentUserService } from 'src/app/services/current-user.service';
 import { DriverService } from 'src/app/services/driver.service';
 import { MessageService } from 'src/app/services/message.service';
 import { StudentStatusService } from 'src/app/services/studentStatus.service';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
@@ -21,6 +22,8 @@ export class NavBarComponent implements OnInit {
   directionsService = [] as any
   directionsRenderer = [] as any
  center!: google.maps.LatLngLiteral
+ subscription!: Subscription;
+ 
   ngOnInit(): void {
     this._currUser.getDriver().subscribe(data => this.currentDriver = data)
     this._currUser.getDriver().subscribe(data => {
@@ -31,11 +34,13 @@ export class NavBarComponent implements OnInit {
     this.sideBar = !this.sideBar;
   }
  async startDriving() {
-  const getPos = await this.getCurrPosition()
-  const updatePos = await this.updatePosition()
-
+  const source = interval(10000);
+  this.subscription = source.subscribe(val => this.startDrivingAsync());
   }
-
+  async startDrivingAsync() {
+    const getPos = await this.getCurrPosition()
+    const updatePos = await this.updatePosition()
+  }
   getCurrPosition(){
 
       navigator.geolocation.getCurrentPosition((position) => {
@@ -61,6 +66,9 @@ export class NavBarComponent implements OnInit {
       case 2: this._router.navigate(['user/driver/messages']); break;
       case 3: this._router.navigate(['user/driver/students']); break;
     }
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
 

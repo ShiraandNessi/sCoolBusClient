@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { interval, Subscription } from 'rxjs';
 import { Driver } from 'src/app/models/driver.model';
 import { Family } from 'src/app/models/family.model';
 import { Student } from 'src/app/models/student.model';
@@ -15,6 +16,7 @@ import { StudentStatusService } from 'src/app/services/studentStatus.service';
   styleUrls: ['./nav-bar-family.component.scss']
 })
 export class NavBarFamilyComponent implements OnInit {
+  subscription!: Subscription;
 
   constructor(private currUser: CurrentUserService, private student: StudentService, private routeSer: RouteService, private _router: Router, private _studentStatus: StudentStatusService, private driver: DriverService) { }
   sideBar: boolean = false;
@@ -31,13 +33,24 @@ export class NavBarFamilyComponent implements OnInit {
               this.routeSer.getRouteById(s.routId).subscribe(data => {
                 this.driver.getDriverById(data.driverId).subscribe(data => {
                   this.driverList[i] = data,
-                 this._studentStatus.sendEmail(s.id,this.driverList[i].id).subscribe(res=>alert("the mail sent!!!!"))
+                 this.checkDest(s.id,this.driverList[i].id)
                 })
               })
             })
         })
     })
   }
+  checkDest(sId:number,driverId:number){
+    const source = interval(20000);
+    this.subscription = source.subscribe(val => this.sendEmail(sId,driverId));
+
+  }
+  sendEmail(sId: number, driverId: number) {
+    this._studentStatus.sendEmail(sId,driverId).subscribe(res=>{
+      if(res)
+        alert("the mail sent!!!!")})
+  }
+  
   sideBarFunc() {
     this.sideBar = !this.sideBar;
   }
