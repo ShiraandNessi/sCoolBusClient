@@ -52,10 +52,12 @@ export class NavBarFamilyComponent implements OnInit {
       if(res){
         Swal.fire({
           // position: 'top-end',
+          imageUrl:'././././assets/bell.png',
+          imageHeight:150,
+          imageWidth:150,
           icon: 'warning',
           title: 'The school bus is clousing!!',
           showConfirmButton: false,
-          timer: 2000
         })
       }
         // this.sent=true
