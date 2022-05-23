@@ -56,7 +56,7 @@ export class NavBarFamilyComponent implements OnInit {
           imageHeight:150,
           imageWidth:150,
           icon: 'warning',
-          title: 'The school bus is clousing!!',
+          title: 'The school bus is approaching',
           showConfirmButton: false,
         })
       }
