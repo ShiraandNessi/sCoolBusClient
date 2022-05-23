@@ -16,29 +16,35 @@ export class SignUpComponent implements OnInit {
   // email!: string | null
   // pass!: string | null
   newFamily:Family=new Family();
+  submitted:boolean=false;
+  registerForm:FormGroup;
   ngOnInit(): void {
-    // this.email= this._acr.snapshot.paramMap.get('newEmail');
-    // this.pass= this._acr.snapshot.paramMap.get('newPass');
+   this.registerForm = new FormGroup({
+      familyName:new FormControl("", Validators.required),
+      fatherName:new FormControl("", Validators.required),
+      motherName:new FormControl("", Validators.required),
+      motherPhone:new FormControl("",[ Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+      fatherPhone:new FormControl("",[ Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+      address:new FormControl("", Validators.required),
+     email: new FormControl("", [Validators.required,Validators.email]),
+     pass: new FormControl("", [Validators.required, Validators.minLength(3)]),
+     motherWhatsApp: new FormControl(true),
+     fatherWhatsApp: new FormControl(true)
+   
+   
+   });  
  }
- registerForm: FormGroup = new FormGroup({
-   "familyName":new FormControl("", Validators.required),
-   "fatherName":new FormControl("", Validators.required),
-   "motherName":new FormControl("", Validators.required),
-   "motherPhone":new FormControl("",[ Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-   "fatherPhone":new FormControl("",[ Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-   "address":new FormControl("", Validators.required),
-  "email": new FormControl("", Validators.required),
-  "pass": new FormControl("", [Validators.required, Validators.minLength(3)]),
-  "motherWhatsApp": new FormControl(true),
-  "fatherWhatsApp": new FormControl(true)
 
-
-});
 chooseStation(){
-  let dialogRef = this.dialog.open(FamilyMapComponent, {
+  const dialogRef = this.dialog.open(FamilyMapComponent, {
     height: '600px',
     width: '600px'
   });
+  dialogRef.afterClosed().subscribe(res=>{
+    if(res){
+      this.newFamily.stationId=res;console.log(res)
+    }
+  })
 }
 Register()
 {
@@ -53,9 +59,18 @@ Register()
   this.newFamily.address= this.registerForm.controls["address"].value;
   this.newFamily.enableMotherWhatsApp= this.registerForm.controls["motherWhatsApp"].value;
   this.newFamily.enableFatherWhatsApp= this.registerForm.controls["fatherWhatsApp"].value;
-
   console.log(this.newFamily);
 
+}
+get registerFormControl() {
+  return this.registerForm.controls;
+}
+
+onSubmit() {
+  this.submitted = true;
+  if (this.registerForm.valid) {
+    this.Register();
+  }
 }
 
 }

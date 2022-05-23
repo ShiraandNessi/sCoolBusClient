@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body>
+
   <!-- <app-driver-map></app-driver-map> -->
   <google-map
   height="500px"
@@ -23,8 +24,11 @@
  ></map-marker>
 </google-map>
 
-
-
+<button (click)="submitStation()">submit</button>
+<div *ngFor="let station of stationsList" class="field-radiobutton">
+  <p-radioButton name="station" [value]="station.id"  [(ngModel)]="selectedStation" [inputId]="station.address"></p-radioButton>
+  <label [for]="station.address">{{station.address}}</label>
+</div>
 <script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPOINpsuI3mDaMN538S5BePKJvfTozC5U&callback=initMap">
 </script>
