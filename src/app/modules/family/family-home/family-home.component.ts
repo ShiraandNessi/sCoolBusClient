@@ -9,6 +9,7 @@ import { DriverService } from 'src/app/services/driver.service';
 import { FamilyService } from 'src/app/services/family.service';
 import { RouteService } from 'src/app/services/route.service';
 import { StudentService } from 'src/app/services/student.service';
+import Swal from 'sweetalert2';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 
 @Component({
@@ -18,40 +19,61 @@ import { StudentDetailsComponent } from '../student-details/student-details.comp
 })
 export class FamilyHomeComponent implements OnInit {
 
-  constructor(public dialog:MatDialog,private routeSer: RouteService, private family:FamilyService,private student:StudentService,private cuurUser:CurrentUserService,private route:RouteService,private driver:DriverService) { }
-currfamily!:Family;
-studentList:Student[]=new Array<Student>();
-driverList:Driver[]=new Array<Driver>();
-routeList:Route[]=new Array<Route>();
+  constructor(public dialog: MatDialog, private routeSer: RouteService, private family: FamilyService, private student: StudentService, private cuurUser: CurrentUserService, private route: RouteService, private driver: DriverService) { }
+  currfamily!: Family;
+  studentList: Student[] = new Array<Student>();
+  driverList: Driver[] = new Array<Driver>();
+  routeList: Route[] = new Array<Route>();
   ngOnInit(): void {
-    this.cuurUser.getFamily().subscribe(data=>{
-      this.currfamily=data,
-      this.student.getStudentsByFamilyId(this.currfamily.id).subscribe(data=>{
-        this.studentList=data,
-        this.studentList.forEach((s,i)=>{this.route.getRouteById(s.routId).subscribe(data=>{
-          this.driver.getDriverById(data.driverId).subscribe(data=>{
-            this.driverList[i]=data
-          }),
-          this.routeSer.getRouteById(s.routId).subscribe(data=>{
-            this.routeList[i]=data
-          })
-        })})
-      })
+    this.cuurUser.getFamily().subscribe(data => {
+      this.currfamily = data,
+        this.student.getStudentsByFamilyId(this.currfamily.id).subscribe(data => {
+          this.studentList = data,
+            this.studentList.forEach((s, i) => {
+              this.route.getRouteById(s.routId).subscribe(data => {
+                this.driver.getDriverById(data.driverId).subscribe(data => {
+                  this.driverList[i] = data
+                }),
+                  this.routeSer.getRouteById(s.routId).subscribe(data => {
+                    this.routeList[i] = data
+                  })
+              })
+            })
+        })
     })
-    
-  }
- 
 
-  navigateToStudentDetails(student:Student | null)
-  {
+  }
+
+
+  navigateToStudentDetails(student: Student | null) {
     let dialogRef = this.dialog.open(StudentDetailsComponent, {
       height: '600px',
       width: '600px',
-      data: {student:student}
+      data: { student: student }
     });
-    
-  
+
+
   }
-  
-  
+ 
+  deleteStudent(studentToDelete: Student) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.student.deleteStudent(studentToDelete.id).subscribe(res => {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        })
+      }
+    })
+  }
 }

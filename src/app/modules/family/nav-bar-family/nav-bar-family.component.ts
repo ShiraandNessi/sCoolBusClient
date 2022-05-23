@@ -9,6 +9,8 @@ import { DriverService } from 'src/app/services/driver.service';
 import { RouteService } from 'src/app/services/route.service';
 import { StudentService } from 'src/app/services/student.service';
 import { StudentStatusService } from 'src/app/services/studentStatus.service';
+import {Message,MessageService} from 'primeng/api';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nav-bar-family',
@@ -17,7 +19,7 @@ import { StudentStatusService } from 'src/app/services/studentStatus.service';
 })
 export class NavBarFamilyComponent implements OnInit {
   subscription!: Subscription;
-
+  sent=false;
   constructor(private currUser: CurrentUserService, private student: StudentService, private routeSer: RouteService, private _router: Router, private _studentStatus: StudentStatusService, private driver: DriverService) { }
   sideBar: boolean = false;
   currentFamily!: Family;
@@ -47,8 +49,18 @@ export class NavBarFamilyComponent implements OnInit {
   }
   sendEmail(sId: number, driverId: number) {
     this._studentStatus.sendEmail(sId,driverId).subscribe(res=>{
-      if(res)
-        alert("the mail sent!!!!")})
+      if(res){
+        Swal.fire({
+          // position: 'top-end',
+          icon: 'warning',
+          title: 'The school bus is clousing!!',
+          showConfirmButton: false,
+          timer: 2000
+        })
+      }
+        // this.sent=true
+        // alert("the mail sent!!!!")
+      })
   }
   
   sideBarFunc() {

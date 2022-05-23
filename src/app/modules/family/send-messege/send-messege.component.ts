@@ -10,6 +10,7 @@ import { FamilyService } from 'src/app/services/family.service';
 import { MessageService } from 'src/app/services/message.service';
 import { RouteService } from 'src/app/services/route.service';
 import { StudentService } from 'src/app/services/student.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-send-messege',
@@ -46,9 +47,7 @@ export class SendMessegeComponent implements OnInit {
     "messageText": new FormControl("")
   });
   sendMessge() {
-    console.log("lll",this.driverList,this.studentList)
     if (this.messegeForm.controls["messegeType"].value == 'other' || this.messegeForm.controls["messegeType"].value == 'question') {
-      // console.log(Number(MessageType["other"]))
       this.newMessege.messageTypeId=Number(MessageType["other"]);
       this.newMessege.messageText=this.messegeForm.controls["messageText"].value
     }
@@ -61,11 +60,17 @@ export class SendMessegeComponent implements OnInit {
     this.newMessege.isRead=false;
     this.newMessege.studentId=this.studentList[ind].id;
     this.newMessege.userId=this.currfamily.userId
-this._mess.addNewMessage(this.newMessege).subscribe(data=>{
+  this._mess.addNewMessage(this.newMessege).subscribe(data=>{
   this.newMessege=data,
-  console.log(this.newMessege)
+  Swal.fire(
+    {
+      title:'the messege sent successfuly',
+      icon:'success',
+      confirmButtonColor:'green'
+    }
+  )
 })
-window.location.reload();
+// window.location.reload();
   }
 
 
