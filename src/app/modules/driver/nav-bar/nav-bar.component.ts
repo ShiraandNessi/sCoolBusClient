@@ -7,6 +7,7 @@ import { DriverService } from 'src/app/services/driver.service';
 import { MessageService } from 'src/app/services/message.service';
 import { StudentStatusService } from 'src/app/services/studentStatus.service';
 import { interval, Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nav-bar',
@@ -21,9 +22,9 @@ export class NavBarComponent implements OnInit {
   sideBar: boolean = false;
   directionsService = [] as any
   directionsRenderer = [] as any
- center!: google.maps.LatLngLiteral
- subscription!: Subscription;
- 
+  center!: google.maps.LatLngLiteral
+  subscription!: Subscription;
+
   ngOnInit(): void {
     this._currUser.getDriver().subscribe(data => this.currentDriver = data)
     this._currUser.getDriver().subscribe(data => {
@@ -33,33 +34,42 @@ export class NavBarComponent implements OnInit {
   sideBarFunc() {
     this.sideBar = !this.sideBar;
   }
- async startDriving() {
-  const source = interval(10000);
-  this.subscription = source.subscribe(val => this.startDrivingAsync());
+  async startDriving() {
+    Swal.fire({
+      title: '<strong style="font-size=2rem">lets go!!<strong>',
+      imageUrl: '././././assets/video-play-button.png',
+      imageWidth: 100,
+      imageHeight: 100,
+      confirmButtonColor:'#1689fc'
+
+    }).then(res => {
+      const source = interval(10000);
+      this.subscription = source.subscribe(val => this.startDrivingAsync());
+    })
   }
   async startDrivingAsync() {
     const getPos = await this.getCurrPosition()
     const updatePos = await this.updatePosition()
   }
-  getCurrPosition(){
+  getCurrPosition() {
 
-      navigator.geolocation.getCurrentPosition((position) => {
-       this. center = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        }
-      })
-   return this.center;
- 
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      }
+    })
+    return this.center;
+
   }
-  updatePosition(){
+  updatePosition() {
     this.currentDriver.currPositionX = this.center.lat;
     this.currentDriver.currPositionY = this.center.lng;
-   this._driver.updateDriver(this.currentDriver).subscribe(res => console.log("put working!!!"))
+    this._driver.updateDriver(this.currentDriver).subscribe(res => console.log("put working!!!"))
 
     return this.currentDriver
   }
-  
+
   navigate(num: number, d?: boolean) {
     switch (num) {
       case 1: this._router.navigate(['user/driver/routes', { direction: d }]); break;

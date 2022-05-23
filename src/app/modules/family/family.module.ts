@@ -20,8 +20,11 @@ import {CascadeSelectModule} from 'primeng/cascadeselect';
 import { NavBarFamilyComponent } from './nav-bar-family/nav-bar-family.component';
 import { SideBarFamilyComponent } from './side-bar-family/side-bar-family.component';
 import { StudentStatusService } from 'src/app/services/studentStatus.service';
+
 import {RadioButtonModule} from 'primeng/radiobutton';
 
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 
 
@@ -34,7 +37,11 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 @NgModule({
   declarations: [FamilyHomeComponent,SendMessegeComponent,StudentDetailsComponent,PassportCameraComponent,FamilyMapComponent, NavBarFamilyComponent, SideBarFamilyComponent],
   imports: [
+<<<<<<< HEAD
     CommonModule,RadioButtonModule,ListboxModule,MatTooltipModule,TooltipModule,CascadeSelectModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule
+=======
+    MessagesModule,MessageModule,CommonModule,ListboxModule,MatTooltipModule,TooltipModule,CascadeSelectModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule
+>>>>>>> de832db89e6f5c7ec5685f6bd70b980613510ada
   ],
   providers:[FamilyService,StudentStatusService]
 })

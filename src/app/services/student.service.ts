@@ -38,4 +38,8 @@ export class StudentService {
   {
     return this._http.get<number>(this.baseUrl+"count/"+stationId+"/" +routeId);
   }
+  deleteStudent(studentId:number):Observable<any>
+  {
+    return this._http.delete(this.baseUrl+studentId)
+  }
 }

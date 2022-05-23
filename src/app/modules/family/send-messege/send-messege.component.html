@@ -20,37 +20,29 @@
     <form [formGroup]="messegeForm">
         <div class="container">
             <div class="notification-container">
-
                 <div class="notification-list-header table-content">
-
                     <div class="arrow-icon table-content-cell">
                         <i class="fa fa-angle-left icon"></i>
                     </div>
                     <div class="notification-title table-content-cell"> <i class="fa fa-envelope"></i> contact with the
                         driver </div>
-
                 </div>
-
-
                 <div class="notification-list-box">
                     <div class="custom-scrollBar">
                         <br>
                         <div class="list-group">
                             <br>
-
                             <div class="form-group">
                                 <div class="input-group mb-2">
-                                    <!-- <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
-                        </div> -->
                                     <br>
                                     <br>
-                                    <tbody style="    width: 100%;"> 
+                                    <tbody style="    width: 100%;">
                                         <tr>
                                             <th scope="row" class="p-1">&nbsp;&nbsp;<img
-                                                    src=".\.\.\.\assets\little-kid.png" style="width:auto;height:25px; "></th>
-                                            <td class="p-1" style="    width: 90%;"><select formControlName="student" class="form-select"
-                                                    placeholder="choose a student">
+                                                    src=".\.\.\.\assets\little-kid.png"
+                                                    style="width:auto;height:25px; "></th>
+                                            <td class="p-1" style="    width: 90%;"><select formControlName="student"
+                                                    class="form-select" placeholder="choose a student">
                                                     <option value="">Please select student</option>
                                                     <option *ngFor="let student of studentList">{{student.firstName}}
                                                     </option>
@@ -60,148 +52,37 @@
                                             <th></th>
                                             <td></td>
                                         </tr>
-                                        <tr  >
+                                        <tr>
                                             <th scope="row" class="p-1">&nbsp;&nbsp;<img src=".\.\.\.\assets\text.png"
-                                                style="width:auto;height:25px; "></th>
+                                                    style="width:auto;height:25px; "></th>
                                             <td class="p-1"><select formControlName="messegeType" class="form-select"
                                                     placeholder="choose a type">
-                                        <option value="">Please select type</option>
-                                                    
+                                                    <option value="">Please select type</option>
+
                                                     <option>cancel station</option>
                                                     <option>question</option>
                                                     <option>other</option>
                                                 </select></td>
                                         </tr>
-                                    
                                     </tbody>
-                                 
-                                    
-                                    <!-- <select formControlName="student" class="form-select"
-                                        placeholder="choose a student">
-                                        <option value="">Please select student</option>
-                                        <option *ngFor="let student of studentList">{{student.firstName}}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-2">
-                                    <br>
-                                    <br>
-
-                                    <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
-                        </div> 
-                                    <select formControlName="messegeType" class="form-select"
-                                        placeholder="choose a student">
-                                        <option value="">Please select type</option>
-                                        <option>cancel station</option>
-                                        <option>question</option>
-                                        <option>other</option>
-                                    </select>
-                                </div>
-                            </div> -->
-
                                     <div class="form-group"
                                         *ngIf="messegeForm.value.messegeType=='other' || messegeForm.value.messegeType=='question'">
-                                        <!-- <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
-                        </div>
-                        <textarea  formControlName="messageText" class="form-control" placeholder="text messege" required></textarea>
-                    </div> -->
                                         <div class=" mt-4">
                                             <textarea class="form-control" id="message" name="body" rows="3"
                                                 placeholder="Click here to reply"></textarea>
                                         </div>
-
                                     </div>
-                                
                                     <div class="form-group" style=" margin-left:  9.5%;">
                                         <br>
-                                        <button type="submit" class="btn btn-success" (click)="sendMessge()"
-                                            ><img src=".\.\.\.\assets\send.png"
-                                                style="width:auto;height:20px"> Send</button>
-                                        <!-- <button type="submit" class="btn btn-danger">Discard</button> -->
+                                        <button type="submit" class="btn btn-success" (click)="sendMessge()"><img
+                                                src=".\.\.\.\assets\send.png" style="width:auto;height:20px">Send</button>
                                     </div>
-
-
-                                    <!-- <div class="text-center">
-                   <span><input type="submit" value="send" (click)="sendMessge()" class="btn btn-info btn-block rounded-0 py-2">
-                    <img
-                    src=".\.\.\.\assets\send.png" style="width:auto;height:40px">
-                </span> 
-                </div> -->
                                 </div>
                                 <br>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-
-
-
-
-                <!--      
-      <div class="container">
-        <h2 class="text-center">Contac Form</h2>
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6 pb-5">
-    
-    
-                        Form with header
-    
-                        <form action="mail.php" method="post">
-                            <div class="card border-primary rounded-0">
-                                <div class="card-header p-0">
-                                    <div class="bg-info text-white text-center py-2">
-                                        <h3><i class="fa fa-envelope"></i> Contactanos</h3>
-                                        <p class="m-0">Con gusto te ayudaremos</p>
-                                    </div>
-                                </div>
-                                <div class="card-body p-3">
-    
-                                    Body
-                                    <div class="form-group">
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
-                                            </div>
-                                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
-                                            </div>
-                                            <input type="email" class="form-control" id="nombre" name="email" placeholder="ejemplo@gmail.com" required>
-                                        </div>
-                                    </div>
-    
-                                    <div class="form-group">
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
-                                            </div>
-                                            <textarea class="form-control" placeholder="Envianos tu Mensaje" required></textarea>
-                                        </div>
-                                    </div>
-    
-                                    <div class="text-center">
-                                        <input type="submit" value="Enviar" class="btn btn-info btn-block rounded-0 py-2">
-                                    </div>
-                                </div>
-    
-                            </div>
-                        </form>
-                        Form with header
-    
-    
-                    </div>
-        </div>
-    </div> -->
             </div>
         </div>
     </form>
