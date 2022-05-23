@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Station } from 'src/app/models/station.model';
 import { StationService } from 'src/app/services/station.service';
 
@@ -15,12 +16,12 @@ export class FamilyMapComponent implements OnInit {
   directionsService = [] as any
   directionsRenderer = [] as any
   stationsList!: Station[];
-
+  selectedStation: any ;
   image = {
     url: ".\.\.\.\assets\location-pin.png",
     size: new google.maps.Size(20, 32)
   }
-  constructor(private station: StationService) { }
+  constructor(private station: StationService, @Inject(MatDialogRef) private dialogRef:MatDialogRef<FamilyMapComponent>) { }
   ngOnInit() {
     var map: google.maps.Map;
     this.station.getAllStations().subscribe(data => {
@@ -95,5 +96,9 @@ export class FamilyMapComponent implements OnInit {
         console.log("working!!!!")
       });
     })
- 
-  }}
+
+  }
+  submitStation(){
+    this.dialogRef.close(this.selectedStation); 
+  }
+}
