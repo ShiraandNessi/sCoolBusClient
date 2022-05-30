@@ -26,7 +26,7 @@
 
 <button (click)="submitStation()">submit</button>
 <div *ngFor="let station of stationsList" class="field-radiobutton">
-  <p-radioButton name="station" [value]="station.id"  [(ngModel)]="selectedStation" [inputId]="station.address"></p-radioButton>
+  <p-radioButton name="station" value="station.id"  [(ngModel)]="selectedStation" inputId="station.address"></p-radioButton>
   <label [for]="station.address">{{station.address}}</label>
 </div>
 <script

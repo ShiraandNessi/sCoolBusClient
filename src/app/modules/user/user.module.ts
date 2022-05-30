@@ -24,6 +24,7 @@ import { SendMessegeComponent } from '../family/send-messege/send-messege.compon
 import { StudentDetailsComponent } from '../family/student-details/student-details.component';
 import { PassportCameraComponent } from '../family/passport-camera/passport-camera.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FamilyService } from 'src/app/services/family.service';
 
 
 
@@ -55,6 +56,6 @@ const USER_ROUTE:Route[]=[
   imports: [ReactiveFormsModule,CommonModule,ManagerModule,
     FamilyModule,DriverModule,RouterModule.forChild(USER_ROUTE),
     FormsModule,StepsModule,MatDialogModule],
-  providers:[UserService,LogInActivateGuard]
+  providers:[UserService,FamilyService,LogInActivateGuard]
 })
 export class UserModule {}

@@ -37,11 +37,11 @@ import {MessageModule} from 'primeng/message';
 @NgModule({
   declarations: [FamilyHomeComponent,SendMessegeComponent,StudentDetailsComponent,PassportCameraComponent,FamilyMapComponent, NavBarFamilyComponent, SideBarFamilyComponent],
   imports: [
-<<<<<<< HEAD
-    CommonModule,RadioButtonModule,ListboxModule,MatTooltipModule,TooltipModule,CascadeSelectModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule
-=======
+
+    // CommonModule,RadioButtonModule,ListboxModule,MatTooltipModule,TooltipModule,CascadeSelectModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule
+
     MessagesModule,MessageModule,CommonModule,ListboxModule,MatTooltipModule,TooltipModule,CascadeSelectModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule
->>>>>>> de832db89e6f5c7ec5685f6bd70b980613510ada
+
   ],
   providers:[FamilyService,StudentStatusService]
 })

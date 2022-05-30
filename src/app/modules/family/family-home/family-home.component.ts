@@ -64,7 +64,8 @@ export class FamilyHomeComponent implements OnInit {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
+    })
+    .then((result) => {
       if (result.isConfirmed) {
         this.student.deleteStudent(studentToDelete.id).subscribe(res => {
           Swal.fire(
@@ -75,5 +76,5 @@ export class FamilyHomeComponent implements OnInit {
         })
       }
     })
-  }
+    }
 }
