@@ -24,11 +24,15 @@ export class FamilyHomeComponent implements OnInit {
   studentList: Student[] = new Array<Student>();
   driverList: Driver[] = new Array<Driver>();
   routeList: Route[] = new Array<Route>();
+  emptyList:boolean=false;
   ngOnInit(): void {
     this.cuurUser.getFamily().subscribe(data => {
       this.currfamily = data,
         this.student.getStudentsByFamilyId(this.currfamily.id).subscribe(data => {
-          this.studentList = data,
+          this.studentList = data;
+          if(this.studentList.length==0){
+            this.emptyList=true;
+          }
             this.studentList.forEach((s, i) => {
               this.route.getRouteById(s.routId).subscribe(data => {
                 this.driver.getDriverById(data.driverId).subscribe(data => {

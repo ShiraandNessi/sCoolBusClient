@@ -25,9 +25,12 @@
  </div>
     
  <div class="container">
+     <div *ngIf="emptyList">
+        <img src=".\.\.\.\assets\emptyStudents.png">
+     </div>
     <div class="row " >
         <!-- Start col -->
-        <div  class="col-lg-6" *ngFor = "let student of studentList; let i=index">
+        <div  class="col-lg-6"   *ngFor = "let student of studentList; let i=index">
             <div class="card m-b-30 well profile_view">
                 <div class="card-body py-5">
                     <div class="row">
