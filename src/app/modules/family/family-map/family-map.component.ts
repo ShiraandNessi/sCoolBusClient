@@ -16,7 +16,7 @@ export class FamilyMapComponent implements OnInit {
   directionsService = [] as any
   directionsRenderer = [] as any
   stationsList!: Station[];
-  selectedStation: any ;
+  selectedStation!: Station ;
   image = {
     url: ".\.\.\.\assets\location-pin.png",
     size: new google.maps.Size(20, 32)
@@ -99,6 +99,6 @@ export class FamilyMapComponent implements OnInit {
 
   }
   submitStation(){
-    this.dialogRef.close(this.selectedStation); 
+    this.dialogRef.close(this.selectedStation.id); 
   }
 }

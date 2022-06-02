@@ -36,10 +36,10 @@ export class NavBarComponent implements OnInit {
   }
   async startDriving() {
     Swal.fire({
-      title: '<strong style="font-size=2rem">lets go!!<strong>',
-      imageUrl: '././././assets/video-play-button.png',
-      imageWidth: 100,
-      imageHeight: 100,
+      // title: '<strong style="font-size=2rem">lets go!!<strong>',
+      imageUrl: '././././assets/go.png',
+      imageWidth: 200,
+      imageHeight: 200,
       confirmButtonColor:'#1689fc'
 
     }).then(res => {

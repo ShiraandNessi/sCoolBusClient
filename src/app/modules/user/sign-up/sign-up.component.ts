@@ -47,6 +47,8 @@ export class SignUpComponent implements OnInit {
       if (res) {
         this.newFamily.stationId = res; console.log(res)
       }
+      else
+        console.log("hhh")
     })
   }
   Register() {
@@ -66,7 +68,7 @@ export class SignUpComponent implements OnInit {
     this._family.addNewFamily(this.newFamily).subscribe(res => {
       Swal.fire({
         title: '<strong style="font-size=2rem">WELCOME!!<strong>',
-        imageUrl: '././././assets/schoolBusLogo2.png',
+        imageUrl: '././././assets/schoolBusLogo.png',
         imageWidth: 100,
         imageHeight: 100,
         confirmButtonColor: '#1689fc'

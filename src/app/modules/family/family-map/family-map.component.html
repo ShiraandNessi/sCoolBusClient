@@ -24,11 +24,17 @@
  ></map-marker>
 </google-map>
 
-<button (click)="submitStation()">submit</button>
-<div *ngFor="let station of stationsList" class="field-radiobutton">
+<!-- <div *ngFor="let station of stationsList" class="field-radiobutton">
   <p-radioButton name="station" value="station.id"  [(ngModel)]="selectedStation" inputId="station.address"></p-radioButton>
   <label [for]="station.address">{{station.address}}</label>
-</div>
+</div> -->
+<br>
+<select class="form-select" placeholder="choose a station" [(ngModel)]="selectedStation">
+  <option value="">Please select station</option>
+  <option *ngFor="let station of stationsList" >{{station.address}}</option>
+</select>
+<br>
+<button [disabled]="!selectedStation" class="btn btn-primary mx-auto d-block" (click)="submitStation()">submit</button>
 <script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPOINpsuI3mDaMN538S5BePKJvfTozC5U&callback=initMap">
 </script>

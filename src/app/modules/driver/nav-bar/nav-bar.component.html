@@ -31,6 +31,11 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link"  (click)="startDriving()">
+                <img src=".\.\.\.\assets\video-play-button.png" class="image"/><br>Start Driving
+              </a>
+              </li>
+            <li class="nav-item">
               <a class="nav-link" (click)="navigate(3)">
                 <img src=".\.\.\.\assets\students-black.png" class="image"><br>
                 Students
@@ -75,7 +80,7 @@
           <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
       </div>
-      <button (click)="startDriving()">run</button>
+      <!-- <button  class="btn btn-secondary float-left" (click)="startDriving()">Start Driving</button> -->
       <router-outlet></router-outlet>
 </body>
 <script
