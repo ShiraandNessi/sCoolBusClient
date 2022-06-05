@@ -15,6 +15,7 @@ import { CurrentUserService } from 'src/app/services/current-user.service';
 })
 export class SignUpComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any ,private _acr: ActivatedRoute, private currUser: CurrentUserService, public dialog: MatDialog, private _userSer: UserService, private _family: FamilyService, private _router: Router) {
+    if(data.family)
     this.editFamily=data.family
    }
   // email!: string | null
@@ -47,6 +48,7 @@ export class SignUpComponent implements OnInit {
         motherPhone: new FormControl("", [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
         fatherPhone: new FormControl("", [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
         address: new FormControl("", Validators.required),
+        station: new FormControl("", Validators.required),
         email: new FormControl("", [Validators.required, Validators.email]),
         pass: new FormControl("", [Validators.required, Validators.minLength(3)]),
         motherWhatsApp: new FormControl(true),
@@ -62,8 +64,13 @@ export class SignUpComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-        this.newFamily.stationId = res; console.log(res)
-      }
+        this.newFamily.stationId = res.stationId,
+        this.registerForm.patchValue({
+          "station":res.name
+      }),
+      document.getElementById("station")!.innerHTML = res.name,
+      console.log(res)
+    }
       else
         console.log("hhh")
     })

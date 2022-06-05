@@ -23,7 +23,7 @@ import { NavBarFamilyComponent } from '../family/nav-bar-family/nav-bar-family.c
 import { SendMessegeComponent } from '../family/send-messege/send-messege.component';
 import { StudentDetailsComponent } from '../family/student-details/student-details.component';
 import { PassportCameraComponent } from '../family/passport-camera/passport-camera.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FamilyService } from 'src/app/services/family.service';
 
 
@@ -56,6 +56,7 @@ const USER_ROUTE:Route[]=[
   imports: [ReactiveFormsModule,CommonModule,ManagerModule,
     FamilyModule,DriverModule,RouterModule.forChild(USER_ROUTE),
     FormsModule,StepsModule,MatDialogModule],
-  providers:[UserService,FamilyService,LogInActivateGuard]
+  providers:[UserService,FamilyService,LogInActivateGuard,
+    { provide: MAT_DIALOG_DATA, useValue: {} }]
 })
 export class UserModule {}

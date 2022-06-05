@@ -14,7 +14,7 @@ import { CurrentUserService } from 'src/app/services/current-user.service';
 export class LogInComponent implements OnInit {
 
   constructor(private _userSer:UserService,private _router:Router, private currUser: CurrentUserService) { }
-
+  editFamily = null
   ngOnInit(): void {
   }
   user!:User;
@@ -75,7 +75,7 @@ export class LogInComponent implements OnInit {
   signUp()
   {
     this._userSer.isLogIn();
-    this._router.navigate(['user/signUp'])
+    this._router.navigate(['user/signUp',{editFamily:this.editFamily}])
   }
 }
 
