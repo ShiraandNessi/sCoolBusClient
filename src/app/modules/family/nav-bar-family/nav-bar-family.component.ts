@@ -11,6 +11,9 @@ import { StudentService } from 'src/app/services/student.service';
 import { StudentStatusService } from 'src/app/services/studentStatus.service';
 import {Message,MessageService} from 'primeng/api';
 import Swal from 'sweetalert2';
+import { StudentDetailsComponent } from '../student-details/student-details.component';
+import { MatDialog } from '@angular/material/dialog';
+import { SignUpComponent } from '../../user/sign-up/sign-up.component';
 
 @Component({
   selector: 'app-nav-bar-family',
@@ -20,7 +23,7 @@ import Swal from 'sweetalert2';
 export class NavBarFamilyComponent implements OnInit {
   subscription!: Subscription;
   sent=false;
-  constructor(private currUser: CurrentUserService, private student: StudentService, private routeSer: RouteService, private _router: Router, private _studentStatus: StudentStatusService, private driver: DriverService) { }
+  constructor(private dialog: MatDialog, private currUser: CurrentUserService, private student: StudentService, private routeSer: RouteService, private _router: Router, private _studentStatus: StudentStatusService, private driver: DriverService) { }
   sideBar: boolean = false;
   currentFamily!: Family;
   studentList: Student[] = new Array<Student>();
@@ -74,5 +77,20 @@ export class NavBarFamilyComponent implements OnInit {
       case 2: this._router.navigate(['user/family/sendMessages']); break;
       case 3: this._router.navigate(['user/family/familyHome']); break;
     }
+  }
+  navigateToStudentDetails(student: Student | null) {
+    let dialogRef = this.dialog.open(StudentDetailsComponent, {
+      height: '600px',
+      width: '600px',
+      data: { student: student }
+    });
+  }
+  navigateToFamilyDetails(_family: Family | null) {
+    let dialogRef = this.dialog.open(SignUpComponent, {
+      height: '700px',
+      width: '800px',
+      data: { family: _family }
+    });
+    console.log("d", _family);
   }
 }

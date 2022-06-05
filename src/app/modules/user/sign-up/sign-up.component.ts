@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Family } from 'src/app/models/family.model';
 import { FamilyService } from 'src/app/services/family.service';
@@ -14,28 +14,45 @@ import { CurrentUserService } from 'src/app/services/current-user.service';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-
-  constructor(private _acr: ActivatedRoute, private currUser: CurrentUserService, public dialog: MatDialog, private _userSer: UserService, private _family: FamilyService, private _router: Router) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any ,private _acr: ActivatedRoute, private currUser: CurrentUserService, public dialog: MatDialog, private _userSer: UserService, private _family: FamilyService, private _router: Router) {
+    this.editFamily=data.family
+   }
   // email!: string | null
   // pass!: string | null
+  editFamily!: Family;
   newFamily: Family = new Family();
   submitted: boolean = false;
   registerForm!: FormGroup;
   ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      familyName: new FormControl("", Validators.required),
-      fatherName: new FormControl("", Validators.required),
-      motherName: new FormControl("", Validators.required),
-      motherPhone: new FormControl("", [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      fatherPhone: new FormControl("", [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      address: new FormControl("", Validators.required),
-      email: new FormControl("", [Validators.required, Validators.email]),
-      pass: new FormControl("", [Validators.required, Validators.minLength(3)]),
-      motherWhatsApp: new FormControl(true),
-      fatherWhatsApp: new FormControl(true)
-
-
-    });
+    if (this.editFamily) {
+      console.log(this.editFamily)
+      this.registerForm= new FormGroup({
+        "familyName":new FormControl(this.editFamily.familyName.toString(), Validators.required),
+        "fatherName":new FormControl(this.editFamily.fatherName.toString(), Validators.required),
+        "motherName":new FormControl(this.editFamily.motherName.toString(), Validators.required),
+        "fatherPhone":new FormControl(this.editFamily.fatherPhone,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")),
+        "motherPhone":new FormControl(this.editFamily.motherPhone,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")),
+        "address":new FormControl(this.editFamily.address.toString(), Validators.required),
+        "email":new FormControl(this.editFamily.email.toString(), Validators.email),
+        "pass":new FormControl(this.editFamily.password.toString(), Validators.minLength(3)),
+        "motherWhatsApp":new FormControl(this.editFamily.enableMotherWhatsApp),
+        "fatherWhatsApp":new FormControl(this.editFamily.enableFatherWhatsApp),
+      });
+    }
+    else {
+      this.registerForm = new FormGroup({
+        familyName: new FormControl("", Validators.required),
+        fatherName: new FormControl("", Validators.required),
+        motherName: new FormControl("", Validators.required),
+        motherPhone: new FormControl("", [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+        fatherPhone: new FormControl("", [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+        address: new FormControl("", Validators.required),
+        email: new FormControl("", [Validators.required, Validators.email]),
+        pass: new FormControl("", [Validators.required, Validators.minLength(3)]),
+        motherWhatsApp: new FormControl(true),
+        fatherWhatsApp: new FormControl(true)
+      });
+    }
   }
 
   chooseStation() {
@@ -77,7 +94,7 @@ export class SignUpComponent implements OnInit {
           (data => {
             if (data) {
               this._userSer.isLogIn()
-              this.currUser.currUser =data
+              this.currUser.currUser = data
               this._router.navigate(['user/family']);
             }
           })
@@ -85,15 +102,15 @@ export class SignUpComponent implements OnInit {
 
     })
   }
-// get registerFormControl() {
-//   return this.registerForm.controls;
-// }
+  // get registerFormControl() {
+  //   return this.registerForm.controls;
+  // }
 
-// onSubmit() {
-//   this.submitted = true;
-//   if (this.registerForm.valid) {
-//     this.Register();
-//   }
-// }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   if (this.registerForm.valid) {
+  //     this.Register();
+  //   }
+  // }
 
 }

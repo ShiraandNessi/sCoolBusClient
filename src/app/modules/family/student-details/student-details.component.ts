@@ -26,10 +26,8 @@ export class StudentDetailsComponent implements OnInit {
   registerStudentForm!: FormGroup ;
   ngOnInit(): void {
   this.route.getAllRoutes().subscribe(data=>{
-    this.routes=data,
-    console.log("jj",this.routes)
+    this.routes=data
     if(this.editStudent){
-      console.log("kkk",this.editStudent.firstName)
       this.registerStudentForm= new FormGroup({
         "firstName":new FormControl(this.editStudent.firstName.toString(), Validators.required),
         "personalPhone":new FormControl(this.editStudent.phone,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")),

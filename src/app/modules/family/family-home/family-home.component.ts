@@ -55,8 +55,6 @@ export class FamilyHomeComponent implements OnInit {
       width: '600px',
       data: { student: student }
     });
-
-
   }
  
   deleteStudent(studentToDelete: Student) {
