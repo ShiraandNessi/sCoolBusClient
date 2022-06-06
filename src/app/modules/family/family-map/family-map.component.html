@@ -29,12 +29,17 @@
   <label [for]="station.address">{{station.address}}</label>
 </div> -->
 <br>
-<select class="form-select" placeholder="choose a station" [(ngModel)]="selectedStation">
-  <option value="">Please select station</option>
-  <option *ngFor="let station of stationsList" >{{station.address}}</option>
+<div [formGroup]="stationForm">
+  <select class="form-select" placeholder="choose a station" formControlName="address" [(ngModel)]="selectedStation">
+  <!-- <option value="">Please select station</option> -->
+  <option *ngFor="let station of stationsList" >
+    {{station.address}}
+    <!-- <span stationForm.patchValue({id: station.id})></span> -->
+    </option>
 </select>
 <br>
-<button [disabled]="!selectedStation" class="btn btn-primary mx-auto d-block" (click)="submitStation()">submit</button>
+<button [disabled]="!stationForm.valid" class="btn btn-primary mx-auto d-block" (click)="submitStation()">submit</button>
+</div>
 <script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPOINpsuI3mDaMN538S5BePKJvfTozC5U&callback=initMap">
 </script>

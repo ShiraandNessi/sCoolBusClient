@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Station } from 'src/app/models/station.model';
 import { StationService } from 'src/app/services/station.service';
@@ -98,7 +99,13 @@ export class FamilyMapComponent implements OnInit {
     })
 
   }
+  stationForm:FormGroup= new FormGroup({
+    "address": new FormControl("", Validators.required),
+    "id": new FormControl(0),
+  })
+
   submitStation(){
-    this.dialogRef.close(this.selectedStation.id); 
+    console.log(typeof(this.selectedStation))
+    this.dialogRef.close(this.stationForm.value); 
   }
 }
