@@ -75,6 +75,7 @@ export class NavBarComponent implements OnInit {
       case 1: this._router.navigate(['user/driver/routes', { direction: d }]); break;
       case 2: this._router.navigate(['user/driver/messages']); break;
       case 3: this._router.navigate(['user/driver/students']); break;
+      case 4: this._router.navigate(['user/driver']); break;
     }
   }
   ngOnDestroy() {
