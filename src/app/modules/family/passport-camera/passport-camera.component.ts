@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import {WebcamImage} from 'ngx-webcam';
 import {Subject, Observable} from 'rxjs';
@@ -10,7 +11,7 @@ import {Subject, Observable} from 'rxjs';
 })
 export class PassportCameraComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, @Inject(MatDialogRef) private dialogRef:MatDialogRef<PassportCameraComponent>) { }
 
   ngOnInit(): void {
   }
@@ -29,8 +30,7 @@ export class PassportCameraComponent implements OnInit {
   save()
   {
 
-    this._router.navigate(['user/family/student',{img:this.webcamImage }])
-
+    this.dialogRef.close(this.webcamImage); 
   }
   
   public get triggerObservable(): Observable<void> {

@@ -1,3 +1,5 @@
+import { WebcamImage } from "ngx-webcam";
+
 export class Student
 {
     constructor() {
@@ -12,6 +14,7 @@ export class Student
     passport?:string|undefined;
     routId!: number;
     imageRoute!:string;
+    image!:WebcamImage;
     
 
 }

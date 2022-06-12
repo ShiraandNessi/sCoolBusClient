@@ -16,10 +16,10 @@ import { StationService } from 'src/app/services/station.service';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any ,private _stationService: StationService, private _acr: ActivatedRoute, private currUser: CurrentUserService, public dialog: MatDialog, private _userSer: UserService, private _family: FamilyService, private _router: Router) {
-    if(data.family)
-    this.editFamily=data.family
-   }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private _stationService: StationService, private _acr: ActivatedRoute, private currUser: CurrentUserService, public dialog: MatDialog, private _userSer: UserService, private _family: FamilyService, private _router: Router) {
+    if (data.family)
+      this.editFamily = data.family
+  }
   // email!: string | null
   // pass!: string | null
   stationId!: number;
@@ -30,20 +30,21 @@ export class SignUpComponent implements OnInit {
   registerForm!: FormGroup;
   ngOnInit(): void {
     if (this.editFamily) {
-this._stationService.getStationById(this.editFamily.stationId).subscribe(data => {
-      this.registerForm= new FormGroup({
-        "familyName":new FormControl(this.editFamily.familyName.toString(), Validators.required),
-        "fatherName":new FormControl(this.editFamily.fatherName.toString(), Validators.required),
-        "motherName":new FormControl(this.editFamily.motherName.toString(), Validators.required),
-        "fatherPhone":new FormControl(this.editFamily.fatherPhone,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")),
-        "motherPhone":new FormControl(this.editFamily.motherPhone,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")),
-        "address":new FormControl(this.editFamily.address.toString(), Validators.required),
-        "station":new FormControl(data.address.toString(), Validators.required),
-        "email":new FormControl(this.editFamily.email.toString(), Validators.email),
-        "pass":new FormControl(this.editFamily.password.toString(), Validators.minLength(3)),
-        "motherWhatsApp":new FormControl(this.editFamily.enableMotherWhatsApp),
-        "fatherWhatsApp":new FormControl(this.editFamily.enableFatherWhatsApp),
-      });});
+      this._stationService.getStationById(this.editFamily.stationId).subscribe(data => {
+        this.registerForm = new FormGroup({
+          "familyName": new FormControl(this.editFamily.familyName.toString(), Validators.required),
+          "fatherName": new FormControl(this.editFamily.fatherName.toString(), Validators.required),
+          "motherName": new FormControl(this.editFamily.motherName.toString(), Validators.required),
+          "fatherPhone": new FormControl(this.editFamily.fatherPhone, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")),
+          "motherPhone": new FormControl(this.editFamily.motherPhone, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")),
+          "address": new FormControl(this.editFamily.address.toString(), Validators.required),
+          "station": new FormControl(data.address.toString(), Validators.required),
+          "email": new FormControl(this.editFamily.email.toString(), Validators.email),
+          "pass": new FormControl(this.editFamily.password.toString(), Validators.minLength(3)),
+          "motherWhatsApp": new FormControl(this.editFamily.enableMotherWhatsApp),
+          "fatherWhatsApp": new FormControl(this.editFamily.enableFatherWhatsApp),
+        });
+      });
     }
     else {
       this.registerForm = new FormGroup({
@@ -63,18 +64,18 @@ this._stationService.getStationById(this.editFamily.stationId).subscribe(data =>
   }
 
   chooseStation() {
-    const dialogRef = this.dialog.open(FamilyMapComponent,{
+    const dialogRef = this.dialog.open(FamilyMapComponent, {
       height: '600px',
       width: '600px'
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.newFamily.stationId = res.stationId,
-        this.registerForm.patchValue({
-          "station":res.address
-      }),
-this.stationId = res.id
-    }
+          this.registerForm.patchValue({
+            "station": res.address
+          }),
+          this.stationId = res.id
+      }
       else
         console.log("hhh")
     })
@@ -91,12 +92,13 @@ this.stationId = res.id
     this.newFamily.address = this.registerForm.controls["address"].value;
     this.newFamily.enableMotherWhatsApp = this.registerForm.controls["motherWhatsApp"].value;
     this.newFamily.enableFatherWhatsApp = this.registerForm.controls["fatherWhatsApp"].value;
-    this.stationId=3;
+    this.stationId = 3;
     this.newFamily.stationId = this.stationId;
     console.log(this.newFamily);
     this._family.addNewFamily(this.newFamily).subscribe(res => {
       Swal.fire({
         title: '<strong style="font-size=2rem">WELCOME!!<strong>',
+        text: this.newFamily.familyName,
         imageUrl: '././././assets/schoolBusLogo.png',
         imageWidth: 100,
         imageHeight: 100,

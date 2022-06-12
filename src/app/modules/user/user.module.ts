@@ -25,6 +25,7 @@ import { StudentDetailsComponent } from '../family/student-details/student-detai
 import { PassportCameraComponent } from '../family/passport-camera/passport-camera.component';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FamilyService } from 'src/app/services/family.service';
+import { SaveFileService } from 'src/app/services/save-file.service';
 
 
 

@@ -8,6 +8,8 @@ import { RouteService } from 'src/app/services/route.service';
 import { StudentService } from 'src/app/services/student.service';
 import { PassportCameraComponent } from '../passport-camera/passport-camera.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { SaveFileService } from 'src/app/services/save-file.service';
+import { WebcamImage } from 'ngx-webcam';
 
 
 @Component({
@@ -17,10 +19,12 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class StudentDetailsComponent implements OnInit {
 
-  constructor(  @Inject(MAT_DIALOG_DATA) public data: any,public dialog:MatDialog,private _acr: ActivatedRoute,private route:RouteService,private currUser:CurrentUserService,private nav:Router,private student:StudentService) { 
+  constructor(  @Inject(MAT_DIALOG_DATA) public data: any,private buildFormData:SaveFileService ,public dialog:MatDialog,private _acr: ActivatedRoute,private route:RouteService,private currUser:CurrentUserService,private nav:Router,private student:StudentService) { 
     this.editStudent=data.student;
   }
  editStudent!:Student;
+  webcamImage!: WebcamImage;
+
   newStudent:Student=new Student();
   routes:Route[]=new Array<Route>();
   registerStudentForm!: FormGroup ;
@@ -48,15 +52,21 @@ export class StudentDetailsComponent implements OnInit {
 
 Register()
 {
+  
   this.newStudent.firstName= this.registerStudentForm.controls["firstName"].value;
   this.currUser.getFamily().subscribe( data=>{this.newStudent.lastName=data.familyName,this.newStudent.familyId=data.id}); 
   this.newStudent.phone= this.registerStudentForm.controls["personalPhone"].value;
   this.newStudent.grade= this.registerStudentForm.controls["grade"].value;
   this.newStudent.routId=this.routes.filter(r=>r.name==this.registerStudentForm.controls["route"].value)[0].id
+  this.newStudent.image=this.webcamImage;
   // this.image=(this._acr.snapshot.paramMap.get('img'));
-  this.student.AddNewStudent(this.newStudent).subscribe(data=>{
-    this.newStudent=data;
-  this.newStudent.imageRoute="././././assets/"+data.id;
+  this.student.addNewStudent(this.newStudent).subscribe(data=>{
+    this.student.AddImageToStudent(data).subscribe(data=>{
+      this.newStudent=data;
+      this.newStudent.imageRoute="././././assets/"+data.id;
+    })
+    
+  
 
   })
 }
@@ -66,14 +76,18 @@ navigateToPicture()
     height: '500px',
     width: '500px',
   });
-
+  dialogRef.afterClosed().subscribe(res => {
+    if (res) {
+      this.webcamImage = res;
+    }
+    else
+      console.log("hhh")
+  })
   
   
   // this.nav.navigate(['user/family/student/picture']) 
 }
-closeDialog(){
-  
-}
+
 
 
 }

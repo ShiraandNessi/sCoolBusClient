@@ -25,6 +25,9 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import { InterceptorService } from 'src/app/services/interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SaveFileService } from 'src/app/services/save-file.service';
 
 
 
@@ -43,6 +46,6 @@ import {MessageModule} from 'primeng/message';
     MessagesModule,MessageModule,CommonModule,ListboxModule,MatTooltipModule,TooltipModule,CascadeSelectModule,FormsModule,GoogleMapsModule,ReactiveFormsModule,WebcamModule,FileUploadModule,MatDialogModule,RouterModule
 
   ],
-  providers:[FamilyService,StudentStatusService]
+  providers:[FamilyService,StudentStatusService,SaveFileService]
 })
 export class FamilyModule { }

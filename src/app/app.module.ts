@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './modules/user/user.module';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { LogInComponent } from './modules/user/log-in/log-in.component';
 import { Route, RouterModule } from '@angular/router';
 import { CurrentUserService } from './services/current-user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { InterceptorService } from './services/interceptor.service';
 
 
 
@@ -33,7 +34,11 @@ const APP_ROUTES:Route[]=[
     BrowserAnimationsModule,
     CommonModule
   ],
-  providers: [CurrentUserService],
+  providers: [CurrentUserService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
