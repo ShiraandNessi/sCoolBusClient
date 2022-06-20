@@ -75,12 +75,42 @@ export class SignUpComponent implements OnInit {
             "station": res.address
           }),
           this.stationId = res.id
+          console.log(res.id)
       }
       else
         console.log("hhh")
     })
   }
-  Register() {
+  Update() {
+    let familyToEdit:Family
+    this.currUser.getFamily().subscribe(f=>{familyToEdit=f
+    familyToEdit.email = this.registerForm.controls["email"].value;
+    familyToEdit.password = this.registerForm.controls["pass"].value;
+    familyToEdit.familyName = this.registerForm.controls["familyName"].value;
+    familyToEdit.fatherName = this.registerForm.controls["fatherName"].value;
+    familyToEdit.motherName = this.registerForm.controls["motherName"].value;
+    familyToEdit.fatherPhone = this.registerForm.controls["fatherPhone"].value;
+    familyToEdit.motherPhone = this.registerForm.controls["motherPhone"].value;
+    familyToEdit.motherPhone = this.registerForm.controls["motherPhone"].value;
+    familyToEdit.address = this.registerForm.controls["address"].value;
+    familyToEdit.enableMotherWhatsApp = this.registerForm.controls["motherWhatsApp"].value;
+    familyToEdit.enableFatherWhatsApp = this.registerForm.controls["fatherWhatsApp"].value;
+  //  this.stationId = 3;
+    familyToEdit.stationId = this.stationId;
+    console.log(this.newFamily);
+    this._family.updateFmaily(familyToEdit,familyToEdit.password).subscribe(res => {
+      Swal.fire({
+        title: '<strong style="font-size=2rem">update sucsesfully!!<strong>',
+        text: familyToEdit.familyName,
+        imageUrl: '././././assets/schoolBusLogo.png',
+        imageWidth: 100,
+        imageHeight: 100,
+        confirmButtonColor: '#1689fc'
+      })
+
+    })});
+  }
+  Register(){
     this.newFamily.email = this.registerForm.controls["email"].value;
     this.newFamily.password = this.registerForm.controls["pass"].value;
     this.newFamily.familyName = this.registerForm.controls["familyName"].value;
@@ -92,7 +122,7 @@ export class SignUpComponent implements OnInit {
     this.newFamily.address = this.registerForm.controls["address"].value;
     this.newFamily.enableMotherWhatsApp = this.registerForm.controls["motherWhatsApp"].value;
     this.newFamily.enableFatherWhatsApp = this.registerForm.controls["fatherWhatsApp"].value;
-    this.stationId = 3;
+   // this.stationId = 3;
     this.newFamily.stationId = this.stationId;
     console.log(this.newFamily);
     this._family.addNewFamily(this.newFamily).subscribe(res => {

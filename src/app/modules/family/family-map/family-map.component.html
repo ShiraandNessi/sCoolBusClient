@@ -30,11 +30,12 @@
 </div> -->
 <br>
 <div [formGroup]="stationForm">
-  <select class="form-select" placeholder="choose a station" formControlName="address" [(ngModel)]="selectedStation">
+  <select class="form-select" placeholder="choose a station" formControlName="station" [(ngModel)]="selectedStation">
   <!-- <option value="">Please select station</option> -->
-  <option *ngFor="let station of stationsList" >
+
+  <option *ngFor="let station of stationsList"  [ngValue]="station">
     {{station.address}}
-    <!-- <span stationForm.patchValue({id: station.id})></span> -->
+   
     </option>
 </select>
 <br>

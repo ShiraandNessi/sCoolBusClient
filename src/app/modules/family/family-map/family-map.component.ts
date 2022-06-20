@@ -100,12 +100,12 @@ export class FamilyMapComponent implements OnInit {
 
   }
   stationForm:FormGroup= new FormGroup({
-    "address": new FormControl("", Validators.required),
-    "id": new FormControl(0),
+    "station": new FormControl(null,Validators.required),
   })
 
   submitStation(){
-    console.log(typeof(this.selectedStation))
-    this.dialogRef.close(this.stationForm.value); 
+    
+    console.log(this.selectedStation)
+    this.dialogRef.close(this.selectedStation); 
   }
 }

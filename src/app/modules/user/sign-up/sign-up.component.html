@@ -115,11 +115,14 @@
                 </div>
 
 
-                <div class="btn1">
+                <div *ngIf="!editFamily" class="btn1">
                     <button type="submit" [disabled]="!registerForm.valid" class="btn btn-outline-primary"
                         (click)=Register()>Register</button>
                 </div>
-
+                <div  *ngIf="editFamily" class="btn1">
+                    <button type="submit" [disabled]="!registerForm.valid" class="btn btn-outline-primary"
+                        (click)=Update()>Update</button>
+                </div>
             </article>
         </div>
 
