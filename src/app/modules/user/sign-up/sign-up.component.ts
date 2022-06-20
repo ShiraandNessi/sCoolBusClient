@@ -85,7 +85,6 @@ export class SignUpComponent implements OnInit {
     let familyToEdit:Family
     this.currUser.getFamily().subscribe(f=>{familyToEdit=f
     familyToEdit.email = this.registerForm.controls["email"].value;
-    familyToEdit.password = this.registerForm.controls["pass"].value;
     familyToEdit.familyName = this.registerForm.controls["familyName"].value;
     familyToEdit.fatherName = this.registerForm.controls["fatherName"].value;
     familyToEdit.motherName = this.registerForm.controls["motherName"].value;
@@ -97,8 +96,8 @@ export class SignUpComponent implements OnInit {
     familyToEdit.enableFatherWhatsApp = this.registerForm.controls["fatherWhatsApp"].value;
   //  this.stationId = 3;
     familyToEdit.stationId = this.stationId;
-    console.log(this.newFamily);
-    this._family.updateFmaily(familyToEdit,familyToEdit.password).subscribe(res => {
+    console.log(familyToEdit);
+    this._family.updateFmaily(familyToEdit,this.registerForm.controls["pass"].value).subscribe(res => {
       Swal.fire({
         title: '<strong style="font-size=2rem">update sucsesfully!!<strong>',
         text: familyToEdit.familyName,
