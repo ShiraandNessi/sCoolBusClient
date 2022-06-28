@@ -12,7 +12,6 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class DriverHomeComponent implements OnInit {
 
-
   constructor(private _router: Router, private curUser: CurrentUserService, private messages: MessageService) {
 
   }
@@ -23,8 +22,6 @@ export class DriverHomeComponent implements OnInit {
       this.messages.getMessageByDriverId(this.driver.id).subscribe(data => { this.mesLen = (data.filter(m => m.isRead == false).length).toString() + "+" })
     })
   }
-
-
   mesLen!: string;
   driver!: Driver;
   isRouteClicked!: boolean;

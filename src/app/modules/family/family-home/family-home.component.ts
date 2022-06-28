@@ -24,25 +24,22 @@ export class FamilyHomeComponent implements OnInit {
   studentList: Student[] = new Array<Student>();
   driverList: Driver[] = new Array<Driver>();
   routeList: Route[] = new Array<Route>();
-  emptyList:boolean=false;
+  emptyList: boolean = false;
   ngOnInit(): void {
     this.cuurUser.getFamily().subscribe(data => {
       this.currfamily = data,
         this.student.getStudentsByFamilyId(this.currfamily.id).subscribe(data => {
           this.studentList = data;
-          if(this.studentList.length==0){
-            this.emptyList=true;
-          }
-            this.studentList.forEach((s, i) => {
-              this.route.getRouteById(s.routId).subscribe(data => {
-                this.driver.getDriverById(data.driverId).subscribe(data => {
-                  this.driverList[i] = data
-                }),
-                  this.routeSer.getRouteById(s.routId).subscribe(data => {
-                    this.routeList[i] = data
-                  })
-              })
+          if (this.studentList.length == 0)
+            this.emptyList = true;
+          this.studentList.forEach((s, i) => {
+            this.route.getRouteById(s.routId).subscribe(data => {
+              this.driver.getDriverById(data.driverId).subscribe(data =>
+                this.driverList[i] = data),
+                this.routeSer.getRouteById(s.routId).subscribe(data =>
+                  this.routeList[i] = data)
             })
+          })
         })
     })
 
@@ -56,7 +53,7 @@ export class FamilyHomeComponent implements OnInit {
       data: { student: student }
     });
   }
- 
+
   deleteStudent(studentToDelete: Student) {
     Swal.fire({
       title: 'Are you sure?',
@@ -67,16 +64,16 @@ export class FamilyHomeComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
     })
-    .then((result) => {
-      if (result.isConfirmed) {
-        this.student.deleteStudent(studentToDelete.id).subscribe(res => {
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-        })
-      }
-    })
-    }
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.student.deleteStudent(studentToDelete.id).subscribe(res => {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          })
+        }
+      })
+  }
 }
