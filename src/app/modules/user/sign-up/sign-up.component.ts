@@ -20,8 +20,6 @@ export class SignUpComponent implements OnInit {
     if (data.family)
       this.editFamily = data.family
   }
-  // email!: string | null
-  // pass!: string | null
   stationId!: number;
   editFamily!: Family;
   station!: Station;
