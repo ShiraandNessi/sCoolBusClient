@@ -12,6 +12,5 @@ export class Route
     assumEndTime!:Time;
     direction !:boolean;
     driverId!:number;
-    
 
 }
