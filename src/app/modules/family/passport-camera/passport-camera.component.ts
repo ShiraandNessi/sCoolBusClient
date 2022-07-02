@@ -16,7 +16,7 @@ export class PassportCameraComponent implements OnInit {
   ngOnInit(): void {
   }
   title = 'gfgangularwebcam';
-
+  uploadedFile:any;
   public webcamImage?: WebcamImage;
   private trigger: Subject<void> = new Subject<void>();
   triggerSnapshot(): void {
@@ -27,10 +27,13 @@ export class PassportCameraComponent implements OnInit {
   this.webcamImage = webcamImage;
 
   }
+  handler(event : any){
+     this.uploadedFile = event.target.files;
+  }
   save()
   {
 
-    this.dialogRef.close(this.webcamImage); 
+    this.dialogRef.close( this.uploadedFile); 
   }
   
   public get triggerObservable(): Observable<void> {
