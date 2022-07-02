@@ -30,17 +30,17 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" (click)="navigate(3)">
-            <img src=".\.\.\.\assets\schoolBusLogo2.png" class="logo" /><br>
+            <img src=".\.\.\.\assets\schoolBusLogo2.png" class="logo" />
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  (click)="navigateToFamilyDetails(currentFamily)">
+          <a class="nav-link" (click)="navigateToFamilyDetails(currentFamily)">
             <img src=".\.\.\.\assets\add-family.png" class="image" /><br>
             Change personal details
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  (click)="navigateToStudentDetails(null)">
+          <a class="nav-link" (click)="navigateToStudentDetails(null)">
             <img src=".\.\.\.\assets\add-user.png" class="image" /><br>
             Add new student
           </a>
@@ -51,40 +51,17 @@
             Children
           </a>
         </li>
-        <!-- <li class="nav-item active">
-              <a class="nav-link" >
-                <img src=".\.\.\.\assets\students-black.png" class="image">
-                Students
-                </a>
-            </li> -->
         <li class="nav-item">
           <a class="nav-link" (click)="navigate(2)">
             <img src=".\.\.\.\assets\sendMessage.png" class="image"><br>
             Send <br> Meesages
           </a>
         </li>
-        <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle"  id="navbarDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src=".\.\.\.\assets\distance-black.png" class="image"><br>
-                Route
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" >Action</a>
-                <a class="dropdown-item" >Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" >Something else here</a>
-              </div>
-            </li> -->
       </ul>
     </div>
   </nav>
   <br>
   <br>
-  <!-- <p-message *ngIf="sent" severity="success" text="the schoolBus is clousing!!" styleClass="mr-2"></p-message>   -->
-  <!-- <div *ngIf="sent" class="alert alert-success" role="alert">
-    <h4 >schoolBus is clousing!!!</h4>
-  </div> -->
   <router-outlet></router-outlet>
 </body>
-
 </html>

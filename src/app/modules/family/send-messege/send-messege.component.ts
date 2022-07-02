@@ -19,7 +19,7 @@ import Swal from 'sweetalert2';
 })
 export class SendMessegeComponent implements OnInit {
 
-  constructor(private _mess:MessageService, private family: FamilyService, private student: StudentService, private cuurUser: CurrentUserService, private route: RouteService, private driver: DriverService) { }
+  constructor(private _mess: MessageService, private family: FamilyService, private student: StudentService, private cuurUser: CurrentUserService, private route: RouteService, private driver: DriverService) { }
   currfamily!: Family;
   studentList: Student[] = new Array<Student>();
   driverList: Driver[] = new Array<Driver>();
@@ -28,9 +28,9 @@ export class SendMessegeComponent implements OnInit {
     this.cuurUser.getFamily().subscribe(data => {
       this.currfamily = data,
         this.student.getStudentsByFamilyId(this.currfamily.id).subscribe(data => {
-          this.studentList = data,   console.log("hhh",this.studentList),
+          this.studentList = data,
             this.studentList.forEach((s, i) => {
-            this.route.getRouteById(s.routId).subscribe(data => {
+              this.route.getRouteById(s.routId).subscribe(data => {
                 this.driver.getDriverById(data.driverId).subscribe(data => {
                   this.driverList[i] = data
                 })
@@ -38,7 +38,6 @@ export class SendMessegeComponent implements OnInit {
             })
         })
     })
-
   }
 
   messegeForm: FormGroup = new FormGroup({
@@ -48,30 +47,25 @@ export class SendMessegeComponent implements OnInit {
   });
   sendMessge() {
     if (this.messegeForm.controls["messegeType"].value == 'other' || this.messegeForm.controls["messegeType"].value == 'question') {
-      this.newMessege.messageTypeId=Number(MessageType["other"]);
-      this.newMessege.messageText=this.messegeForm.controls["messageText"].value
+      this.newMessege.messageTypeId = Number(MessageType["other"]);
+      this.newMessege.messageText = this.messegeForm.controls["messageText"].value;
     }
-    else{
-      this.newMessege.messageTypeId=Number(MessageType["stationCancel"]);
+    else {
+      this.newMessege.messageTypeId = Number(MessageType["stationCancel"]);
     }
-    let ind=this.studentList.findIndex(s=>s.firstName==this.messegeForm.controls["student"].value)
-    this.newMessege.driverId=this.driverList[ind].id;
-    this.newMessege.routId=this.studentList[ind].routId;
-    this.newMessege.isRead=false;
-    this.newMessege.studentId=this.studentList[ind].id;
-    this.newMessege.userId=this.currfamily.userId
-  this._mess.addNewMessage(this.newMessege).subscribe(data=>{
-  this.newMessege=data,
-  Swal.fire(
-    {
-      title:'the messege sent successfuly',
-      icon:'success',
-      confirmButtonColor:'green'
-    }
-  )
-})
-// window.location.reload();
+    let ind = this.studentList.findIndex(s => s.firstName == this.messegeForm.controls["student"].value)
+    this.newMessege.driverId = this.driverList[ind].id;
+    this.newMessege.routId = this.studentList[ind].routId;
+    this.newMessege.isRead = false;
+    this.newMessege.studentId = this.studentList[ind].id;
+    this.newMessege.userId = this.currfamily.userId
+    this._mess.addNewMessage(this.newMessege).subscribe(data => {
+      this.newMessege = data,
+        Swal.fire({
+          title: 'the messege sent successfuly',
+          icon: 'success',
+          confirmButtonColor: 'green'
+        });
+    });
   }
-
-
 }

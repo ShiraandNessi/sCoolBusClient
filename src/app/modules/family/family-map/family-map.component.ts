@@ -17,12 +17,12 @@ export class FamilyMapComponent implements OnInit {
   directionsService = [] as any
   directionsRenderer = [] as any
   stationsList!: Station[];
-  selectedStation!: Station ;
+  selectedStation!: Station;
   image = {
     url: ".\.\.\.\assets\location-pin.png",
     size: new google.maps.Size(20, 32)
   }
-  constructor(private station: StationService, @Inject(MatDialogRef) private dialogRef:MatDialogRef<FamilyMapComponent>) { }
+  constructor(private station: StationService, @Inject(MatDialogRef) private dialogRef: MatDialogRef<FamilyMapComponent>) { }
   ngOnInit() {
     var map: google.maps.Map;
     this.station.getAllStations().subscribe(data => {
@@ -47,20 +47,8 @@ export class FamilyMapComponent implements OnInit {
             },
             this.directionsService = new google.maps.DirectionsService(),
             this.directionsRenderer = new google.maps.DirectionsRenderer();
-          // this.map = new google.maps.Map(
-          //   document.getElementById("map") as HTMLElement,
-          //   {
-          //     zoom: 6,
-          //     center: { lat: 41.85, lng: -87.65 },
-          //   }
-          // );
-
           this.directionsRenderer.setMap(map);
-
         })
-      
-      // google.maps.event.addListener((this.markers[0], 'onclick',function(){return console.log("ggggggggggggggggggg")});
-
       this.stationsList.forEach((s, i) => {
         this.markers.push({
           position: {
@@ -83,13 +71,6 @@ export class FamilyMapComponent implements OnInit {
         content: "",
         disableAutoPan: true,
       });
-      //markers can only be keyboard focusable when they have click listeners
-      // open info window when marker is clicked
-      // this.markers[0].addListener("click", () => {
-      //   infoWindow.setContent(this.markers[0].label);
-      //   infoWindow.open(this.map, this.markers[0]);
-      // });
-      
     })
     this.markers.forEach((m: { addListener: (arg0: string, arg1: () => void) => void; getPosition: () => google.maps.LatLng; }) => {
       google.maps.event.trigger(m, 'click', () => {
@@ -97,15 +78,13 @@ export class FamilyMapComponent implements OnInit {
         console.log("working!!!!")
       });
     })
-
   }
-  stationForm:FormGroup= new FormGroup({
-    "station": new FormControl(null,Validators.required),
+  stationForm: FormGroup = new FormGroup({
+    "station": new FormControl(null, Validators.required),
   })
 
-  submitStation(){
-    
+  submitStation() {
     console.log(this.selectedStation)
-    this.dialogRef.close(this.selectedStation); 
+    this.dialogRef.close(this.selectedStation);
   }
 }

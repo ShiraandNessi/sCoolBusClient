@@ -32,8 +32,6 @@ export class DriverMapComponent implements OnInit {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       },
-
-
         this.markers[0] = {
           position: {
             lat: this.center.lat,
@@ -53,12 +51,11 @@ export class DriverMapComponent implements OnInit {
         {
           zoom: 4,
           center: { lat: this.center.lat, lng: this.center.lng },
-          
+
         }
       );
 
       this.directionsRenderer.setMap(map);
-
       this.curr.getDriver().subscribe(data => {
         this.driver = data,
           this.route.getRouteByDriverId(this.driver.id).subscribe(data => {
@@ -66,40 +63,30 @@ export class DriverMapComponent implements OnInit {
               this.station.getStationByRouteId(this.resRoute.id).subscribe(data => {
                 this.stationList = data,
                   this.stationList.forEach((s, i) => {
-                  
                     this.waypts.push({
                       location: new google.maps.LatLng(this.stationList[i].pointX, this.stationList[i].pointY).toUrlValue(),
                       stopover: true
                     });
-                  
                   }),
-                  console.log("new", this.waypts ),
-              
                   this.directionsService.route({
                     origin: { lat: this.stationList[1].pointX, lng: this.stationList[1].pointY },
                     destination: { lat: this.stationList[8].pointX, lng: this.stationList[8].pointY },
                     waypoints: this.waypts,
-                     optimizeWaypoints: true,
+                    optimizeWaypoints: true,
                     travelMode: google.maps.TravelMode.DRIVING,
                   })
                     .then((response: { routes: any[]; }) => {
                       console.log("this.directionsService.route", this.directionsService.route),
                         this.directionsRenderer.setDirections(response);
-
                       const route = response.routes[0];
-
                     })
                     .catch((e: string) => window.alert("Directions request failed due to " + e));
                 console.log("dd", this.directionsService.route.origin)
-                
               })
-
           })
       })
     });
-
   }
-
 }
 
 
