@@ -17,7 +17,7 @@
     <div class="card ">
       <article class="card-body mx-auto" style="max-width:400px;">
         <div style="  display: flex; justify-content: space-around;">
-          <div class="video" >
+          <div class="video">
             <webcam class="webcam" [height]=200 [width]=200 [trigger]="triggerObservable"
               (imageCapture)="handleImage($event)">
             </webcam>
@@ -30,23 +30,23 @@
             <br>
 
             <div class="input-group-prepend">
-              <span class="btn btn-file input-group-text"><input type="file" placeholder="lklk"><img
+              <span class="btn btn-file input-group-text"><input type="file" (change)="handler($event)"><img
                   src=".\.\.\.\assets\upload.png" style="width:auto;height:40px"> </span>
             </div>
 
           </div>
         </div>
-        <div class="snapshot" *ngIf="webcamImage">
-<br>
+        <!-- <div class="snapshot" *ngIf="webcamImage"> -->
+          <br>
           <h2>Here is your image!</h2>
-          <div class="img">
+          <!-- <div class="img">
             <img class="image" [src]="webcamImage.imageAsDataUrl" />
-          </div>
+          </div> -->
           <br>
           <div class="imgButton">
-            <button class="btn" (click)="handleImage(webcamImage)">Save</button>
+            <button class="btn" (click)="save()">Save</button>
           </div>
-        </div>
+        <!-- </div> -->
       </article>
     </div>
   </form>

@@ -22,19 +22,15 @@ export class StudentService {
     return this._http.get<Student[]>(this.baseUrl + "route/" + routeId);
   }
 
-  AddImageToStudent(newStudent: Student): Observable<Student> {
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
-    var formData = new FormData();
-    this.buildFormData(formData, newStudent.image, 'myArray');
- 
-    return this._http.put<Student>(this.baseUrl,formData,{ headers: headers });
-  }
 
   addNewStudent(newStudent: Student): Observable<any> {
     return this._http.post<Student>(this.baseUrl,newStudent);
   }
-
+  saveStudentImage(file: any): Observable<boolean> {
+    let formData = new FormData();
+    formData.append('file', file, file.name);
+    return this._http.put<boolean>(this.baseUrl+"/image", formData)
+  }
   changeStudentDitails(newStudent: Student): Observable<any> {
     return this._http.put(this.baseUrl + newStudent.id, newStudent);
   }
@@ -44,28 +40,5 @@ export class StudentService {
   deleteStudent(studentId: number): Observable<any> {
     return this._http.delete(this.baseUrl + studentId)
   }
-  buildFormData(formData: FormData, data: any, parentKey: any) {
-    if (data && typeof data === 'object' && !(data instanceof Date) && !(data instanceof File)) {
-      Object.keys(data).forEach(key => {
-        var keyString = "";
-        if (parentKey) {
-          var curData = data[key as keyof object]
-          if (data instanceof Array) {
-            if (typeof curData === 'object' && !(curData instanceof Date) && !(curData instanceof File))
-              keyString = `${parentKey}[${key}]`;
-            else
-              keyString = `${parentKey}`;
-          }
-          else
-            keyString = `${parentKey}.${key}`
-        }
-        else
-          keyString = key;
-        this.buildFormData(formData, data[key as keyof object], keyString);
-      });
-    } else {
-      const value = data == null ? '' : (data instanceof Date ? data.toUTCString() : (data instanceof File ? data : data.toString()));
-      formData.append(parentKey, value);
-    }
-  }
+  
 }

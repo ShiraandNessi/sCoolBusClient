@@ -22,8 +22,9 @@ export class StudentDetailsComponent implements OnInit {
   constructor(  @Inject(MAT_DIALOG_DATA) public data: any,private buildFormData:SaveFileService ,public dialog:MatDialog,private _acr: ActivatedRoute,private route:RouteService,private currUser:CurrentUserService,private nav:Router,private student:StudentService) { 
     this.editStudent=data.student;
   }
- editStudent!:Student;
+  editStudent!:Student;
   webcamImage!: WebcamImage;
+  uploadedFile:any;
 
   newStudent:Student=new Student();
   routes:Route[]=new Array<Route>();
@@ -58,12 +59,10 @@ Register()
   this.newStudent.phone= this.registerStudentForm.controls["personalPhone"].value;
   this.newStudent.grade= this.registerStudentForm.controls["grade"].value;
   this.newStudent.routId=this.routes.filter(r=>r.name==this.registerStudentForm.controls["route"].value)[0].id
-  this.newStudent.image=this.webcamImage;
-  // this.image=(this._acr.snapshot.paramMap.get('img'));
+  // this.newStudent.image=this.webcamImage;
   this.student.addNewStudent(this.newStudent).subscribe(data=>{
-    this.student.AddImageToStudent(data).subscribe(data=>{
-      this.newStudent=data;
-      this.newStudent.imageRoute="././././assets/"+data.id;
+    this.student.saveStudentImage(this.webcamImage).subscribe(data=>{
+      // this.newStudent.imageRoute="././././assets/"+data.id;
     })
     
   
@@ -78,7 +77,7 @@ navigateToPicture()
   });
   dialogRef.afterClosed().subscribe(res => {
     if (res) {
-      this.webcamImage = res;
+      this.uploadedFile = res;
     }
     else
       console.log("hhh")
