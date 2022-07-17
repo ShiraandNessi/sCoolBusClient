@@ -12,5 +12,4 @@ export class Driver{
     password!:string;
     currPositionX?:number;
     currPositionY?:number;
-
 }
