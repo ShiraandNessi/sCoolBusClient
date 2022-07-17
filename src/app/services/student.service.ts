@@ -7,7 +7,7 @@ import { SaveFileService } from './save-file.service';
 @Injectable()
 export class StudentService {
   constructor(private _http: HttpClient) { }
-  baseUrl: string = "/api/student/"
+  baseUrl: string = "/api/Student/"
 
   getAllStudents(): Observable<Student[]> {
     return this._http.get<Student[]>(this.baseUrl);
@@ -21,15 +21,13 @@ export class StudentService {
   getStudentsByRouteId(routeId: number): Observable<Student[]> {
     return this._http.get<Student[]>(this.baseUrl + "route/" + routeId);
   }
-
-
   addNewStudent(newStudent: Student): Observable<any> {
     return this._http.post<Student>(this.baseUrl,newStudent);
   }
-  saveStudentImage(file: any): Observable<boolean> {
+  saveStudentImage(id:number,file: any): Observable<boolean> {
     let formData = new FormData();
-    formData.append('file', file, file.name);
-    return this._http.put<boolean>(this.baseUrl+"/image", formData)
+     formData.append('file', file[0]);
+    return this._http.post<boolean>(this.baseUrl+"image/"+id, formData)
   }
   changeStudentDitails(newStudent: Student): Observable<any> {
     return this._http.put(this.baseUrl + newStudent.id, newStudent);

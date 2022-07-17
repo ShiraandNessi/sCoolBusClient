@@ -28,6 +28,7 @@ export class PassportCameraComponent implements OnInit {
 
   }
   handler(event : any){
+  //  this.uploadedFile= document.getElementById("file")?.innerHTML;
      this.uploadedFile = event.target.files;
   }
   save()

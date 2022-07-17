@@ -46,7 +46,7 @@ export class NavBarFamilyComponent implements OnInit {
     })
   }
   checkDest(sId:number,driverId:number){
-    const source = interval(20000);
+    const source = interval(2000000);
     this.subscription = source.subscribe(val => this.sendEmail(sId,driverId));
 
   }
