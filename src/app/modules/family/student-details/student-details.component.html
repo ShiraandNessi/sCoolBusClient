@@ -23,6 +23,8 @@
                     <h4 class="card-title mt-3 text-center"><img src=".\.\.\.\assets\user.png" class="image"> <br> <br>
                         Student Details:</h4>
                 </div>
+            <input formControlName="jjjjj">
+
                 <br>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -51,12 +53,12 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
                     </div>
-                    <select class="form-select" placeholder="choose a route">
-                        <option value="">Please select route</option>
-                        <option  *ngFor="let route of routes">{{route.name}}</option>
+                    <select class="form-select" placeholder="choose a route" formControlName="route">
+                        <option  value="">Please select route</option>
+                        <option  *ngFor="let route of routes" [ngValue]="route">{{route.name}}</option>
                     </select>
                 </div>
-
+                <!-- [disabled]="!registerStudentForm.valid"  -->
 
                 <div class="input-group-prepend">
                     <div class="btn1">

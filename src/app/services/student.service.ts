@@ -7,7 +7,7 @@ import { SaveFileService } from './save-file.service';
 @Injectable()
 export class StudentService {
   constructor(private _http: HttpClient) { }
-  baseUrl: string = "/api/student/"
+  baseUrl: string = "/api/Student/"
 
   getAllStudents(): Observable<Student[]> {
     return this._http.get<Student[]>(this.baseUrl);

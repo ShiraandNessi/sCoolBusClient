@@ -17,17 +17,17 @@ export class PassportCameraComponent implements OnInit {
   }
   title = 'gfgangularwebcam';
   uploadedFile: any;
-  public webcamImage?: WebcamImage;
-  private trigger: Subject<void> = new Subject<void>();
+   webcamImage?: WebcamImage;
+   trigger: Subject<void> = new Subject<void>();
   triggerSnapshot(): void {
     this.trigger.next();
   }
   handleImage(webcamImage: WebcamImage): void {
-    console.log(this.webcamImage)
     this.webcamImage = webcamImage;
 
   }
   handler(event: any) {
+<<<<<<< HEAD
     this.uploadedFile = event.target.files;
   }
   save() {
@@ -37,6 +37,43 @@ export class PassportCameraComponent implements OnInit {
 
   public get triggerObservable(): Observable<void> {
     return this.trigger.asObservable();
+=======
+    //  this.uploadedFile= document.getElementById("file")?.innerHTML;
+    this.uploadedFile = event.target.files;
+  }
+  save() {
+    if (this.uploadedFile) {
+      this.dialogRef.close(this.uploadedFile);
+    }
+    else {
+      console.log(this.webcamImage);
+      var a = this.dataURItoBlob(this.webcamImage?.imageAsDataUrl);
+      this.dialogRef.close(a);
+    }
+  }
+
+  public get triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+   dataURItoBlob(dataURI: any) {
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+        byteString = atob(dataURI.split(',')[1]);
+    else
+        byteString = unescape(dataURI.split(',')[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ia], {type:mimeString});
+>>>>>>> 30f25e11de72ab4a8805080d75809ec96875ddce
   }
 }
 
