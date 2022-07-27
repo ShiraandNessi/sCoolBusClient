@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import {WebcamImage} from 'ngx-webcam';
-import {Subject, Observable} from 'rxjs';
+import { WebcamImage } from 'ngx-webcam';
+import { Subject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-passport-camera',
@@ -11,33 +11,32 @@ import {Subject, Observable} from 'rxjs';
 })
 export class PassportCameraComponent implements OnInit {
 
-  constructor(private _router: Router, @Inject(MatDialogRef) private dialogRef:MatDialogRef<PassportCameraComponent>) { }
+  constructor(private _router: Router, @Inject(MatDialogRef) private dialogRef: MatDialogRef<PassportCameraComponent>) { }
 
   ngOnInit(): void {
   }
   title = 'gfgangularwebcam';
-  uploadedFile:any;
+  uploadedFile: any;
   public webcamImage?: WebcamImage;
   private trigger: Subject<void> = new Subject<void>();
   triggerSnapshot(): void {
-  this.trigger.next();
+    this.trigger.next();
   }
   handleImage(webcamImage: WebcamImage): void {
     console.log(this.webcamImage)
-  this.webcamImage = webcamImage;
+    this.webcamImage = webcamImage;
 
   }
-  handler(event : any){
-     this.uploadedFile = event.target.files;
+  handler(event: any) {
+    this.uploadedFile = event.target.files;
   }
-  save()
-  {
+  save() {
 
-    this.dialogRef.close( this.uploadedFile); 
+    this.dialogRef.close(this.uploadedFile);
   }
-  
+
   public get triggerObservable(): Observable<void> {
-  return this.trigger.asObservable();
+    return this.trigger.asObservable();
   }
 }
 

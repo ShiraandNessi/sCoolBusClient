@@ -42,7 +42,7 @@ export class StudentDetailsComponent implements OnInit {
     }
     else{
       this.registerStudentForm= new FormGroup({
-        "firstName":new FormControl("", Validators.required),
+        "firstName":new FormControl("aa", Validators.required),
         "personalPhone":new FormControl("",Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")),
         "grade":new FormControl("", Validators.required),
         "route": new FormControl("", Validators.required)
@@ -58,11 +58,11 @@ Register()
   this.currUser.getFamily().subscribe( data=>{this.newStudent.lastName=data.familyName,this.newStudent.familyId=data.id}); 
   this.newStudent.phone= this.registerStudentForm.controls["personalPhone"].value;
   this.newStudent.grade= this.registerStudentForm.controls["grade"].value;
-  this.newStudent.routId=this.routes.filter(r=>r.name==this.registerStudentForm.controls["route"].value)[0].id
+  this.newStudent.routId=2;
   // this.newStudent.image=this.webcamImage;
   this.student.addNewStudent(this.newStudent).subscribe(data=>{
-    this.student.saveStudentImage(this.webcamImage).subscribe(data=>{
-      // this.newStudent.imageRoute="././././assets/"+data.id;
+    this.student.saveStudentImage(data.id, this.uploadedFile).subscribe(data=>{
+      console.log(data);
     })
     
   

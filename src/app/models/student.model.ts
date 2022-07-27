@@ -10,11 +10,9 @@ export class Student
     firstName!:string;
     lastName!:string;
     grade!:number;
-    phone!:string;
+    phone?:string;
     passport?:string|undefined;
     routId!: number;
-    imageRoute!:string;
-    image!:WebcamImage;
-    
+    imageRoute?:string;    
 
 }
